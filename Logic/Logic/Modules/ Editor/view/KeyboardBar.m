@@ -155,16 +155,6 @@ static KeyboardBar *bar = nil;
 {
     AFHTTPRequestSerializer *serializer = [AFHTTPRequestSerializer serializer];
     
-//    NSMutableURLRequest *request =
-//    [serializer multipartFormRequestWithMethod:@"POST" URLString:@"http://up.imgapi.com/" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-//        [formData appendPartWithFormData:[@"97ade20b4c5a86b625cf449f45f720d686a0154f:Mlg-545PK1Jp5vnxH0v1RP1_vc4=:eyJkZWFkbGluZSI6MTQ2NzEyODc0OCwiYWN0aW9uIjoiZ2V0IiwidWlkIjoiNTY3OTU0IiwiYWlkIjoiMTIyNjk3MSIsImZyb20iOiJmaWxlIn0=" dataUsingEncoding:NSUTF8StringEncoding] name:@"Token"];
-//        [formData appendPartWithFileData:data
-//                                    name:@"file"
-//                                fileName:@"imageFile.jpg"
-//                                mimeType:@"image/jpg"];
-//        
-//    } error:nil];
-    
     NSMutableURLRequest *request =
     [serializer multipartFormRequestWithMethod:@"POST" URLString:@"http://up.imgapi.com/" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [formData appendPartWithFormData:[@"97ade20b4c5a86b625cf449f45f720d686a0154f:Mlg-545PK1Jp5vnxH0v1RP1_vc4=:eyJkZWFkbGluZSI6MTQ2NzEyODc0OCwiYWN0aW9uIjoiZ2V0IiwidWlkIjoiNTY3OTU0IiwiYWlkIjoiMTIyNjk3MSIsImZyb20iOiJmaWxlIn0=" dataUsingEncoding:NSUTF8StringEncoding] name:@"Token"];

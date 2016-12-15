@@ -51,7 +51,6 @@
     [aCoder encodeBool:self.keyboardAssist forKey:@"keyboardAssist"];
     [aCoder encodeBool:self.hasShownSwipeTips forKey:@"hasShownSwipeTips"];
     [aCoder encodeBool:self.landscapeEdit forKey:@"landscapeEdit"];
-    [aCoder encodeBool:self.hasRated forKey:@"hasRated"];
     [aCoder encodeInteger:self.sortOption forKey:@"sortOption"];
     [aCoder encodeFloat:self.imageResolution forKey:@"imageResolution"];
     [aCoder encodeFloat:self.fontSize forKey:@"fontSize"];
@@ -69,7 +68,6 @@
         _fontName = [aDecoder decodeObjectForKey:@"fontName"];
         _keyboardAssist = [aDecoder decodeBoolForKey:@"keyboardAssist"];
         _landscapeEdit = [aDecoder decodeBoolForKey:@"landscapeEdit"];
-        _hasRated = [aDecoder decodeBoolForKey:@"hasRated"];
         _hasShownSwipeTips = [aDecoder decodeBoolForKey:@"hasShownSwipeTips"];
         _sortOption = [aDecoder decodeIntegerForKey:@"sortOption"];
         _imageResolution = [aDecoder decodeFloatForKey:@"imageResolution"];
@@ -111,7 +109,6 @@
     _currentVerion = kAppVersionNo;
     _sortOption = 0;
     _landscapeEdit = NO;
-    _hasRated = NO;
     _fontSize = 16;
     _useTimes = 0;
 }

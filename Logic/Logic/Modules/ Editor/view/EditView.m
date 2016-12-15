@@ -64,10 +64,6 @@
         return;
     }
     [self highLightText];
-//
-//    NSOperation *op = [[NSInvocationOperation alloc]initWithTarget:self selector:@selector(highLightText) object:nil];
-//    [updateQueue cancelAllOperations];
-//    [updateQueue addOperation:op];
 }
 
 - (void)highLightText
@@ -88,13 +84,9 @@
     }
 
     [self updateAttributedText:attributedString];
-//    [uiOperation cancel];
-//    uiOperation = [[NSInvocationOperation alloc]initWithTarget:self selector:@selector(updateAttributedText:) object:attributedString];
-//    [[NSOperationQueue mainQueue] addOperation:uiOperation];
 }
 
 - (void)updateAttributedText:(NSAttributedString *) attributedString {
-
     self.scrollEnabled = NO;
     NSRange selectedRange = self.selectedRange;
     self.attributedText = attributedString;

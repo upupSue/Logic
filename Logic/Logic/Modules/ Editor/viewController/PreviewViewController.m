@@ -199,23 +199,6 @@
     if (![ZHLS(@"About") isEqualToString:@"关于"]) {
         return;
     }
-    
-    if ([Configure sharedConfigure].useTimes == 15 && ![Configure sharedConfigure].hasRated) {
-        
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Sorry，打扰一下，请问在您使用的这段时间里，您对MarkLite的印象如何？有什么需要改进的？" message:nil delegate:nil cancelButtonTitle:@"暂时没空" otherButtonTitles:@"赏个好评", @"提个意见", nil];
-        alert.clickedButton = ^(NSInteger index){
-            if (index == 1) {
-                [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1098107145&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"]];
-                [Configure sharedConfigure].hasRated = YES;
-            }else if (index == 2){
-                NSString *url = @"mailto:cheng4741@gmail.com?subject=MarkLite%20Report&body=";
-                [[UIApplication sharedApplication] openURL: [NSURL URLWithString: url]];
-                [Configure sharedConfigure].hasRated = YES;
-            }
-        };
-        [alert show];
-        [Configure sharedConfigure].useTimes = 0;
-    }
 }
 
 @end

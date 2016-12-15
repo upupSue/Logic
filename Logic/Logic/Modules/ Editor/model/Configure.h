@@ -30,8 +30,6 @@
 
 @property (nonatomic,strong) NSDate *upgradeTime;
 
-@property (nonatomic,assign) BOOL hasRated;
-
 @property (nonatomic,assign) CGFloat imageResolution;
 
 @property (nonatomic,strong) NSString *currentVerion;

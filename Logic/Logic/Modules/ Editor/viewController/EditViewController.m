@@ -116,7 +116,6 @@
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     needSave = YES;
-
     return YES;
 }
 
@@ -157,6 +156,7 @@
         });
     });
 }
+
 - (IBAction)fullScreen:(id)sender {
     if (self.splitViewController.preferredDisplayMode == UISplitViewControllerDisplayModePrimaryHidden) {
         self.splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModeAllVisible;
