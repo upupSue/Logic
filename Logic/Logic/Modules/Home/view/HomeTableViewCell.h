@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Item.h"
 
 @interface HomeTableViewCell : UITableViewCell
 
@@ -21,7 +22,6 @@
 
 
 @property (nonatomic, assign) BOOL flag;
-
-
+@property (nonatomic,strong) Item *item;
 
 @end

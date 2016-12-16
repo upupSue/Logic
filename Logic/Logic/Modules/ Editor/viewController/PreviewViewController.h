@@ -12,4 +12,6 @@
 
 @property (nonatomic,assign) CGSize size;
 
+@property(nonatomic,copy)NSString *htmlString;
+
 @end

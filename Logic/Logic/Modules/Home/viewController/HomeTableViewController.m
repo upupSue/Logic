@@ -20,16 +20,22 @@
 
 static NSString *cellIdentifier = @"homeTableViewCell";
 
-@interface HomeTableViewController ()<UITextFieldDelegate>
+@interface HomeTableViewController ()<UITextFieldDelegate>{
+    NSMutableArray *dataArray;
+    BOOL needReload;
+    NSString *searchWord;
+
+}
 
 @property (weak, nonatomic) IBOutlet UIView *centerView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *rightMenu;
 @property (weak, nonatomic) IBOutlet UIView *leftMenu;
 @property (weak, nonatomic) IBOutlet UITextField *searchField;
-@property (nonatomic,assign)  FileManager         *fm;
+@property (nonatomic,assign)  FileManager *fm;
 @property (nonatomic,copy) Item *parent;
-
+@property (nonatomic,assign) CGPoint offset;
+@property (nonatomic,assign) BOOL flag;
 
 @end
 
@@ -49,19 +55,160 @@ static NSString *cellIdentifier = @"homeTableViewCell";
     [_searchField setValue: THIRD_FONTCOLOR forKeyPath:@"_placeholderLabel.textColor"];
     _searchField.layer.cornerRadius=4;
     _searchField.delegate=self;
-
+    
+    UIView *addnoteView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 100)];
+    addnoteView.backgroundColor=THIRD_BGCOLOR;
+    UIButton *addbtn=[[UIButton alloc]initWithFrame:CGRectMake((SCREEN_WIDTH-36)/2, (100-36)/2, 36, 36)];
+    [addbtn setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
+    [addbtn addTarget:self action:@selector(addnote) forControlEvents:UIControlEventTouchUpInside];
+    [addnoteView addSubview:addbtn];
+    _tableView.tableHeaderView=addnoteView;
+    needReload = YES;
+    [self reload];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    [self reload];
     [self.navigationController setNavigationBarHidden:YES];
+    self.tableView.contentOffset=CGPointMake(-20, 0 );
+    [_tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
+    [self.tableView removeObserver:self forKeyPath:@"contentOffset" context:nil];
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)reload
+{
+    if (needReload == NO) {
+        return;
+    }
+    needReload = NO;
+    [_fm createCloudWorkspace];
+    [_fm createLocalWorkspace];
+    [self listNoteWithSortOption:[Configure sharedConfigure].sortOption];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:_fm.currentItem.fullPath]) {
+        _fm.currentItem = nil;
+    }
+}
+
+- (void)listNoteWithSortOption:(NSInteger)sortOption
+{
+    NSPredicate *pre = [NSPredicate predicateWithBlock:^BOOL(id  _Nonnull evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+        Item *i = evaluatedObject;
+        if (i.type == FileTypeText) {
+            return YES;
+        }
+        return NO;
+    }];
+    
+    Item *local = _fm.local;
+    Item *cloud = _fm.cloud;
+    
+    NSArray *localArray = nil;
+    NSArray *cloudArray = nil;
+    NSMutableArray *arr = [NSMutableArray array];
+    if (searchWord.length == 0) {
+        localArray = [local.items filteredArrayUsingPredicate:pre];
+        cloudArray = [cloud.items filteredArrayUsingPredicate:pre];
+    }else {
+        localArray = [[local searchResult:searchWord] filteredArrayUsingPredicate:pre];
+        cloudArray = [[cloud searchResult:searchWord] filteredArrayUsingPredicate:pre];
+    }
+    [arr addObjectsFromArray:localArray];
+    [arr addObjectsFromArray:cloudArray];
+    
+    beginLoadingAnimationOnParent(ZHLS(@"Loading"), self.view);
+    dispatch_async(dispatch_queue_create("loading", DISPATCH_QUEUE_CONCURRENT), ^{
+        
+        NSArray *sortedArr = [arr sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+            Item *item1 = obj1;
+            Item *item2 = obj2;
+            NSDate *date1 = [_fm attributeOfPath:item1.fullPath][NSFileModificationDate];
+            NSDate *date2 = [_fm attributeOfPath:item2.fullPath][NSFileModificationDate];
+            return [date2 compare:date1];
+        }];
+        
+        NSDictionary *last = nil;
+        dataArray = [NSMutableArray array];
+        for (Item *i in sortedArr) {
+            NSDate *date = [_fm attributeOfPath:i.fullPath][NSFileModificationDate];
+            if (last == nil || ![last[@"date"] isEqualToString:date.date]) {
+                last = @{@"date":date.date,@"items":[@[] mutableCopy]};
+                [dataArray addObject:last];
+            }
+            [last[@"items"] addObject:i];
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            stopLoadingAnimationOnParent(self.view);
+            if (_fm.currentItem == nil) {
+                _fm.currentItem = [dataArray.firstObject[@"items"] firstObject];
+            }
+            
+            [self.tableView reloadData];
+        });
+    });
+}
+
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    NSLog(@"%f",_tableView.contentOffset.y);
+    if(_tableView.contentOffset.y<-20.){
+        self.tableView.contentInset=UIEdgeInsetsMake(120, 0, 0, 0);
+    }
+    if(_tableView.contentOffset.y>-20.){
+        self.tableView.contentInset=UIEdgeInsetsMake(20, 0, 0, 0);
+    }
+}
+
+-(void)addnote{
+    if ([Configure sharedConfigure].defaultParent == nil) {
+        [Configure sharedConfigure].defaultParent = _fm.local;
+    }
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[Configure sharedConfigure].defaultParent.fullPath]) {
+        [Configure sharedConfigure].defaultParent = _fm.local;
+    }
+    _parent = [Configure sharedConfigure].defaultParent;
+    NSString *name = @"1";
+    if (name.length == 0) {
+        name = ZHLS(@"Untitled");
+    }
+    name = [name stringByAppendingString:@".md"];
+    
+    NSString *path = name;
+    if (!_parent.root) {
+        path = [_parent.path stringByAppendingPathComponent:name];
+    }
+    Item *i = [[Item alloc]init];
+    i.path = path;
+    i.open = YES;
+    i.cloud = _parent.cloud;
+    if ([self.parent.items containsObject:i]) {
+        
+    }
+    NSString *ret = [[FileManager sharedManager] createFile:i.fullPath Content:[NSData data]];
+    
+    if (ret.length == 0) {
+        showToast(ZHLS(@"DuplicateError"));
+        return;
+    }
+    
+    NSString *prePath = i.cloud ? cloudWorkspace() : localWorkspace();
+    i.path = [ret stringByReplacingOccurrencesOfString:prePath withString:@""];
+    [_parent addChild:i];
+    _fm.currentItem = i;
+    EditViewController *vc=[[EditViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)moveToRightSide:(id)sender {
@@ -107,7 +254,7 @@ static NSString *cellIdentifier = @"homeTableViewCell";
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
-
+    searchWord = _searchField.text;
 }
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -118,11 +265,11 @@ static NSString *cellIdentifier = @"homeTableViewCell";
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return dataArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return [dataArray[section][@"items"] count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -134,8 +281,9 @@ static NSString *cellIdentifier = @"homeTableViewCell";
     if (cell == nil) {
         cell = [[NSBundle mainBundle] loadNibNamed:@"HomeTableViewCell" owner:self options:nil][0];
     }
-
-    cell.contentLabel.text=@"CFD";
+    
+    Item *item = dataArray[indexPath.section][@"items"][indexPath.row];
+    cell.item = item;    
     return cell;
 }
 
@@ -186,47 +334,11 @@ static NSString *cellIdentifier = @"homeTableViewCell";
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([Configure sharedConfigure].defaultParent == nil) {
-        [Configure sharedConfigure].defaultParent = _fm.local;
-    }
-    if (![[NSFileManager defaultManager] fileExistsAtPath:[Configure sharedConfigure].defaultParent.fullPath]) {
-        [Configure sharedConfigure].defaultParent = _fm.local;
-    }
-    _parent = [Configure sharedConfigure].defaultParent;
-    NSString *name = @"1";
-    if (name.length == 0) {
-        name = ZHLS(@"Untitled");
-    }
-    name = [name stringByAppendingString:@".md"];
-    
-    NSString *path = name;
-    if (!_parent.root) {
-        path = [_parent.path stringByAppendingPathComponent:name];
-    }
-    Item *i = [[Item alloc]init];
-    i.path = path;
-    i.open = YES;
-    i.cloud = _parent.cloud;
-    if ([self.parent.items containsObject:i]) {
-        
-    }
-    NSString *ret = [[FileManager sharedManager] createFile:i.fullPath Content:[NSData data]];
-    
-    if (ret.length == 0) {
-        showToast(ZHLS(@"DuplicateError"));
-        return;
-    }
-    
-    NSString *prePath = i.cloud ? cloudWorkspace() : localWorkspace();
-    i.path = [ret stringByReplacingOccurrencesOfString:prePath withString:@""];
-    
-    [_parent addChild:i];
-    
+    Item *i = dataArray[indexPath.section][@"items"][indexPath.row];
     _fm.currentItem = i;
     EditViewController *vc=[[EditViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
 }
-
 
 
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,6 +23,13 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lkd-oX-8jE">
                     <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XkK-3z-esI">
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="vhe-fC-7Gs"/>
+                                <outlet property="delegate" destination="-1" id="Hlb-Eo-5tb"/>
+                            </connections>
+                        </tableView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="upk-Kk-WBv">
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vso-6m-0Xh">
@@ -76,19 +84,12 @@
                                 <constraint firstItem="Vso-6m-0Xh" firstAttribute="centerX" secondItem="upk-Kk-WBv" secondAttribute="centerX" id="z4b-cj-QFI"/>
                             </constraints>
                         </view>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XkK-3z-esI">
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <outlet property="dataSource" destination="-1" id="vhe-fC-7Gs"/>
-                                <outlet property="delegate" destination="-1" id="Hlb-Eo-5tb"/>
-                            </connections>
-                        </tableView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="upk-Kk-WBv" firstAttribute="leading" secondItem="Lkd-oX-8jE" secondAttribute="leading" id="5ko-Rw-cIc"/>
+                        <constraint firstItem="XkK-3z-esI" firstAttribute="top" secondItem="Lkd-oX-8jE" secondAttribute="top" constant="-55" id="MtC-Vh-pac"/>
                         <constraint firstItem="upk-Kk-WBv" firstAttribute="top" secondItem="Lkd-oX-8jE" secondAttribute="top" id="Xkv-8a-8ib"/>
-                        <constraint firstItem="XkK-3z-esI" firstAttribute="top" secondItem="upk-Kk-WBv" secondAttribute="bottom" id="aEh-ei-fo3"/>
                         <constraint firstItem="XkK-3z-esI" firstAttribute="leading" secondItem="Lkd-oX-8jE" secondAttribute="leading" id="euG-yk-RSB"/>
                         <constraint firstAttribute="trailing" secondItem="upk-Kk-WBv" secondAttribute="trailing" id="iUz-xt-cbb"/>
                         <constraint firstAttribute="trailing" secondItem="XkK-3z-esI" secondAttribute="trailing" id="nBh-Ao-3uF"/>

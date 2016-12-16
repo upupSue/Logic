@@ -103,4 +103,9 @@
     // Configure the view for the selected state
 }
 
+- (void)setItem:(Item *)item
+{
+    _item = item;
+    _titleLabel.text = item.name;
+}
 @end
