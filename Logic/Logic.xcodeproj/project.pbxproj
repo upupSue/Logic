@@ -46,12 +46,6 @@
 		C5837A9A1E00644200958949 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = C5837A7C1E00644200958949 /* zip.c */; };
 		C5837A9B1E00644200958949 /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = C5837A7F1E00644200958949 /* ZipArchive.mm */; };
 		C5837AC81E00646300958949 /* UIImage+ImageWithColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C5837A9E1E00646300958949 /* UIImage+ImageWithColor.m */; };
-		C5837AC91E00646300958949 /* Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = C5837AA51E00646300958949 /* Configure.m */; };
-		C5837ACA1E00646300958949 /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C5837AA71E00646300958949 /* FileManager.m */; };
-		C5837ACB1E00646300958949 /* HighLightModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5837AA91E00646300958949 /* HighLightModel.m */; };
-		C5837ACC1E00646300958949 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = C5837AAB1E00646300958949 /* Item.m */; };
-		C5837ACD1E00646300958949 /* MarkdownSyntaxGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C5837AAD1E00646300958949 /* MarkdownSyntaxGenerator.m */; };
-		C5837ACE1E00646300958949 /* MarkdownSyntaxModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5837AAF1E00646300958949 /* MarkdownSyntaxModel.m */; };
 		C5837AD11E00646300958949 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5837AB71E00646300958949 /* EditViewController.m */; };
 		C5837AD21E00646300958949 /* FontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5837AB91E00646300958949 /* FontViewController.m */; };
 		C5837AD31E00646300958949 /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5837ABB1E00646300958949 /* PreviewViewController.m */; };
@@ -117,6 +111,12 @@
 		C58BC95A1E0298550096498A /* MMParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C58BC94F1E0298550096498A /* MMParser.m */; };
 		C58BC95B1E0298550096498A /* MMScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = C58BC9511E0298550096498A /* MMScanner.m */; };
 		C58BC95C1E0298550096498A /* MMSpanParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C58BC9531E0298550096498A /* MMSpanParser.m */; };
+		C5F46EC31E05337900840F6D /* Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F46EB81E05337900840F6D /* Configure.m */; };
+		C5F46EC41E05337900840F6D /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F46EBA1E05337900840F6D /* FileManager.m */; };
+		C5F46EC51E05337900840F6D /* HighLightModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F46EBC1E05337900840F6D /* HighLightModel.m */; };
+		C5F46EC61E05337900840F6D /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F46EBE1E05337900840F6D /* Item.m */; };
+		C5F46EC71E05337900840F6D /* MarkdownSyntaxGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F46EC01E05337900840F6D /* MarkdownSyntaxGenerator.m */; };
+		C5F46EC81E05337900840F6D /* MarkdownSyntaxModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F46EC21E05337900840F6D /* MarkdownSyntaxModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -217,18 +217,6 @@
 		C5837A9D1E00646300958949 /* UIImage+ImageWithColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageWithColor.h"; sourceTree = "<group>"; };
 		C5837A9E1E00646300958949 /* UIImage+ImageWithColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageWithColor.m"; sourceTree = "<group>"; };
 		C5837AA01E00646300958949 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
-		C5837AA41E00646300958949 /* Configure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configure.h; sourceTree = "<group>"; };
-		C5837AA51E00646300958949 /* Configure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Configure.m; sourceTree = "<group>"; };
-		C5837AA61E00646300958949 /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
-		C5837AA71E00646300958949 /* FileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
-		C5837AA81E00646300958949 /* HighLightModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighLightModel.h; sourceTree = "<group>"; };
-		C5837AA91E00646300958949 /* HighLightModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighLightModel.m; sourceTree = "<group>"; };
-		C5837AAA1E00646300958949 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
-		C5837AAB1E00646300958949 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
-		C5837AAC1E00646300958949 /* MarkdownSyntaxGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkdownSyntaxGenerator.h; sourceTree = "<group>"; };
-		C5837AAD1E00646300958949 /* MarkdownSyntaxGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkdownSyntaxGenerator.m; sourceTree = "<group>"; };
-		C5837AAE1E00646300958949 /* MarkdownSyntaxModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkdownSyntaxModel.h; sourceTree = "<group>"; };
-		C5837AAF1E00646300958949 /* MarkdownSyntaxModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkdownSyntaxModel.m; sourceTree = "<group>"; };
 		C5837AB61E00646300958949 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
 		C5837AB71E00646300958949 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		C5837AB81E00646300958949 /* FontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontViewController.h; sourceTree = "<group>"; };
@@ -314,6 +302,18 @@
 		C58BC9511E0298550096498A /* MMScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMScanner.m; sourceTree = "<group>"; };
 		C58BC9521E0298550096498A /* MMSpanParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSpanParser.h; sourceTree = "<group>"; };
 		C58BC9531E0298550096498A /* MMSpanParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSpanParser.m; sourceTree = "<group>"; };
+		C5F46EB71E05337900840F6D /* Configure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configure.h; sourceTree = "<group>"; };
+		C5F46EB81E05337900840F6D /* Configure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Configure.m; sourceTree = "<group>"; };
+		C5F46EB91E05337900840F6D /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
+		C5F46EBA1E05337900840F6D /* FileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
+		C5F46EBB1E05337900840F6D /* HighLightModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighLightModel.h; sourceTree = "<group>"; };
+		C5F46EBC1E05337900840F6D /* HighLightModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighLightModel.m; sourceTree = "<group>"; };
+		C5F46EBD1E05337900840F6D /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		C5F46EBE1E05337900840F6D /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		C5F46EBF1E05337900840F6D /* MarkdownSyntaxGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkdownSyntaxGenerator.h; sourceTree = "<group>"; };
+		C5F46EC01E05337900840F6D /* MarkdownSyntaxGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkdownSyntaxGenerator.m; sourceTree = "<group>"; };
+		C5F46EC11E05337900840F6D /* MarkdownSyntaxModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkdownSyntaxModel.h; sourceTree = "<group>"; };
+		C5F46EC21E05337900840F6D /* MarkdownSyntaxModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkdownSyntaxModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -372,8 +372,8 @@
 				C5837AD91E00658300958949 /* Utils */,
 				C5837A9C1E00646300958949 /* Category */,
 				C5837A9F1E00646300958949 /* Macro */,
+				C5F46EB61E05337900840F6D /* Model */,
 				C5837AA11E00646300958949 /* Modules */,
-				C5837AC61E00646300958949 /* Network */,
 				C5837AC71E00646300958949 /* Resource */,
 				C5837A3F1E00644200958949 /* ThirdLib */,
 				C5837A0C1E00640B00958949 /* Supporting Files */,
@@ -562,30 +562,10 @@
 		C5837AA21E00646300958949 /*  Editor */ = {
 			isa = PBXGroup;
 			children = (
-				C5837AA31E00646300958949 /* model */,
 				C5837AB01E00646300958949 /* view */,
 				C5837AB51E00646300958949 /* viewController */,
 			);
 			path = " Editor";
-			sourceTree = "<group>";
-		};
-		C5837AA31E00646300958949 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				C5837AAA1E00646300958949 /* Item.h */,
-				C5837AAB1E00646300958949 /* Item.m */,
-				C5837AA41E00646300958949 /* Configure.h */,
-				C5837AA51E00646300958949 /* Configure.m */,
-				C5837AA61E00646300958949 /* FileManager.h */,
-				C5837AA71E00646300958949 /* FileManager.m */,
-				C5837AA81E00646300958949 /* HighLightModel.h */,
-				C5837AA91E00646300958949 /* HighLightModel.m */,
-				C5837AAC1E00646300958949 /* MarkdownSyntaxGenerator.h */,
-				C5837AAD1E00646300958949 /* MarkdownSyntaxGenerator.m */,
-				C5837AAE1E00646300958949 /* MarkdownSyntaxModel.h */,
-				C5837AAF1E00646300958949 /* MarkdownSyntaxModel.m */,
-			);
-			path = model;
 			sourceTree = "<group>";
 		};
 		C5837AB01E00646300958949 /* view */ = {
@@ -620,18 +600,10 @@
 		C5837ABC1E00646300958949 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				C5837ABD1E00646300958949 /* model */,
 				C5837ABE1E00646300958949 /* view */,
 				C5837AC21E00646300958949 /* viewController */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		C5837ABD1E00646300958949 /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
 			sourceTree = "<group>";
 		};
 		C5837ABE1E00646300958949 /* view */ = {
@@ -652,13 +624,6 @@
 				C5837AC51E00646300958949 /* HomeTableViewController.xib */,
 			);
 			path = viewController;
-			sourceTree = "<group>";
-		};
-		C5837AC61E00646300958949 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		C5837AC71E00646300958949 /* Resource */ = {
@@ -814,6 +779,25 @@
 				C58BC9531E0298550096498A /* MMSpanParser.m */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		C5F46EB61E05337900840F6D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C5F46EB71E05337900840F6D /* Configure.h */,
+				C5F46EB81E05337900840F6D /* Configure.m */,
+				C5F46EB91E05337900840F6D /* FileManager.h */,
+				C5F46EBA1E05337900840F6D /* FileManager.m */,
+				C5F46EBB1E05337900840F6D /* HighLightModel.h */,
+				C5F46EBC1E05337900840F6D /* HighLightModel.m */,
+				C5F46EBD1E05337900840F6D /* Item.h */,
+				C5F46EBE1E05337900840F6D /* Item.m */,
+				C5F46EBF1E05337900840F6D /* MarkdownSyntaxGenerator.h */,
+				C5F46EC01E05337900840F6D /* MarkdownSyntaxGenerator.m */,
+				C5F46EC11E05337900840F6D /* MarkdownSyntaxModel.h */,
+				C5F46EC21E05337900840F6D /* MarkdownSyntaxModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -993,19 +977,20 @@
 				C5837A901E00644200958949 /* html_smartypants.c in Sources */,
 				C5837AD21E00646300958949 /* FontViewController.m in Sources */,
 				C581001A1E019DA7004791D2 /* ImageUploadingView.m in Sources */,
-				C5837ACE1E00646300958949 /* MarkdownSyntaxModel.m in Sources */,
 				C5837AE61E0065CF00958949 /* ZHUtils.m in Sources */,
 				C58BC95C1E0298550096498A /* MMSpanParser.m in Sources */,
 				C5837A8A1E00644200958949 /* autolink.c in Sources */,
 				C5837A9B1E00644200958949 /* ZipArchive.mm in Sources */,
+				C5F46EC31E05337900840F6D /* Configure.m in Sources */,
 				C5837B8F1E006AF700958949 /* BasicSyntax.md in Sources */,
 				C58BC9551E0298550096498A /* MMDocument.m in Sources */,
 				C58BC9581E0298550096498A /* MMHTMLParser.m in Sources */,
 				C5837A951E00644200958949 /* MGSwipeButton.m in Sources */,
-				C5837AC91E00646300958949 /* Configure.m in Sources */,
 				C5837B8E1E006AF700958949 /* About.md in Sources */,
 				C5837A861E00644200958949 /* AFURLRequestSerialization.m in Sources */,
 				C5837A991E00644200958949 /* unzip.c in Sources */,
+				C5F46EC81E05337900840F6D /* MarkdownSyntaxModel.m in Sources */,
+				C5F46EC71E05337900840F6D /* MarkdownSyntaxGenerator.m in Sources */,
 				C5837B931E006AF700958949 /* 常见问题.md in Sources */,
 				C5837A851E00644200958949 /* AFURLConnectionOperation.m in Sources */,
 				C5837AD61E00646300958949 /* HomeTableViewController.m in Sources */,
@@ -1018,24 +1003,24 @@
 				C5837A981E00644200958949 /* mztools.c in Sources */,
 				C58BC9591E0298550096498A /* MMMarkdown.m in Sources */,
 				C5837A881E00644200958949 /* AFURLSessionManager.m in Sources */,
+				C5F46EC61E05337900840F6D /* Item.m in Sources */,
 				C58100161E019D9F004791D2 /* EditView.m in Sources */,
 				C5837A9A1E00644200958949 /* zip.c in Sources */,
 				C5837B951E006AF700958949 /* 常見問題.md in Sources */,
 				C5837A871E00644200958949 /* AFURLResponseSerialization.m in Sources */,
 				C5837A8B1E00644200958949 /* buffer.c in Sources */,
-				C5837ACD1E00646300958949 /* MarkdownSyntaxGenerator.m in Sources */,
 				C5837A111E00640B00958949 /* AppDelegate.m in Sources */,
 				C581001E1E019DB9004791D2 /* KeyboardBar.m in Sources */,
-				C5837ACC1E00646300958949 /* Item.m in Sources */,
+				C5F46EC41E05337900840F6D /* FileManager.m in Sources */,
 				C5837B911E006AF700958949 /* 关于.md in Sources */,
 				C5837B901E006AF700958949 /* FQA.md in Sources */,
 				C58BC95B1E0298550096498A /* MMScanner.m in Sources */,
 				C5837A911E00644200958949 /* stack.c in Sources */,
 				C5837B961E006AF700958949 /* 關於.md in Sources */,
 				C5837A821E00644200958949 /* AFHTTPSessionManager.m in Sources */,
-				C5837ACB1E00646300958949 /* HighLightModel.m in Sources */,
 				C58BC9571E0298550096498A /* MMGenerator.m in Sources */,
 				C5837A8D1E00644200958949 /* escape.c in Sources */,
+				C5F46EC51E05337900840F6D /* HighLightModel.m in Sources */,
 				C5837AD31E00646300958949 /* PreviewViewController.m in Sources */,
 				C5837A8C1E00644200958949 /* document.c in Sources */,
 				C5837B921E006AF700958949 /* 基本语法.md in Sources */,
@@ -1049,7 +1034,6 @@
 				C5837AC81E00646300958949 /* UIImage+ImageWithColor.m in Sources */,
 				C5837A891E00644200958949 /* hoedown_html_patch.c in Sources */,
 				C5837A811E00644200958949 /* AFHTTPRequestOperationManager.m in Sources */,
-				C5837ACA1E00646300958949 /* FileManager.m in Sources */,
 				C5837A8E1E00644200958949 /* html.c in Sources */,
 				C5837A831E00644200958949 /* AFNetworkReachabilityManager.m in Sources */,
 				C5837A0E1E00640B00958949 /* main.m in Sources */,

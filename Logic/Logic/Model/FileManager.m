@@ -17,7 +17,6 @@
 {
     NSFileManager *fm;
     NSURL *ubiquityURL;
-    
     NSMutableDictionary *attributeCache;
 }
 
@@ -30,11 +29,9 @@
 {
     static FileManager *manager = nil;
     static dispatch_once_t onceToken;
-    
     dispatch_once(&onceToken, ^{
         manager = [[FileManager alloc]init];
     });
-    
     return manager;
 }
 
@@ -42,7 +39,6 @@
 {
     if (self = [super init]) {
         fm = [NSFileManager defaultManager];
-        
         [self createCloudWorkspace];
         [self createLocalWorkspace];
         attributeCache = [NSMutableDictionary dictionary];
@@ -62,9 +58,7 @@
         NSLog(@"iCloudPath exist");
     }
     NSLog(@"cloud: %@", workspace);
-    
     NSEnumerator *childFilesEnumerator = [[fm subpathsAtPath:workspace] objectEnumerator];
-    
     NSString *fileName;
     _cloud = [[Item alloc]init];
     _cloud.cloud = YES;
@@ -72,22 +66,18 @@
     _cloud.open = YES;
     _cloud.root = YES;
     while ((fileName = [childFilesEnumerator nextObject]) != nil){
-
         Item *temp = [[Item alloc]init];
         temp.open = NO;
         temp.cloud = YES;
         temp.path = fileName;
-        
         NSError *err = nil;
         BOOL ret = [fm startDownloadingUbiquitousItemAtURL:[NSURL fileURLWithPath:temp.fullPath] error:&err];
         if (ret == NO) {
             NSLog(@"%@",err);
         }
-        
         if ([fileName componentsSeparatedByString:@"."].count > 1 && ![fileName hasSuffix:@".md"]) {
             continue;
         }
-        
         [_cloud addChild:temp];
     }
 }
@@ -95,7 +85,6 @@
 - (void)deleteOtherLanguage
 {
     NSArray *arr = @[@"Guides",@"使用指南",@"使用說明"];
-    
     for (NSString *name in arr) {
         if (![name isEqualToString:ZHLS(@"GuidesName")]) {
             [self deleteFile:[localWorkspace() stringByAppendingPathComponent:name]];
@@ -106,14 +95,10 @@
 - (void)recover
 {
     NSString *wokspace = localWorkspace();
-
     ZipArchive *zipArchive = [[ZipArchive alloc]init];
-    
     NSString *path = [[NSBundle mainBundle] pathForResource:@"MarkLite" ofType:@"zip"];
     NSLog(@"%@",path);
-    
     [zipArchive UnzipOpenFile:path];
-    
     [zipArchive UnzipFileTo:documentPath() overWrite:YES];
     [self deleteOtherLanguage];
     

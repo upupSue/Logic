@@ -515,14 +515,14 @@
             <constraints>
                 <constraint firstItem="Yae-PX-O4g" firstAttribute="top" secondItem="c5I-6I-2pm" secondAttribute="top" id="1Zc-v6-1kb"/>
                 <constraint firstItem="Yae-PX-O4g" firstAttribute="height" secondItem="c5I-6I-2pm" secondAttribute="height" id="5U7-d7-lJK"/>
+                <constraint firstItem="Lkd-oX-8jE" firstAttribute="leading" secondItem="Yae-PX-O4g" secondAttribute="trailing" id="7A2-eZ-cDv"/>
                 <constraint firstItem="sUJ-zj-eMM" firstAttribute="height" secondItem="c5I-6I-2pm" secondAttribute="height" id="QRG-Bj-xG4"/>
                 <constraint firstItem="GOI-nF-DTP" firstAttribute="top" secondItem="c5I-6I-2pm" secondAttribute="top" id="Sl8-Iq-8Xz"/>
-                <constraint firstAttribute="trailing" secondItem="Yae-PX-O4g" secondAttribute="trailing" constant="375" id="Vnu-Ta-rp4"/>
+                <constraint firstItem="GOI-nF-DTP" firstAttribute="leading" secondItem="Lkd-oX-8jE" secondAttribute="trailing" id="UWd-mf-dtB"/>
                 <constraint firstItem="GOI-nF-DTP" firstAttribute="height" secondItem="c5I-6I-2pm" secondAttribute="height" id="aQf-jE-Heu"/>
                 <constraint firstItem="Lkd-oX-8jE" firstAttribute="leading" secondItem="c5I-6I-2pm" secondAttribute="leading" id="eKs-G4-DD4"/>
                 <constraint firstAttribute="trailing" secondItem="Lkd-oX-8jE" secondAttribute="trailing" id="eiB-jD-RJ1"/>
                 <constraint firstItem="Lkd-oX-8jE" firstAttribute="top" secondItem="c5I-6I-2pm" secondAttribute="top" id="rBx-EN-GEy"/>
-                <constraint firstItem="GOI-nF-DTP" firstAttribute="leading" secondItem="c5I-6I-2pm" secondAttribute="leading" constant="375" id="vgm-aA-si0"/>
                 <constraint firstAttribute="bottom" secondItem="Lkd-oX-8jE" secondAttribute="bottom" id="xuw-do-Myh"/>
             </constraints>
             <point key="canvasLocation" x="-174.5" y="60.5"/>

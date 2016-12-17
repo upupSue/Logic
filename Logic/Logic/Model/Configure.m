@@ -14,16 +14,17 @@
 {
     NSInteger _iCloudState;
 }
+
 + (instancetype)sharedConfigure
 {
     static Configure *conf = nil;
     static dispatch_once_t onceToken;
-
     dispatch_once(&onceToken, ^{
         NSString *path = [documentPath() stringByAppendingPathComponent:@"Configure.plist"];
         if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+            //将创建的归档文件读入执行程序中。
             conf = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-            if (conf.currentVerion.length == 0 || ![conf.currentVerion isEqualToString:kAppVersionNo]) {
+            if (conf.currentVerion.length == 0 || ![conf.currentVerion isEqualToString:kAppVersionNo]){
                 [conf upgrade];
             }
         }else{
@@ -37,7 +38,6 @@
 - (BOOL)saveToFile
 {
     NSString *path = [documentPath() stringByAppendingPathComponent:@"Configure.plist"];
-    
     return [NSKeyedArchiver archiveRootObject:self toFile:path];
 }
 
@@ -99,7 +99,7 @@
                         @"list":RGB(@"49362E"),
                         @"code":RGB(@"33A191"),
                         };
-    _style = @"GitHub2";
+    _style = @"Clearness";
     if (_fontName.length < 1) {
         _fontName = @"Hiragino Sans";
     }
@@ -115,17 +115,6 @@
 
 - (void)upgrade
 {
-//    _highlightColor = @{
-//                        @"title":RGB(@"488FE1"),
-//                        @"link":RGB(@"465DC6"),
-//                        @"image":RGB(@"5245AE"),
-//                        @"bold":RGB(@"000000"),
-//                        @"quotes":RGB(@"AE8A86"),
-//                        @"deletion":RGB(@"747270"),
-//                        @"separate":RGB(@"BD1586"),
-//                        @"list":RGB(@"49362E"),
-//                        @"code":RGB(@"33A191"),
-//                        };
     _upgradeTime = [NSDate date];
     _currentVerion = kAppVersionNo;
     if (_sortOption > 1) {

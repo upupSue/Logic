@@ -70,7 +70,7 @@ static NSString *cellIdentifier = @"homeTableViewCell";
 -(void)viewWillAppear:(BOOL)animated{
     [self reload];
     [self.navigationController setNavigationBarHidden:YES];
-    self.tableView.contentOffset=CGPointMake(-20, 0 );
+    self.tableView.contentOffset=CGPointMake(0, 0 );
     [_tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
 }
 

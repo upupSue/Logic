@@ -20,6 +20,7 @@
     Item *last;
 }
 
+
 - (instancetype)init
 {
     if (self = [super init]) {
@@ -38,6 +39,7 @@
     }
 }
 
+//实现NSCoding协议的编码/解码
 -(void)encodeWithCoder:(NSCoder *)aCoder{
     [aCoder encodeObject:self.path forKey:@"path"];
     [aCoder encodeBool:self.root forKey:@"root"];
@@ -57,12 +59,10 @@
 - (NSArray *)items
 {
     NSMutableArray *ret = [NSMutableArray array];
-    
     for (Item *i in self.children) {
         [ret addObject:i];
         [ret addObjectsFromArray:i.items];
     }
-    
     return ret;
 }
 
@@ -71,35 +71,30 @@
     for (Item *i in self.items) {
         i.selected = selected;
     }
-    
     _selected = selected;
 }
 
 - (NSArray *)selectedChildren
 {
     NSMutableArray *ret = [NSMutableArray array];
-    
     for (Item *i in self.children) {
         if (i.selected) {
             [ret addObject:i];
         }
         [ret addObjectsFromArray:i.selectedChildren];
     }
-    
     return ret;
 }
 
 - (NSArray*)itemsCanReach
 {
     NSMutableArray *ret = [NSMutableArray array];
-    
     if (self.open) {
         for (Item *i in self.children) {
             [ret addObject:i];
             [ret addObjectsFromArray:i.itemsCanReach];
         }
     }
-    
     return ret;
 }
 
@@ -107,7 +102,6 @@
 {
     self.open = YES;
     NSMutableArray *ret = [NSMutableArray array];
-
     for (Item *i in self.children) {
         NSArray *array = [i searchResult:searchText];
         NSString *path = [i.path componentsSeparatedByString:@"/"].lastObject;
@@ -118,7 +112,6 @@
             [ret addObjectsFromArray:[i searchResult:searchText]];
         }
     }
-
     return ret;
 }
 
@@ -134,7 +127,6 @@
 - (void)setPath:(NSString *)path
 {
     _path = path;
-
     if ([path hasPrefix:localWorkspace()]) {
         path = [path stringByReplacingOccurrencesOfString:localWorkspace() withString:@""];
         _cloud = NO;
@@ -142,7 +134,6 @@
         path = [path stringByReplacingOccurrencesOfString:cloudWorkspace() withString:@""];
         _cloud = YES;
     }
-
     NSArray *arr = [path componentsSeparatedByString:@"."];
     if (arr.count > 1) {
         NSString *ex = arr.lastObject;
@@ -186,7 +177,6 @@
     if (_cloud) {
         return _root ? cloudWorkspace() : [cloudWorkspace() stringByAppendingPathComponent:_path];;
     }
-    
     return _root ? localWorkspace() :[localWorkspace() stringByAppendingPathComponent:_path];
 }
 
@@ -194,7 +184,6 @@
 {
     return [NSString pathWithComponents:@[documentPath(),@"MarkLite",path]];
 }
-
 
 - (NSString *)description
 {
