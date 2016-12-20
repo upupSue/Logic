@@ -165,7 +165,6 @@
 }
 
 - (NSData*)createPDF{
-    
     PDFPageRender *render = [[PDFPageRender alloc]init];
     return [render renderPDFFromHtmlString:htmlString];
 }

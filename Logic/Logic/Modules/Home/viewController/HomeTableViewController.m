@@ -13,31 +13,38 @@
 #import "FileManager.h"
 #import "PathUtils.h"
 #import "Configure.h"
-
+#import "SetupViewController.h"
+#import "CommonUseViewController.h"
+#import "ImportViewController.h"
+#import "GroupTableViewCell.h"
 
 #define SideMenu_x 250
 #define SideMenu_Width 250
 
 static NSString *cellIdentifier = @"homeTableViewCell";
+static NSString *groupcellIdentifier = @"groupTableViewCell";
 
 @interface HomeTableViewController ()<UITextFieldDelegate>{
     NSMutableArray *dataArray;
     BOOL needReload;
     NSString *searchWord;
-
+    Item *root;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *centerView;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *rightMenu;
 @property (weak, nonatomic) IBOutlet UIView *leftMenu;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstant;
 @property (weak, nonatomic) IBOutlet UITextField *searchField;
-@property (nonatomic,assign)  FileManager *fm;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *groupTableView;
+@property (nonatomic,assign) FileManager *fm;
 @property (nonatomic,copy) Item *parent;
 @property (nonatomic,assign) CGPoint offset;
 @property (nonatomic,assign) BOOL flag;
 
 @end
+
 
 @implementation HomeTableViewController
 
@@ -52,6 +59,13 @@ static NSString *cellIdentifier = @"homeTableViewCell";
     if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)])  {
         [self.tableView setLayoutMargins:UIEdgeInsetsZero];
     }
+    self.groupTableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+    if ([self.groupTableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [self.groupTableView setSeparatorInset:UIEdgeInsetsZero];
+    }
+    if ([self.groupTableView respondsToSelector:@selector(setLayoutMargins:)])  {
+        [self.groupTableView setLayoutMargins:UIEdgeInsetsZero];
+    }
     [_searchField setValue: THIRD_FONTCOLOR forKeyPath:@"_placeholderLabel.textColor"];
     _searchField.layer.cornerRadius=4;
     _searchField.delegate=self;
@@ -60,7 +74,6 @@ static NSString *cellIdentifier = @"homeTableViewCell";
     addnoteView.backgroundColor=THIRD_BGCOLOR;
     UIButton *addbtn=[[UIButton alloc]initWithFrame:CGRectMake((SCREEN_WIDTH-36)/2, (100-36)/2, 36, 36)];
     [addbtn setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
-    [addbtn addTarget:self action:@selector(addnote) forControlEvents:UIControlEventTouchUpInside];
     [addnoteView addSubview:addbtn];
     _tableView.tableHeaderView=addnoteView;
     needReload = YES;
@@ -70,14 +83,11 @@ static NSString *cellIdentifier = @"homeTableViewCell";
 -(void)viewWillAppear:(BOOL)animated{
     [self reload];
     [self.navigationController setNavigationBarHidden:YES];
-    self.tableView.contentOffset=CGPointMake(0, 0 );
-    [_tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
-    [self.tableView removeObserver:self forKeyPath:@"contentOffset" context:nil];
+    [self.navigationController setNavigationBarHidden:NO];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -106,10 +116,8 @@ static NSString *cellIdentifier = @"homeTableViewCell";
         }
         return NO;
     }];
-    
     Item *local = _fm.local;
     Item *cloud = _fm.cloud;
-    
     NSArray *localArray = nil;
     NSArray *cloudArray = nil;
     NSMutableArray *arr = [NSMutableArray array];
@@ -122,10 +130,8 @@ static NSString *cellIdentifier = @"homeTableViewCell";
     }
     [arr addObjectsFromArray:localArray];
     [arr addObjectsFromArray:cloudArray];
-    
     beginLoadingAnimationOnParent(ZHLS(@"Loading"), self.view);
     dispatch_async(dispatch_queue_create("loading", DISPATCH_QUEUE_CONCURRENT), ^{
-        
         NSArray *sortedArr = [arr sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
             Item *item1 = obj1;
             Item *item2 = obj2;
@@ -133,7 +139,6 @@ static NSString *cellIdentifier = @"homeTableViewCell";
             NSDate *date2 = [_fm attributeOfPath:item2.fullPath][NSFileModificationDate];
             return [date2 compare:date1];
         }];
-        
         NSDictionary *last = nil;
         dataArray = [NSMutableArray array];
         for (Item *i in sortedArr) {
@@ -144,34 +149,31 @@ static NSString *cellIdentifier = @"homeTableViewCell";
             }
             [last[@"items"] addObject:i];
         }
-        
         dispatch_async(dispatch_get_main_queue(), ^{
             stopLoadingAnimationOnParent(self.view);
             if (_fm.currentItem == nil) {
                 _fm.currentItem = [dataArray.firstObject[@"items"] firstObject];
             }
-            
             [self.tableView reloadData];
         });
     });
 }
 
 
-- (void)observeValueForKeyPath:(NSString *)keyPath
-                      ofObject:(id)object
-                        change:(NSDictionary *)change
-                       context:(void *)context
+#pragma mark - 添加笔记
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    NSLog(@"%f",_tableView.contentOffset.y);
-    if(_tableView.contentOffset.y<-20.){
-        self.tableView.contentInset=UIEdgeInsetsMake(120, 0, 0, 0);
-    }
-    if(_tableView.contentOffset.y>-20.){
-        self.tableView.contentInset=UIEdgeInsetsMake(20, 0, 0, 0);
+    if (_tableView == scrollView) {
+        CGFloat yOffset = scrollView.contentOffset.y;
+        if (yOffset <-120) {
+            [self addnote];
+        }
     }
 }
 
 -(void)addnote{
+    needReload = YES;
     if ([Configure sharedConfigure].defaultParent == nil) {
         [Configure sharedConfigure].defaultParent = _fm.local;
     }
@@ -197,12 +199,10 @@ static NSString *cellIdentifier = @"homeTableViewCell";
         
     }
     NSString *ret = [[FileManager sharedManager] createFile:i.fullPath Content:[NSData data]];
-    
     if (ret.length == 0) {
         showToast(ZHLS(@"DuplicateError"));
         return;
     }
-    
     NSString *prePath = i.cloud ? cloudWorkspace() : localWorkspace();
     i.path = [ret stringByReplacingOccurrencesOfString:prePath withString:@""];
     [_parent addChild:i];
@@ -211,14 +211,17 @@ static NSString *cellIdentifier = @"homeTableViewCell";
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+
+#pragma mark - 显示侧边栏
+
 - (IBAction)moveToRightSide:(id)sender {
     [self animateHomeViewToSide:CGRectMake(SideMenu_x,0,SCREEN_WIDTH,SCREEN_HEIGHT) menu:_leftMenu rect:CGRectMake(0, 0, SideMenu_Width, SCREEN_HEIGHT)];
 }
+
 - (IBAction)moveToLeftSide:(id)sender {
     [self animateHomeViewToSide:CGRectMake(-SideMenu_x,0,SCREEN_WIDTH,SCREEN_HEIGHT) menu:_rightMenu rect:CGRectMake(SCREEN_WIDTH-SideMenu_Width, 0, SideMenu_Width, SCREEN_HEIGHT)];
 }
 
-// animate home view to side rect
 - (void)animateHomeViewToSide:(CGRect)newViewRect menu:(UIView *)menu rect:(CGRect)viewrect{
     [UIView animateWithDuration:0.2
                      animations:^{
@@ -235,7 +238,6 @@ static NSString *cellIdentifier = @"homeTableViewCell";
                      }];
 }
 
-// restore view location
 - (void)restoreViewLocation{
     [UIView animateWithDuration:0.3
                      animations:^{
@@ -247,6 +249,22 @@ static NSString *cellIdentifier = @"homeTableViewCell";
                          UIControl *overView = (UIControl *)[[[UIApplication sharedApplication] keyWindow] viewWithTag:10086];
                          [overView removeFromSuperview];
                      }];
+}
+
+
+- (IBAction)setEdit:(id)sender {
+    SetupViewController *vc=[[SetupViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)setCommon:(id)sender {
+    CommonUseViewController *vc=[[CommonUseViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)importAndExport:(id)sender {
+    ImportViewController *vc=[[ImportViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
@@ -265,81 +283,112 @@ static NSString *cellIdentifier = @"homeTableViewCell";
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return dataArray.count;
+    if(tableView.tag==100){
+        return dataArray.count;
+    }
+    else{
+        return 1;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [dataArray[section][@"items"] count];
+    if(tableView.tag==100){
+        return [dataArray[section][@"items"] count];
+    }
+    else{
+        return dataArray.count;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 190.f;
+    if(tableView.tag==100){
+        return 190.f;
+    }
+    else{
+        return 90.f;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    HomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
-        cell = [[NSBundle mainBundle] loadNibNamed:@"HomeTableViewCell" owner:self options:nil][0];
+    if(tableView.tag==100){
+        HomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if (cell == nil) {
+            cell = [[NSBundle mainBundle] loadNibNamed:@"HomeTableViewCell" owner:self options:nil][0];
+        }
+        
+        Item *item = dataArray[indexPath.section][@"items"][indexPath.row];
+        cell.item = item;
+        return cell;
     }
-    
-    Item *item = dataArray[indexPath.section][@"items"][indexPath.row];
-    cell.item = item;    
-    return cell;
+    else{
+        GroupTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        if (cell == nil) {
+            cell = [[NSBundle mainBundle] loadNibNamed:@"GroupTableViewCell" owner:self options:nil][0];
+        }
+        
+        Item *item = dataArray[indexPath.section][@"items"][indexPath.row];
+        cell.item = item;
+        return cell;
+    }
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
+    if(tableView.tag==100){
+        return YES;
+    }
+    else{
+        return NO;
+    }
 }
 
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
-
-    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"      " handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-    }];
-    deleteAction.backgroundColor = FOURTH_BGCOLOR;
-    UITableViewRowAction *collectAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"      " handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-    }];
-    collectAction.backgroundColor = THEME_BGCOLOR;
-    UITableViewRowAction *shareAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"      " handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-    }];
-    shareAction.backgroundColor = THEME_BGCOLOR;
-    return @[deleteAction, collectAction,shareAction];
+    if(tableView.tag==100){
+        UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"      " handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+            UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:@"确认要删除吗？" preferredStyle:UIAlertControllerStyleAlert];
+            [alertVc addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil]];
+            [alertVc addAction:[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                Item *i=dataArray[indexPath.section][@"items"][indexPath.row];
+                [i removeFromParent];
+                [_fm deleteFile:i.fullPath];
+                [dataArray[indexPath.section][@"items"] removeObjectAtIndex:indexPath.row];
+                [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            }]];
+            [self presentViewController:alertVc animated:YES completion:nil];
+            NSLog(@"%ld%ld",(long)indexPath.section,(long)indexPath.section);
+        }];
+        
+        deleteAction.backgroundColor = FOURTH_BGCOLOR;
+        UITableViewRowAction *collectAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"      " handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        }];
+        collectAction.backgroundColor = THEME_BGCOLOR;
+        UITableViewRowAction *shareAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"      " handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        }];
+        shareAction.backgroundColor = THEME_BGCOLOR;
+        return @[deleteAction, collectAction,shareAction];
+    }
+    else{
+        return nil;
+    }
 }
 
-/*
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
 }
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Item *i = dataArray[indexPath.section][@"items"][indexPath.row];
-    _fm.currentItem = i;
-    EditViewController *vc=[[EditViewController alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+    if(tableView.tag==100){
+        Item *i = dataArray[indexPath.section][@"items"][indexPath.row];
+        _fm.currentItem = i;
+        needReload = YES;
+        EditViewController *vc=[[EditViewController alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else{
+        return;
+    }
 }
-
 
 
 @end

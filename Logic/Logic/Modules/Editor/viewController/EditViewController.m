@@ -18,6 +18,9 @@
 @interface EditViewController () <UITextViewDelegate,KeyboardBarDelegate>
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottom;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leading;
+@property (weak, nonatomic) IBOutlet UIView *addView;
+@property (weak, nonatomic) IBOutlet UIView *centerview;
 
 @end
 
@@ -28,6 +31,7 @@
     FileManager *fm;
     UIControl *control;
     BOOL needSave;
+    UIControl *overView;
 }
 
 - (void)viewDidLoad {
@@ -43,7 +47,78 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardShow:) name:UIKeyboardDidChangeFrameNotification object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardHide:) name:UIKeyboardDidHideNotification object:nil];
     [self loadFile];
+    
+    UIScreenEdgePanGestureRecognizer *ges = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(showAd:)];
+    // 指定左边缘滑动
+    ges.edges = UIRectEdgeRight;
+    [self.view addGestureRecognizer:ges];
+    // 如果ges的手势与collectionView手势都识别的话,指定以下代码,代表是识别传入的手势
+    [self.editView.panGestureRecognizer requireGestureRecognizerToFail:ges];
 }
+
+#pragma mark - 侧边栏
+- (void)showAd:(UIScreenEdgePanGestureRecognizer *)ges {
+    CGPoint p = [ges locationInView:self.view];
+    NSLog(@"%f", SCREEN_WIDTH-p.x);
+    if((SCREEN_WIDTH-p.x)>207){    _leading.constant=-207;}
+    else _leading.constant=-(SCREEN_WIDTH-p.x);
+    float constant;
+    if (ges.state == UIGestureRecognizerStateEnded || ges.state == UIGestureRecognizerStateCancelled) {
+        if (CGRectContainsPoint(self.view.frame, self.addView.center)) {
+            constant=-207;
+        }else{
+            constant=0;
+        }
+        [UIView animateWithDuration:0.25 animations:^{
+            _leading.constant=constant;
+        }];
+    }
+    if(overView==nil){
+        overView = [[UIControl alloc] init];
+        overView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        [overView addTarget:self action:@selector(hideview) forControlEvents:UIControlEventTouchDown];
+        [_centerview addSubview:overView];
+        // 添加轻扫手势  -- 滑回
+        UIPanGestureRecognizer *ges = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(closeAd:)];
+        [self.addView addGestureRecognizer:ges];
+    }
+    overView.backgroundColor = [UIColor colorWithRed:0/255. green:0/255. blue:0/255. alpha:(SCREEN_WIDTH-p.x)/1000];
+}
+
+- (void)closeAd:(UIPanGestureRecognizer *)sender{
+    CGPoint moviePoint = [sender translationInView:sender.view];
+    if(moviePoint.x >= 0){
+        _leading.constant+=moviePoint.x/50;
+        overView.backgroundColor = [UIColor colorWithRed:0/255. green:0/255. blue:0/255. alpha:-_leading.constant/1000];
+    }
+    if(moviePoint.x<0){
+        if(_leading.constant==-207){}
+        else _leading.constant-=moviePoint.x;
+    }
+    float constant;
+    if (sender.state == UIGestureRecognizerStateEnded || sender.state == UIGestureRecognizerStateCancelled) {
+        if (self.addView.center.x>SCREEN_WIDTH*3/4) {
+            constant=0;
+        }else{
+            constant=-207;
+        }
+        [UIView animateWithDuration:0.25 animations:^{
+            _leading.constant=constant;
+        }];
+    }
+}
+
+-(void)hideview{
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         _leading.constant=0;
+                     }
+                     completion:^(BOOL finished){
+                         [overView removeFromSuperview];
+                         overView=nil;
+                     }];
+}
+
 
 - (void)viewDidLayoutSubviews
 {
@@ -100,11 +175,12 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [self.navigationController setNavigationBarHidden:NO];
     [self saveFile];
     [self.editView resignFirstResponder];
     if (kDevicePad) {

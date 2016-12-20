@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C58100161E019D9F004791D2 /* EditView.m in Sources */ = {isa = PBXBuildFile; fileRef = C58100151E019D9F004791D2 /* EditView.m */; };
-		C581001A1E019DA7004791D2 /* ImageUploadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C58100181E019DA7004791D2 /* ImageUploadingView.m */; };
-		C581001B1E019DA7004791D2 /* ImageUploadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C58100191E019DA7004791D2 /* ImageUploadingView.xib */; };
-		C581001E1E019DB9004791D2 /* KeyboardBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C581001D1E019DB9004791D2 /* KeyboardBar.m */; };
-		C58100201E01B0A7004791D2 /* PreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C581001F1E01B0A7004791D2 /* PreviewViewController.xib */; };
 		C5837A0E1E00640B00958949 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C5837A0D1E00640B00958949 /* main.m */; };
 		C5837A111E00640B00958949 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5837A101E00640B00958949 /* AppDelegate.m */; };
 		C5837A191E00640C00958949 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5837A181E00640C00958949 /* Assets.xcassets */; };
@@ -46,9 +41,6 @@
 		C5837A9A1E00644200958949 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = C5837A7C1E00644200958949 /* zip.c */; };
 		C5837A9B1E00644200958949 /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = C5837A7F1E00644200958949 /* ZipArchive.mm */; };
 		C5837AC81E00646300958949 /* UIImage+ImageWithColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C5837A9E1E00646300958949 /* UIImage+ImageWithColor.m */; };
-		C5837AD11E00646300958949 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5837AB71E00646300958949 /* EditViewController.m */; };
-		C5837AD21E00646300958949 /* FontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5837AB91E00646300958949 /* FontViewController.m */; };
-		C5837AD31E00646300958949 /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5837ABB1E00646300958949 /* PreviewViewController.m */; };
 		C5837AD41E00646300958949 /* HomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5837AC01E00646300958949 /* HomeTableViewCell.m */; };
 		C5837AD51E00646300958949 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5837AC11E00646300958949 /* HomeTableViewCell.xib */; };
 		C5837AD61E00646300958949 /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5837AC41E00646300958949 /* HomeTableViewController.m */; };
@@ -101,7 +93,6 @@
 		C5837B9C1E006AF700958949 /* Solarized Dark.css in Resources */ = {isa = PBXBuildFile; fileRef = C5837B711E006AF700958949 /* Solarized Dark.css */; };
 		C5837B9D1E006AF700958949 /* Solarized Light.css in Resources */ = {isa = PBXBuildFile; fileRef = C5837B721E006AF700958949 /* Solarized Light.css */; };
 		C5837BA21E006CE100958949 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C5837BA11E006CE100958949 /* libz.tbd */; };
-		C5837BA41E006EF200958949 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5837BA31E006EF200958949 /* EditViewController.xib */; };
 		C58BC9541E0298550096498A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C58BC9411E0298550096498A /* Info.plist */; };
 		C58BC9551E0298550096498A /* MMDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = C58BC9431E0298550096498A /* MMDocument.m */; };
 		C58BC9561E0298550096498A /* MMElement.m in Sources */ = {isa = PBXBuildFile; fileRef = C58BC9461E0298550096498A /* MMElement.m */; };
@@ -111,6 +102,24 @@
 		C58BC95A1E0298550096498A /* MMParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C58BC94F1E0298550096498A /* MMParser.m */; };
 		C58BC95B1E0298550096498A /* MMScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = C58BC9511E0298550096498A /* MMScanner.m */; };
 		C58BC95C1E0298550096498A /* MMSpanParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C58BC9531E0298550096498A /* MMSpanParser.m */; };
+		C5AB78061E07A61E00713518 /* EditView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AB77F71E07A61E00713518 /* EditView.m */; };
+		C5AB78071E07A61E00713518 /* ImageUploadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AB77F91E07A61E00713518 /* ImageUploadingView.m */; };
+		C5AB78081E07A61E00713518 /* ImageUploadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5AB77FA1E07A61E00713518 /* ImageUploadingView.xib */; };
+		C5AB78091E07A61E00713518 /* KeyboardBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AB77FC1E07A61E00713518 /* KeyboardBar.m */; };
+		C5AB780A1E07A61E00713518 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AB77FF1E07A61E00713518 /* EditViewController.m */; };
+		C5AB780B1E07A61E00713518 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5AB78001E07A61E00713518 /* EditViewController.xib */; };
+		C5AB780C1E07A61E00713518 /* FontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AB78021E07A61E00713518 /* FontViewController.m */; };
+		C5AB780D1E07A61E00713518 /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AB78041E07A61E00713518 /* PreviewViewController.m */; };
+		C5AB780E1E07A61E00713518 /* PreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5AB78051E07A61E00713518 /* PreviewViewController.xib */; };
+		C5AB78121E07A63800713518 /* SetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AB78101E07A63800713518 /* SetupViewController.m */; };
+		C5AB78131E07A63800713518 /* SetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5AB78111E07A63800713518 /* SetupViewController.xib */; };
+		C5AB78161E07BD6000713518 /* NSUserDefaults+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AB78151E07BD6000713518 /* NSUserDefaults+Utils.m */; };
+		C5AB781A1E07C64700713518 /* CommonUseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AB78181E07C64700713518 /* CommonUseViewController.m */; };
+		C5AB781B1E07C64700713518 /* CommonUseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5AB78191E07C64700713518 /* CommonUseViewController.xib */; };
+		C5AB781F1E07CDE800713518 /* ImportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AB781D1E07CDE800713518 /* ImportViewController.m */; };
+		C5AB78201E07CDE800713518 /* ImportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5AB781E1E07CDE800713518 /* ImportViewController.xib */; };
+		C5AB78241E08D6F200713518 /* GroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AB78221E08D6F200713518 /* GroupTableViewCell.m */; };
+		C5AB78251E08D6F200713518 /* GroupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5AB78231E08D6F200713518 /* GroupTableViewCell.xib */; };
 		C5F46EC31E05337900840F6D /* Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F46EB81E05337900840F6D /* Configure.m */; };
 		C5F46EC41E05337900840F6D /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F46EBA1E05337900840F6D /* FileManager.m */; };
 		C5F46EC51E05337900840F6D /* HighLightModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F46EBC1E05337900840F6D /* HighLightModel.m */; };
@@ -137,14 +146,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C58100141E019D9F004791D2 /* EditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditView.h; sourceTree = "<group>"; };
-		C58100151E019D9F004791D2 /* EditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditView.m; sourceTree = "<group>"; };
-		C58100171E019DA7004791D2 /* ImageUploadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUploadingView.h; sourceTree = "<group>"; };
-		C58100181E019DA7004791D2 /* ImageUploadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUploadingView.m; sourceTree = "<group>"; };
-		C58100191E019DA7004791D2 /* ImageUploadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageUploadingView.xib; sourceTree = "<group>"; };
-		C581001C1E019DB9004791D2 /* KeyboardBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardBar.h; sourceTree = "<group>"; };
-		C581001D1E019DB9004791D2 /* KeyboardBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyboardBar.m; sourceTree = "<group>"; };
-		C581001F1E01B0A7004791D2 /* PreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewViewController.xib; sourceTree = "<group>"; };
 		C5837A091E00640B00958949 /* Logic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5837A0D1E00640B00958949 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C5837A0F1E00640B00958949 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -217,12 +218,6 @@
 		C5837A9D1E00646300958949 /* UIImage+ImageWithColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageWithColor.h"; sourceTree = "<group>"; };
 		C5837A9E1E00646300958949 /* UIImage+ImageWithColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageWithColor.m"; sourceTree = "<group>"; };
 		C5837AA01E00646300958949 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
-		C5837AB61E00646300958949 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
-		C5837AB71E00646300958949 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
-		C5837AB81E00646300958949 /* FontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontViewController.h; sourceTree = "<group>"; };
-		C5837AB91E00646300958949 /* FontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontViewController.m; sourceTree = "<group>"; };
-		C5837ABA1E00646300958949 /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewViewController.h; sourceTree = "<group>"; };
-		C5837ABB1E00646300958949 /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewViewController.m; sourceTree = "<group>"; };
 		C5837ABF1E00646300958949 /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
 		C5837AC01E00646300958949 /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
 		C5837AC11E00646300958949 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
@@ -282,7 +277,6 @@
 		C5837B711E006AF700958949 /* Solarized Dark.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "Solarized Dark.css"; sourceTree = "<group>"; };
 		C5837B721E006AF700958949 /* Solarized Light.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "Solarized Light.css"; sourceTree = "<group>"; };
 		C5837BA11E006CE100958949 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		C5837BA31E006EF200958949 /* EditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
 		C58BC9411E0298550096498A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C58BC9421E0298550096498A /* MMDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDocument.h; sourceTree = "<group>"; };
 		C58BC9431E0298550096498A /* MMDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDocument.m; sourceTree = "<group>"; };
@@ -302,6 +296,35 @@
 		C58BC9511E0298550096498A /* MMScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMScanner.m; sourceTree = "<group>"; };
 		C58BC9521E0298550096498A /* MMSpanParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSpanParser.h; sourceTree = "<group>"; };
 		C58BC9531E0298550096498A /* MMSpanParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSpanParser.m; sourceTree = "<group>"; };
+		C5AB77F61E07A61E00713518 /* EditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditView.h; sourceTree = "<group>"; };
+		C5AB77F71E07A61E00713518 /* EditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditView.m; sourceTree = "<group>"; };
+		C5AB77F81E07A61E00713518 /* ImageUploadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUploadingView.h; sourceTree = "<group>"; };
+		C5AB77F91E07A61E00713518 /* ImageUploadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUploadingView.m; sourceTree = "<group>"; };
+		C5AB77FA1E07A61E00713518 /* ImageUploadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageUploadingView.xib; sourceTree = "<group>"; };
+		C5AB77FB1E07A61E00713518 /* KeyboardBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardBar.h; sourceTree = "<group>"; };
+		C5AB77FC1E07A61E00713518 /* KeyboardBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyboardBar.m; sourceTree = "<group>"; };
+		C5AB77FE1E07A61E00713518 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		C5AB77FF1E07A61E00713518 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
+		C5AB78001E07A61E00713518 /* EditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
+		C5AB78011E07A61E00713518 /* FontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontViewController.h; sourceTree = "<group>"; };
+		C5AB78021E07A61E00713518 /* FontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontViewController.m; sourceTree = "<group>"; };
+		C5AB78031E07A61E00713518 /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewViewController.h; sourceTree = "<group>"; };
+		C5AB78041E07A61E00713518 /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewViewController.m; sourceTree = "<group>"; };
+		C5AB78051E07A61E00713518 /* PreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewViewController.xib; sourceTree = "<group>"; };
+		C5AB780F1E07A63800713518 /* SetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupViewController.h; sourceTree = "<group>"; };
+		C5AB78101E07A63800713518 /* SetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupViewController.m; sourceTree = "<group>"; };
+		C5AB78111E07A63800713518 /* SetupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetupViewController.xib; sourceTree = "<group>"; };
+		C5AB78141E07BD6000713518 /* NSUserDefaults+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Utils.h"; sourceTree = "<group>"; };
+		C5AB78151E07BD6000713518 /* NSUserDefaults+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Utils.m"; sourceTree = "<group>"; };
+		C5AB78171E07C64700713518 /* CommonUseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUseViewController.h; sourceTree = "<group>"; };
+		C5AB78181E07C64700713518 /* CommonUseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUseViewController.m; sourceTree = "<group>"; };
+		C5AB78191E07C64700713518 /* CommonUseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommonUseViewController.xib; sourceTree = "<group>"; };
+		C5AB781C1E07CDE800713518 /* ImportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImportViewController.h; sourceTree = "<group>"; };
+		C5AB781D1E07CDE800713518 /* ImportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImportViewController.m; sourceTree = "<group>"; };
+		C5AB781E1E07CDE800713518 /* ImportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImportViewController.xib; sourceTree = "<group>"; };
+		C5AB78211E08D6F200713518 /* GroupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTableViewCell.h; sourceTree = "<group>"; };
+		C5AB78221E08D6F200713518 /* GroupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTableViewCell.m; sourceTree = "<group>"; };
+		C5AB78231E08D6F200713518 /* GroupTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupTableViewCell.xib; sourceTree = "<group>"; };
 		C5F46EB71E05337900840F6D /* Configure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configure.h; sourceTree = "<group>"; };
 		C5F46EB81E05337900840F6D /* Configure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Configure.m; sourceTree = "<group>"; };
 		C5F46EB91E05337900840F6D /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
@@ -553,48 +576,11 @@
 		C5837AA11E00646300958949 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				C5837AA21E00646300958949 /*  Editor */,
+				C5AB77F11E07A60700713518 /* Setup */,
+				C5AB77F41E07A61E00713518 /* Editor */,
 				C5837ABC1E00646300958949 /* Home */,
 			);
 			path = Modules;
-			sourceTree = "<group>";
-		};
-		C5837AA21E00646300958949 /*  Editor */ = {
-			isa = PBXGroup;
-			children = (
-				C5837AB01E00646300958949 /* view */,
-				C5837AB51E00646300958949 /* viewController */,
-			);
-			path = " Editor";
-			sourceTree = "<group>";
-		};
-		C5837AB01E00646300958949 /* view */ = {
-			isa = PBXGroup;
-			children = (
-				C58100141E019D9F004791D2 /* EditView.h */,
-				C58100151E019D9F004791D2 /* EditView.m */,
-				C581001C1E019DB9004791D2 /* KeyboardBar.h */,
-				C581001D1E019DB9004791D2 /* KeyboardBar.m */,
-				C58100171E019DA7004791D2 /* ImageUploadingView.h */,
-				C58100181E019DA7004791D2 /* ImageUploadingView.m */,
-				C58100191E019DA7004791D2 /* ImageUploadingView.xib */,
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		C5837AB51E00646300958949 /* viewController */ = {
-			isa = PBXGroup;
-			children = (
-				C5837AB61E00646300958949 /* EditViewController.h */,
-				C5837AB71E00646300958949 /* EditViewController.m */,
-				C5837BA31E006EF200958949 /* EditViewController.xib */,
-				C5837ABA1E00646300958949 /* PreviewViewController.h */,
-				C5837ABB1E00646300958949 /* PreviewViewController.m */,
-				C581001F1E01B0A7004791D2 /* PreviewViewController.xib */,
-				C5837AB81E00646300958949 /* FontViewController.h */,
-				C5837AB91E00646300958949 /* FontViewController.m */,
-			);
-			path = viewController;
 			sourceTree = "<group>";
 		};
 		C5837ABC1E00646300958949 /* Home */ = {
@@ -612,6 +598,9 @@
 				C5837ABF1E00646300958949 /* HomeTableViewCell.h */,
 				C5837AC01E00646300958949 /* HomeTableViewCell.m */,
 				C5837AC11E00646300958949 /* HomeTableViewCell.xib */,
+				C5AB78211E08D6F200713518 /* GroupTableViewCell.h */,
+				C5AB78221E08D6F200713518 /* GroupTableViewCell.m */,
+				C5AB78231E08D6F200713518 /* GroupTableViewCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -650,6 +639,8 @@
 				C5837ADA1E00658300958949 /* PathUtils.h */,
 				C5837ADB1E00658300958949 /* PDFPageRender.h */,
 				C5837ADC1E00658300958949 /* PDFPageRender.m */,
+				C5AB78141E07BD6000713518 /* NSUserDefaults+Utils.h */,
+				C5AB78151E07BD6000713518 /* NSUserDefaults+Utils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -781,6 +772,76 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
+		C5AB77F11E07A60700713518 /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				C5AB77F21E07A60700713518 /* view */,
+				C5AB77F31E07A60700713518 /* viewController */,
+			);
+			path = Setup;
+			sourceTree = "<group>";
+		};
+		C5AB77F21E07A60700713518 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		C5AB77F31E07A60700713518 /* viewController */ = {
+			isa = PBXGroup;
+			children = (
+				C5AB780F1E07A63800713518 /* SetupViewController.h */,
+				C5AB78101E07A63800713518 /* SetupViewController.m */,
+				C5AB78111E07A63800713518 /* SetupViewController.xib */,
+				C5AB78171E07C64700713518 /* CommonUseViewController.h */,
+				C5AB78181E07C64700713518 /* CommonUseViewController.m */,
+				C5AB78191E07C64700713518 /* CommonUseViewController.xib */,
+				C5AB781C1E07CDE800713518 /* ImportViewController.h */,
+				C5AB781D1E07CDE800713518 /* ImportViewController.m */,
+				C5AB781E1E07CDE800713518 /* ImportViewController.xib */,
+			);
+			path = viewController;
+			sourceTree = "<group>";
+		};
+		C5AB77F41E07A61E00713518 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				C5AB77F51E07A61E00713518 /* view */,
+				C5AB77FD1E07A61E00713518 /* viewController */,
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
+		C5AB77F51E07A61E00713518 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				C5AB77F61E07A61E00713518 /* EditView.h */,
+				C5AB77F71E07A61E00713518 /* EditView.m */,
+				C5AB77F81E07A61E00713518 /* ImageUploadingView.h */,
+				C5AB77F91E07A61E00713518 /* ImageUploadingView.m */,
+				C5AB77FA1E07A61E00713518 /* ImageUploadingView.xib */,
+				C5AB77FB1E07A61E00713518 /* KeyboardBar.h */,
+				C5AB77FC1E07A61E00713518 /* KeyboardBar.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		C5AB77FD1E07A61E00713518 /* viewController */ = {
+			isa = PBXGroup;
+			children = (
+				C5AB77FE1E07A61E00713518 /* EditViewController.h */,
+				C5AB77FF1E07A61E00713518 /* EditViewController.m */,
+				C5AB78001E07A61E00713518 /* EditViewController.xib */,
+				C5AB78011E07A61E00713518 /* FontViewController.h */,
+				C5AB78021E07A61E00713518 /* FontViewController.m */,
+				C5AB78031E07A61E00713518 /* PreviewViewController.h */,
+				C5AB78041E07A61E00713518 /* PreviewViewController.m */,
+				C5AB78051E07A61E00713518 /* PreviewViewController.xib */,
+			);
+			path = viewController;
+			sourceTree = "<group>";
+		};
 		C5F46EB61E05337900840F6D /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -910,6 +971,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5837B841E006AF700958949 /* image@2x.png in Resources */,
+				C5AB78251E08D6F200713518 /* GroupTableViewCell.xib in Resources */,
 				C5837B821E006AF700958949 /* folder_open@2x.png in Resources */,
 				C5837B9B1E006AF700958949 /* GitHub2.css in Resources */,
 				C5837B811E006AF700958949 /* folder@2x.png in Resources */,
@@ -919,9 +981,9 @@
 				C5837B731E006AF700958949 /* about.html in Resources */,
 				C5837B8B1E006AF700958949 /* sort_options@2x.png in Resources */,
 				C5837B761E006AF700958949 /* icon.png in Resources */,
-				C581001B1E019DA7004791D2 /* ImageUploadingView.xib in Resources */,
-				C58100201E01B0A7004791D2 /* PreviewViewController.xib in Resources */,
+				C5AB78081E07A61E00713518 /* ImageUploadingView.xib in Resources */,
 				C5837AD51E00646300958949 /* HomeTableViewCell.xib in Resources */,
+				C5AB780B1E07A61E00713518 /* EditViewController.xib in Resources */,
 				C58BC9541E0298550096498A /* Info.plist in Resources */,
 				C5837B791E006AF700958949 /* cell_delete.png in Resources */,
 				C5837B981E006AF700958949 /* Clearness Dark.css in Resources */,
@@ -930,16 +992,17 @@
 				C5837B9A1E006AF700958949 /* GitHub.css in Resources */,
 				C5837B8A1E006AF700958949 /* settings@2x.png in Resources */,
 				C5837B861E006AF700958949 /* minus@2x.png in Resources */,
-				C5837BA41E006EF200958949 /* EditViewController.xib in Resources */,
 				C5837B831E006AF700958949 /* forward@2x.png in Resources */,
 				C5837B7B1E006AF700958949 /* cell_rename.png in Resources */,
 				C5837B801E006AF700958949 /* file@2x.png in Resources */,
 				C5837B751E006AF700958949 /* icon_large.png in Resources */,
 				C5837B9D1E006AF700958949 /* Solarized Light.css in Resources */,
+				C5AB780E1E07A61E00713518 /* PreviewViewController.xib in Resources */,
 				C5837B781E006AF700958949 /* add_link@2x.png in Resources */,
 				C5837B881E006AF700958949 /* note@2x.png in Resources */,
 				C5837B9C1E006AF700958949 /* Solarized Dark.css in Resources */,
 				C5837B741E006AF700958949 /* format.html in Resources */,
+				C5AB781B1E07C64700713518 /* CommonUseViewController.xib in Resources */,
 				C5837B851E006AF700958949 /* keyboard_down@2x.png in Resources */,
 				C5837AD71E00646300958949 /* HomeTableViewController.xib in Resources */,
 				C5837B891E006AF700958949 /* plus@2x.png in Resources */,
@@ -947,8 +1010,10 @@
 				C5837B7C1E006AF700958949 /* check@2x.png in Resources */,
 				C5837B7F1E006AF700958949 /* export@2x.png in Resources */,
 				C5837A191E00640C00958949 /* Assets.xcassets in Resources */,
+				C5AB78201E07CDE800713518 /* ImportViewController.xib in Resources */,
 				C5837B8D1E006AF700958949 /* unchecked@2x.png in Resources */,
 				C5837B7D1E006AF700958949 /* checked@2x.png in Resources */,
+				C5AB78131E07A63800713518 /* SetupViewController.xib in Resources */,
 				C5837B7A1E006AF700958949 /* cell_export.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -974,13 +1039,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5AB78121E07A63800713518 /* SetupViewController.m in Sources */,
 				C5837A901E00644200958949 /* html_smartypants.c in Sources */,
-				C5837AD21E00646300958949 /* FontViewController.m in Sources */,
-				C581001A1E019DA7004791D2 /* ImageUploadingView.m in Sources */,
 				C5837AE61E0065CF00958949 /* ZHUtils.m in Sources */,
 				C58BC95C1E0298550096498A /* MMSpanParser.m in Sources */,
 				C5837A8A1E00644200958949 /* autolink.c in Sources */,
 				C5837A9B1E00644200958949 /* ZipArchive.mm in Sources */,
+				C5AB781F1E07CDE800713518 /* ImportViewController.m in Sources */,
 				C5F46EC31E05337900840F6D /* Configure.m in Sources */,
 				C5837B8F1E006AF700958949 /* BasicSyntax.md in Sources */,
 				C58BC9551E0298550096498A /* MMDocument.m in Sources */,
@@ -1004,34 +1069,39 @@
 				C58BC9591E0298550096498A /* MMMarkdown.m in Sources */,
 				C5837A881E00644200958949 /* AFURLSessionManager.m in Sources */,
 				C5F46EC61E05337900840F6D /* Item.m in Sources */,
-				C58100161E019D9F004791D2 /* EditView.m in Sources */,
 				C5837A9A1E00644200958949 /* zip.c in Sources */,
 				C5837B951E006AF700958949 /* 常見問題.md in Sources */,
 				C5837A871E00644200958949 /* AFURLResponseSerialization.m in Sources */,
+				C5AB780C1E07A61E00713518 /* FontViewController.m in Sources */,
+				C5AB780D1E07A61E00713518 /* PreviewViewController.m in Sources */,
+				C5AB78161E07BD6000713518 /* NSUserDefaults+Utils.m in Sources */,
 				C5837A8B1E00644200958949 /* buffer.c in Sources */,
 				C5837A111E00640B00958949 /* AppDelegate.m in Sources */,
-				C581001E1E019DB9004791D2 /* KeyboardBar.m in Sources */,
 				C5F46EC41E05337900840F6D /* FileManager.m in Sources */,
+				C5AB78241E08D6F200713518 /* GroupTableViewCell.m in Sources */,
+				C5AB78091E07A61E00713518 /* KeyboardBar.m in Sources */,
 				C5837B911E006AF700958949 /* 关于.md in Sources */,
 				C5837B901E006AF700958949 /* FQA.md in Sources */,
 				C58BC95B1E0298550096498A /* MMScanner.m in Sources */,
 				C5837A911E00644200958949 /* stack.c in Sources */,
 				C5837B961E006AF700958949 /* 關於.md in Sources */,
+				C5AB78071E07A61E00713518 /* ImageUploadingView.m in Sources */,
 				C5837A821E00644200958949 /* AFHTTPSessionManager.m in Sources */,
 				C58BC9571E0298550096498A /* MMGenerator.m in Sources */,
 				C5837A8D1E00644200958949 /* escape.c in Sources */,
 				C5F46EC51E05337900840F6D /* HighLightModel.m in Sources */,
-				C5837AD31E00646300958949 /* PreviewViewController.m in Sources */,
 				C5837A8C1E00644200958949 /* document.c in Sources */,
 				C5837B921E006AF700958949 /* 基本语法.md in Sources */,
 				C5837AD41E00646300958949 /* HomeTableViewCell.m in Sources */,
 				C5837A8F1E00644200958949 /* html_blocks.c in Sources */,
+				C5AB781A1E07C64700713518 /* CommonUseViewController.m in Sources */,
+				C5AB780A1E07A61E00713518 /* EditViewController.m in Sources */,
 				C5837A971E00644200958949 /* ioapi.c in Sources */,
-				C5837AD11E00646300958949 /* EditViewController.m in Sources */,
 				C58BC9561E0298550096498A /* MMElement.m in Sources */,
 				C5837AE91E0068AC00958949 /* ZHRequest.m in Sources */,
 				C5837AE11E00658300958949 /* PDFPageRender.m in Sources */,
 				C5837AC81E00646300958949 /* UIImage+ImageWithColor.m in Sources */,
+				C5AB78061E07A61E00713518 /* EditView.m in Sources */,
 				C5837A891E00644200958949 /* hoedown_html_patch.c in Sources */,
 				C5837A811E00644200958949 /* AFHTTPRequestOperationManager.m in Sources */,
 				C5837A8E1E00644200958949 /* html.c in Sources */,
@@ -1169,6 +1239,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Logic/Logic-Prefix.pch";
 				INFOPLIST_FILE = Logic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1188,6 +1259,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Logic/Logic-Prefix.pch";
 				INFOPLIST_FILE = Logic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
