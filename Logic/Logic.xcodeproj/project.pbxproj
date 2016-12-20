@@ -120,6 +120,8 @@
 		C5AB78201E07CDE800713518 /* ImportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5AB781E1E07CDE800713518 /* ImportViewController.xib */; };
 		C5AB78241E08D6F200713518 /* GroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AB78221E08D6F200713518 /* GroupTableViewCell.m */; };
 		C5AB78251E08D6F200713518 /* GroupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5AB78231E08D6F200713518 /* GroupTableViewCell.xib */; };
+		C5C3E7DE1E09649700A17C8A /* NewGroupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5C3E7DD1E09649700A17C8A /* NewGroupView.xib */; };
+		C5C3E7E11E0964C400A17C8A /* NewGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C3E7E01E0964C400A17C8A /* NewGroupView.m */; };
 		C5F46EC31E05337900840F6D /* Configure.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F46EB81E05337900840F6D /* Configure.m */; };
 		C5F46EC41E05337900840F6D /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F46EBA1E05337900840F6D /* FileManager.m */; };
 		C5F46EC51E05337900840F6D /* HighLightModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F46EBC1E05337900840F6D /* HighLightModel.m */; };
@@ -325,6 +327,9 @@
 		C5AB78211E08D6F200713518 /* GroupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupTableViewCell.h; sourceTree = "<group>"; };
 		C5AB78221E08D6F200713518 /* GroupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupTableViewCell.m; sourceTree = "<group>"; };
 		C5AB78231E08D6F200713518 /* GroupTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupTableViewCell.xib; sourceTree = "<group>"; };
+		C5C3E7DD1E09649700A17C8A /* NewGroupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewGroupView.xib; sourceTree = "<group>"; };
+		C5C3E7DF1E0964C400A17C8A /* NewGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewGroupView.h; sourceTree = "<group>"; };
+		C5C3E7E01E0964C400A17C8A /* NewGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGroupView.m; sourceTree = "<group>"; };
 		C5F46EB71E05337900840F6D /* Configure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Configure.h; sourceTree = "<group>"; };
 		C5F46EB81E05337900840F6D /* Configure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Configure.m; sourceTree = "<group>"; };
 		C5F46EB91E05337900840F6D /* FileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
@@ -601,6 +606,9 @@
 				C5AB78211E08D6F200713518 /* GroupTableViewCell.h */,
 				C5AB78221E08D6F200713518 /* GroupTableViewCell.m */,
 				C5AB78231E08D6F200713518 /* GroupTableViewCell.xib */,
+				C5C3E7DF1E0964C400A17C8A /* NewGroupView.h */,
+				C5C3E7E01E0964C400A17C8A /* NewGroupView.m */,
+				C5C3E7DD1E09649700A17C8A /* NewGroupView.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1001,6 +1009,7 @@
 				C5837B781E006AF700958949 /* add_link@2x.png in Resources */,
 				C5837B881E006AF700958949 /* note@2x.png in Resources */,
 				C5837B9C1E006AF700958949 /* Solarized Dark.css in Resources */,
+				C5C3E7DE1E09649700A17C8A /* NewGroupView.xib in Resources */,
 				C5837B741E006AF700958949 /* format.html in Resources */,
 				C5AB781B1E07C64700713518 /* CommonUseViewController.xib in Resources */,
 				C5837B851E006AF700958949 /* keyboard_down@2x.png in Resources */,
@@ -1101,6 +1110,7 @@
 				C5837AE91E0068AC00958949 /* ZHRequest.m in Sources */,
 				C5837AE11E00658300958949 /* PDFPageRender.m in Sources */,
 				C5837AC81E00646300958949 /* UIImage+ImageWithColor.m in Sources */,
+				C5C3E7E11E0964C400A17C8A /* NewGroupView.m in Sources */,
 				C5AB78061E07A61E00713518 /* EditView.m in Sources */,
 				C5837A891E00644200958949 /* hoedown_html_patch.c in Sources */,
 				C5837A811E00644200958949 /* AFHTTPRequestOperationManager.m in Sources */,

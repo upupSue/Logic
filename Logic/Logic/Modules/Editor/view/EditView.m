@@ -23,6 +23,7 @@
     NSOperation *uiOperation;
 }
 
+
 - (id)initWithCoder:(NSCoder *) coder {
     NSLog(@"editview");
 

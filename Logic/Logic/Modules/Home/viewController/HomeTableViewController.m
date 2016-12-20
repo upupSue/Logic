@@ -17,6 +17,8 @@
 #import "CommonUseViewController.h"
 #import "ImportViewController.h"
 #import "GroupTableViewCell.h"
+#import "NewGroupView.h"
+
 
 #define SideMenu_x 250
 #define SideMenu_Width 250
@@ -26,9 +28,11 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
 
 @interface HomeTableViewController ()<UITextFieldDelegate>{
     NSMutableArray *dataArray;
+    NSMutableArray *groupArray;
     BOOL needReload;
     NSString *searchWord;
     Item *root;
+    NewGroupView *newGroupView;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *centerView;
@@ -76,6 +80,15 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
     [addbtn setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];
     [addnoteView addSubview:addbtn];
     _tableView.tableHeaderView=addnoteView;
+    
+    UIView *addgroupView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 250, 90)];
+    addgroupView.backgroundColor=THEME_BGCOLOR;
+    UIButton *addgroupbtn=[[UIButton alloc]initWithFrame:CGRectMake(15, 0, 220, 80)];
+    [addgroupbtn setImage:[UIImage imageNamed:@"addgroup"] forState:UIControlStateNormal];
+    [addgroupbtn addTarget:self action:@selector(addGroup) forControlEvents:UIControlEventTouchUpInside];
+    [addgroupView addSubview:addgroupbtn];
+    _groupTableView.tableFooterView=addgroupView;
+    
     needReload = YES;
     [self reload];
 }
@@ -101,6 +114,12 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
     needReload = NO;
     [_fm createCloudWorkspace];
     [_fm createLocalWorkspace];
+    
+    root = _fm.local;
+    groupArray = [NSMutableArray array];
+    groupArray = root.itemsCanReach.mutableCopy;
+
+    
     [self listNoteWithSortOption:[Configure sharedConfigure].sortOption];
     if (![[NSFileManager defaultManager] fileExistsAtPath:_fm.currentItem.fullPath]) {
         _fm.currentItem = nil;
@@ -280,6 +299,50 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
     [_searchField resignFirstResponder];
 }
 
+-(void)addGroup{
+    newGroupView=[[NewGroupView alloc]initWithSureBlock:^{
+        needReload = YES;
+        if ([Configure sharedConfigure].defaultParent == nil) {
+            [Configure sharedConfigure].defaultParent = _fm.local;
+        }
+        if (![[NSFileManager defaultManager] fileExistsAtPath:[Configure sharedConfigure].defaultParent.fullPath]) {
+            [Configure sharedConfigure].defaultParent = _fm.local;
+        }
+        _parent = [Configure sharedConfigure].defaultParent;
+        
+        NSString *name = newGroupView.grpName;
+        if (name.length == 0) {
+            name = ZHLS(@"UntitledFolder");
+        }
+        NSString *path = name;
+        if (!_parent.root) {
+            path = [_parent.path stringByAppendingPathComponent:name];
+        }
+        Item *i = [[Item alloc]init];
+        i.path = path;
+        i.open = YES;
+        i.cloud = _parent.cloud;
+        if ([self.parent.items containsObject:i]) {
+            
+        }
+        NSString *ret = [[FileManager sharedManager] createFolder:i.fullPath];
+        
+        if (ret.length == 0) {
+            showToast(ZHLS(@"DuplicateError"));
+            return;
+        }
+        
+        NSString *prePath = i.cloud ? cloudWorkspace() : localWorkspace();
+        i.path = [ret stringByReplacingOccurrencesOfString:prePath withString:@""];
+        
+        [_parent addChild:i];
+        [self reload];
+        [self.groupTableView reloadData];
+    }];
+    [newGroupView show];
+}
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -296,7 +359,7 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
         return [dataArray[section][@"items"] count];
     }
     else{
-        return dataArray.count;
+        return groupArray.count;
     }
 }
 
@@ -326,8 +389,10 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
             cell = [[NSBundle mainBundle] loadNibNamed:@"GroupTableViewCell" owner:self options:nil][0];
         }
         
-        Item *item = dataArray[indexPath.section][@"items"][indexPath.row];
+        Item *item = groupArray[indexPath.row];
         cell.item = item;
+        [cell.tagBtn setTitle:[item.path componentsSeparatedByString:@"/"].lastObject forState:UIControlStateNormal];
+
         return cell;
     }
 }
