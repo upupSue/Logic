@@ -1,9 +1,9 @@
 //
 //  EditView.h
-//  MarkLite
+//  Logic
 //
-//  Created by zhubch on 15-3-27.
-//  Copyright (c) 2016年 zhubch. All rights reserved.
+//  Created by 方琼蔚 on 16/12/10.
+//  Copyright © 2016年 方琼蔚. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

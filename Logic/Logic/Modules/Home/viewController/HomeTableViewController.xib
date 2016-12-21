@@ -16,7 +16,6 @@
                 <outlet property="rightMenu" destination="GOI-nF-DTP" id="pC0-xQ-uHO"/>
                 <outlet property="searchField" destination="zq2-Ce-Dme" id="FVn-qT-JWp"/>
                 <outlet property="tableView" destination="XkK-3z-esI" id="fkd-fG-3hL"/>
-                <outlet property="topConstant" destination="MtC-Vh-pac" id="OkW-9B-xYY"/>
                 <outlet property="view" destination="c5I-6I-2pm" id="ppC-zj-bBt"/>
             </connections>
         </placeholder>

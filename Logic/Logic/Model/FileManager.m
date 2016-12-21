@@ -2,8 +2,8 @@
 //  FileManager.m
 //  FileManager
 //
-//  Created by zhubch on 15-3-14.
-//  Copyright (c) 2016年 zhubch. All rights reserved.
+//  Created by 方琼蔚 on 16/12/10.
+//  Copyright © 2016年 方琼蔚. All rights reserved.
 //
 
 #import "FileManager.h"
@@ -11,7 +11,6 @@
 #import "Configure.h"
 #import "PathUtils.h"
 
-//#define UBIQUITY_CONTAINER_URL @"iCloud.com.zhubch.MarkLite"
 
 @implementation FileManager
 {

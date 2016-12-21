@@ -1,9 +1,9 @@
 //
 //  PathUtils.h
-//  MarkLite
+//  Logic
 //
-//  Created by zhubch on 7/4/16.
-//  Copyright © 2016 zhubch. All rights reserved.
+//  Created by 方琼蔚 on 16/12/10.
+//  Copyright © 2016年 方琼蔚. All rights reserved.
 //
 
 #ifndef PathUtils_h

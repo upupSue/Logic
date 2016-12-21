@@ -13,6 +13,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     _tagBtn.layer.cornerRadius=8;
+    self.selectionStyle=UITableViewCellSelectionStyleNone;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

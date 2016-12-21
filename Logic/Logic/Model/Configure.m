@@ -1,9 +1,9 @@
 //
 //  Configure.m
-//  MarkLite
+//  Logic
 //
-//  Created by zhubch on 11/9/15.
-//  Copyright © 2016 zhubch. All rights reserved.
+//  Created by 方琼蔚 on 16/12/10.
+//  Copyright © 2016年 方琼蔚. All rights reserved.
 //
 
 #import "Configure.h"

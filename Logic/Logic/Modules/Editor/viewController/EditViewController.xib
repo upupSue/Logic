@@ -52,7 +52,6 @@
                                     </constraints>
                                     <state key="normal" image="writeItem"/>
                                     <connections>
-                                        <action selector="fullScreen:" destination="-1" eventType="touchUpInside" id="6E7-IW-VyB"/>
                                         <action selector="show:" destination="-1" eventType="touchUpInside" id="q7R-S1-Bvg"/>
                                     </connections>
                                 </button>
