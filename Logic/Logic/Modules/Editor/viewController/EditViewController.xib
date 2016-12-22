@@ -100,7 +100,7 @@
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                             </subviews>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="h4k-au-fv5" firstAttribute="top" secondItem="lgq-au-bPy" secondAttribute="top" id="68F-zP-Rm9"/>
                                 <constraint firstItem="h4k-au-fv5" firstAttribute="height" secondItem="lgq-au-bPy" secondAttribute="height" id="CRR-dy-roI"/>
@@ -684,7 +684,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="twX-Yf-Arf" secondAttribute="bottom" id="49F-xr-cce"/>
                 <constraint firstItem="twX-Yf-Arf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="O9k-2Q-bZW"/>

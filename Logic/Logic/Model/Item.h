@@ -20,7 +20,7 @@ typedef NS_ENUM(NSUInteger, FileType) {
  */
 @interface Item : NSObject <NSCoding>
 
-@property (nonatomic,strong)            NSString   *path;      //相对MarkLite目录的路径
+@property (nonatomic,strong)            NSString   *path;      //相对Logic目录的路径
 
 @property (nonatomic,assign)            BOOL       open;       //目录是否展开
 

@@ -10,7 +10,7 @@
 #define PathUtils_h
 
 static inline NSString *localWorkspace(){
-    return [NSString pathWithComponents:@[documentPath(),@"MarkLite"]];
+    return [NSString pathWithComponents:@[documentPath(),@"Logic"]];
 }
 
 static inline NSString *cloudWorkspace(){

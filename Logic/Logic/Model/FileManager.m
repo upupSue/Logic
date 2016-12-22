@@ -85,7 +85,7 @@
 {
     NSArray *arr = @[@"Guides",@"使用指南",@"使用說明"];
     for (NSString *name in arr) {
-        if (![name isEqualToString:ZHLS(@"GuidesName")]) {
+        if (![name isEqualToString:@"使用指南"]) {
             [self deleteFile:[localWorkspace() stringByAppendingPathComponent:name]];
         }
     }
@@ -95,7 +95,7 @@
 {
     NSString *wokspace = localWorkspace();
     ZipArchive *zipArchive = [[ZipArchive alloc]init];
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"MarkLite" ofType:@"zip"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Logic" ofType:@"zip"];
     NSLog(@"%@",path);
     [zipArchive UnzipOpenFile:path];
     [zipArchive UnzipFileTo:documentPath() overWrite:YES];
@@ -118,7 +118,6 @@
 {
     NSString *wokspace = localWorkspace();
     if (![fm fileExistsAtPath:wokspace]) {
-        
         [fm createDirectoryAtPath:wokspace withIntermediateDirectories:YES attributes:nil error:nil];
         NSLog(@"creating localWorkSpace:%@",wokspace);
         [self recover];

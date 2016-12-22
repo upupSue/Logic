@@ -64,7 +64,7 @@
     
     CGContextDrawPath(context, kCGPathStroke);
     
-    NSString *headerText = @"Generate By MarkLite";
+    NSString *headerText = @"Generate By Logic";
     
     UIFont *font = [UIFont fontWithName:@"Didot-Italic" size:18];
     NSDictionary *attribute = @{

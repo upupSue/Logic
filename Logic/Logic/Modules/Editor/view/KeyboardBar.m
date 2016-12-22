@@ -122,7 +122,7 @@ static KeyboardBar *bar = nil;
         alert.clickedButton = ^(NSInteger buttonIndex){
             if (buttonIndex == 1) {
                 NSString *name = [__alert textFieldAtIndex:0].text;
-                NSString *text = [NSString stringWithFormat:@"[MarkLite](%@)",name];
+                NSString *text = [NSString stringWithFormat:@"[Logic](%@)",name];
                 [_editView insertText:text];
                 [_editView becomeFirstResponder];
                 NSRange range = NSMakeRange(_editView.selectedRange.location - text.length + 1, 8);
@@ -172,7 +172,7 @@ static KeyboardBar *bar = nil;
                                      success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                          NSDictionary *dic = responseObject;
                                          [uploadView dismiss];
-                                         NSString *text = [NSString stringWithFormat:@"![MarkLite](%@)",dic[@"t_url"]];
+                                         NSString *text = [NSString stringWithFormat:@"![Logic](%@)",dic[@"t_url"]];
                                          [_editView insertText:text];
                                          [self.inputDelegate didInputText];
                                          [_editView becomeFirstResponder];
@@ -181,7 +181,7 @@ static KeyboardBar *bar = nil;
                                          [uploadView dismiss];
                                      }];
     
-    uploadView = [[ImageUploadingView alloc]initWithTitle:ZHLS(@"Uploading") cancelBlock:^{
+    uploadView = [[ImageUploadingView alloc]initWithTitle:@"请稍等" cancelBlock:^{
         [operation cancel];
     }];
     [uploadView show];
@@ -194,10 +194,5 @@ static KeyboardBar *bar = nil;
     
     [operation start];
 }
-
-//- (void)dealloc
-//{
-//    NSLog(@"dealloc");
-//}
 
 @end

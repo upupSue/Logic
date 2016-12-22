@@ -182,7 +182,7 @@
 
 - (NSString *)localPath:(NSString *)path
 {
-    return [NSString pathWithComponents:@[documentPath(),@"MarkLite",path]];
+    return [NSString pathWithComponents:@[documentPath(),@"Logic",path]];
 }
 
 - (NSString *)description

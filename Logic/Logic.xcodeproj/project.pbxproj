@@ -49,8 +49,6 @@
 		C5837AE61E0065CF00958949 /* ZHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5837AE41E0065CF00958949 /* ZHUtils.m */; };
 		C5837AE91E0068AC00958949 /* ZHRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C5837AE71E0068AC00958949 /* ZHRequest.m */; };
 		C5837AEF1E006A2700958949 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5837AEE1E006A2700958949 /* StoreKit.framework */; };
-		C5837B731E006AF700958949 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = C5837B421E006AF700958949 /* about.html */; };
-		C5837B741E006AF700958949 /* format.html in Resources */ = {isa = PBXBuildFile; fileRef = C5837B431E006AF700958949 /* format.html */; };
 		C5837B751E006AF700958949 /* icon_large.png in Resources */ = {isa = PBXBuildFile; fileRef = C5837B441E006AF700958949 /* icon_large.png */; };
 		C5837B761E006AF700958949 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C5837B451E006AF700958949 /* icon.png */; };
 		C5837B771E006AF700958949 /* add_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5837B471E006AF700958949 /* add_image@2x.png */; };
@@ -76,16 +74,6 @@
 		C5837B8B1E006AF700958949 /* sort_options@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5837B5B1E006AF700958949 /* sort_options@2x.png */; };
 		C5837B8C1E006AF700958949 /* text@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5837B5C1E006AF700958949 /* text@2x.png */; };
 		C5837B8D1E006AF700958949 /* unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5837B5D1E006AF700958949 /* unchecked@2x.png */; };
-		C5837B8E1E006AF700958949 /* About.md in Sources */ = {isa = PBXBuildFile; fileRef = C5837B601E006AF700958949 /* About.md */; };
-		C5837B8F1E006AF700958949 /* BasicSyntax.md in Sources */ = {isa = PBXBuildFile; fileRef = C5837B611E006AF700958949 /* BasicSyntax.md */; };
-		C5837B901E006AF700958949 /* FQA.md in Sources */ = {isa = PBXBuildFile; fileRef = C5837B621E006AF700958949 /* FQA.md */; };
-		C5837B911E006AF700958949 /* 关于.md in Sources */ = {isa = PBXBuildFile; fileRef = C5837B641E006AF700958949 /* 关于.md */; };
-		C5837B921E006AF700958949 /* 基本语法.md in Sources */ = {isa = PBXBuildFile; fileRef = C5837B651E006AF700958949 /* 基本语法.md */; };
-		C5837B931E006AF700958949 /* 常见问题.md in Sources */ = {isa = PBXBuildFile; fileRef = C5837B661E006AF700958949 /* 常见问题.md */; };
-		C5837B941E006AF700958949 /* 基本語法.md in Sources */ = {isa = PBXBuildFile; fileRef = C5837B681E006AF700958949 /* 基本語法.md */; };
-		C5837B951E006AF700958949 /* 常見問題.md in Sources */ = {isa = PBXBuildFile; fileRef = C5837B691E006AF700958949 /* 常見問題.md */; };
-		C5837B961E006AF700958949 /* 關於.md in Sources */ = {isa = PBXBuildFile; fileRef = C5837B6A1E006AF700958949 /* 關於.md */; };
-		C5837B971E006AF700958949 /* MarkLite.zip in Resources */ = {isa = PBXBuildFile; fileRef = C5837B6B1E006AF700958949 /* MarkLite.zip */; };
 		C5837B981E006AF700958949 /* Clearness Dark.css in Resources */ = {isa = PBXBuildFile; fileRef = C5837B6D1E006AF700958949 /* Clearness Dark.css */; };
 		C5837B991E006AF700958949 /* Clearness.css in Resources */ = {isa = PBXBuildFile; fileRef = C5837B6E1E006AF700958949 /* Clearness.css */; };
 		C5837B9A1E006AF700958949 /* GitHub.css in Resources */ = {isa = PBXBuildFile; fileRef = C5837B6F1E006AF700958949 /* GitHub.css */; };
@@ -104,6 +92,9 @@
 		C58BC95C1E0298550096498A /* MMSpanParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C58BC9531E0298550096498A /* MMSpanParser.m */; };
 		C5AB63C51E0BBA8E00F3398D /* FontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AB63C31E0BBA8E00F3398D /* FontViewController.m */; };
 		C5AB63C61E0BBA8E00F3398D /* FontViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5AB63C41E0BBA8E00F3398D /* FontViewController.xib */; };
+		C5AB63C71E0C0DE800F3398D /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = C5837B421E006AF700958949 /* about.html */; };
+		C5AB63C81E0C0DE800F3398D /* format.html in Resources */ = {isa = PBXBuildFile; fileRef = C5837B431E006AF700958949 /* format.html */; };
+		C5AB63CA1E0C4FC900F3398D /* Logic.zip in Resources */ = {isa = PBXBuildFile; fileRef = C5AB63C91E0C4FC900F3398D /* Logic.zip */; };
 		C5AB78061E07A61E00713518 /* EditView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AB77F71E07A61E00713518 /* EditView.m */; };
 		C5AB78071E07A61E00713518 /* ImageUploadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AB77F91E07A61E00713518 /* ImageUploadingView.m */; };
 		C5AB78081E07A61E00713518 /* ImageUploadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5AB77FA1E07A61E00713518 /* ImageUploadingView.xib */; };
@@ -263,16 +254,6 @@
 		C5837B5B1E006AF700958949 /* sort_options@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sort_options@2x.png"; sourceTree = "<group>"; };
 		C5837B5C1E006AF700958949 /* text@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text@2x.png"; sourceTree = "<group>"; };
 		C5837B5D1E006AF700958949 /* unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unchecked@2x.png"; sourceTree = "<group>"; };
-		C5837B601E006AF700958949 /* About.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = About.md; sourceTree = "<group>"; };
-		C5837B611E006AF700958949 /* BasicSyntax.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = BasicSyntax.md; sourceTree = "<group>"; };
-		C5837B621E006AF700958949 /* FQA.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = FQA.md; sourceTree = "<group>"; };
-		C5837B641E006AF700958949 /* 关于.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "关于.md"; sourceTree = "<group>"; };
-		C5837B651E006AF700958949 /* 基本语法.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "基本语法.md"; sourceTree = "<group>"; };
-		C5837B661E006AF700958949 /* 常见问题.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "常见问题.md"; sourceTree = "<group>"; };
-		C5837B681E006AF700958949 /* 基本語法.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "基本語法.md"; sourceTree = "<group>"; };
-		C5837B691E006AF700958949 /* 常見問題.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "常見問題.md"; sourceTree = "<group>"; };
-		C5837B6A1E006AF700958949 /* 關於.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "關於.md"; sourceTree = "<group>"; };
-		C5837B6B1E006AF700958949 /* MarkLite.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = MarkLite.zip; sourceTree = "<group>"; };
 		C5837B6D1E006AF700958949 /* Clearness Dark.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "Clearness Dark.css"; sourceTree = "<group>"; };
 		C5837B6E1E006AF700958949 /* Clearness.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Clearness.css; sourceTree = "<group>"; };
 		C5837B6F1E006AF700958949 /* GitHub.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = GitHub.css; sourceTree = "<group>"; };
@@ -302,6 +283,7 @@
 		C5AB63C21E0BBA8E00F3398D /* FontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontViewController.h; sourceTree = "<group>"; };
 		C5AB63C31E0BBA8E00F3398D /* FontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontViewController.m; sourceTree = "<group>"; };
 		C5AB63C41E0BBA8E00F3398D /* FontViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FontViewController.xib; sourceTree = "<group>"; };
+		C5AB63C91E0C4FC900F3398D /* Logic.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Logic.zip; sourceTree = "<group>"; };
 		C5AB77F61E07A61E00713518 /* EditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditView.h; sourceTree = "<group>"; };
 		C5AB77F71E07A61E00713518 /* EditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditView.m; sourceTree = "<group>"; };
 		C5AB77F81E07A61E00713518 /* ImageUploadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUploadingView.h; sourceTree = "<group>"; };
@@ -630,11 +612,10 @@
 			children = (
 				C5837B411E006AF700958949 /* html */,
 				C5837B461E006AF700958949 /* images */,
-				C5837B5E1E006AF700958949 /* MarkLite */,
 				C5837B6C1E006AF700958949 /* Styles */,
+				C5AB63C91E0C4FC900F3398D /* Logic.zip */,
 				C5837B441E006AF700958949 /* icon_large.png */,
 				C5837B451E006AF700958949 /* icon.png */,
-				C5837B6B1E006AF700958949 /* MarkLite.zip */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -701,46 +682,6 @@
 				C5837B5D1E006AF700958949 /* unchecked@2x.png */,
 			);
 			path = images;
-			sourceTree = "<group>";
-		};
-		C5837B5E1E006AF700958949 /* MarkLite */ = {
-			isa = PBXGroup;
-			children = (
-				C5837B5F1E006AF700958949 /* Guides */,
-				C5837B631E006AF700958949 /* 使用指南 */,
-				C5837B671E006AF700958949 /* 使用說明 */,
-			);
-			path = MarkLite;
-			sourceTree = "<group>";
-		};
-		C5837B5F1E006AF700958949 /* Guides */ = {
-			isa = PBXGroup;
-			children = (
-				C5837B601E006AF700958949 /* About.md */,
-				C5837B611E006AF700958949 /* BasicSyntax.md */,
-				C5837B621E006AF700958949 /* FQA.md */,
-			);
-			path = Guides;
-			sourceTree = "<group>";
-		};
-		C5837B631E006AF700958949 /* 使用指南 */ = {
-			isa = PBXGroup;
-			children = (
-				C5837B641E006AF700958949 /* 关于.md */,
-				C5837B651E006AF700958949 /* 基本语法.md */,
-				C5837B661E006AF700958949 /* 常见问题.md */,
-			);
-			path = "使用指南";
-			sourceTree = "<group>";
-		};
-		C5837B671E006AF700958949 /* 使用說明 */ = {
-			isa = PBXGroup;
-			children = (
-				C5837B681E006AF700958949 /* 基本語法.md */,
-				C5837B691E006AF700958949 /* 常見問題.md */,
-				C5837B6A1E006AF700958949 /* 關於.md */,
-			);
-			path = "使用說明";
 			sourceTree = "<group>";
 		};
 		C5837B6C1E006AF700958949 /* Styles */ = {
@@ -981,6 +922,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5AB63C71E0C0DE800F3398D /* about.html in Resources */,
+				C5AB63C81E0C0DE800F3398D /* format.html in Resources */,
 				C5837B841E006AF700958949 /* image@2x.png in Resources */,
 				C5AB78251E08D6F200713518 /* GroupTableViewCell.xib in Resources */,
 				C5837B821E006AF700958949 /* folder_open@2x.png in Resources */,
@@ -989,7 +932,6 @@
 				C5837B871E006AF700958949 /* more@2x.png in Resources */,
 				C5837B771E006AF700958949 /* add_image@2x.png in Resources */,
 				C5837B7E1E006AF700958949 /* delete@2x.png in Resources */,
-				C5837B731E006AF700958949 /* about.html in Resources */,
 				C5837B8B1E006AF700958949 /* sort_options@2x.png in Resources */,
 				C5837B761E006AF700958949 /* icon.png in Resources */,
 				C5AB78081E07A61E00713518 /* ImageUploadingView.xib in Resources */,
@@ -999,7 +941,6 @@
 				C5837B791E006AF700958949 /* cell_delete.png in Resources */,
 				C5837B981E006AF700958949 /* Clearness Dark.css in Resources */,
 				C5837B8C1E006AF700958949 /* text@2x.png in Resources */,
-				C5837B971E006AF700958949 /* MarkLite.zip in Resources */,
 				C5837B9A1E006AF700958949 /* GitHub.css in Resources */,
 				C5837B8A1E006AF700958949 /* settings@2x.png in Resources */,
 				C5837B861E006AF700958949 /* minus@2x.png in Resources */,
@@ -1013,13 +954,13 @@
 				C5837B881E006AF700958949 /* note@2x.png in Resources */,
 				C5837B9C1E006AF700958949 /* Solarized Dark.css in Resources */,
 				C5C3E7DE1E09649700A17C8A /* NewGroupView.xib in Resources */,
-				C5837B741E006AF700958949 /* format.html in Resources */,
 				C5AB781B1E07C64700713518 /* CommonUseViewController.xib in Resources */,
 				C5837B851E006AF700958949 /* keyboard_down@2x.png in Resources */,
 				C5837AD71E00646300958949 /* HomeTableViewController.xib in Resources */,
 				C5837B891E006AF700958949 /* plus@2x.png in Resources */,
 				C5AB63C61E0BBA8E00F3398D /* FontViewController.xib in Resources */,
 				C5837B991E006AF700958949 /* Clearness.css in Resources */,
+				C5AB63CA1E0C4FC900F3398D /* Logic.zip in Resources */,
 				C5837B7C1E006AF700958949 /* check@2x.png in Resources */,
 				C5837B7F1E006AF700958949 /* export@2x.png in Resources */,
 				C5837A191E00640C00958949 /* Assets.xcassets in Resources */,
@@ -1061,21 +1002,17 @@
 				C5837A9B1E00644200958949 /* ZipArchive.mm in Sources */,
 				C5AB781F1E07CDE800713518 /* ImportViewController.m in Sources */,
 				C5F46EC31E05337900840F6D /* Configure.m in Sources */,
-				C5837B8F1E006AF700958949 /* BasicSyntax.md in Sources */,
 				C58BC9551E0298550096498A /* MMDocument.m in Sources */,
 				C58BC9581E0298550096498A /* MMHTMLParser.m in Sources */,
 				C5837A951E00644200958949 /* MGSwipeButton.m in Sources */,
-				C5837B8E1E006AF700958949 /* About.md in Sources */,
 				C5837A861E00644200958949 /* AFURLRequestSerialization.m in Sources */,
 				C5837A991E00644200958949 /* unzip.c in Sources */,
 				C5F46EC81E05337900840F6D /* MarkdownSyntaxModel.m in Sources */,
 				C5F46EC71E05337900840F6D /* MarkdownSyntaxGenerator.m in Sources */,
-				C5837B931E006AF700958949 /* 常见问题.md in Sources */,
 				C5837A851E00644200958949 /* AFURLConnectionOperation.m in Sources */,
 				C5837AD61E00646300958949 /* HomeTableViewController.m in Sources */,
 				C5837A921E00644200958949 /* version.c in Sources */,
 				C58BC95A1E0298550096498A /* MMParser.m in Sources */,
-				C5837B941E006AF700958949 /* 基本語法.md in Sources */,
 				C5837A961E00644200958949 /* MGSwipeTableCell.m in Sources */,
 				C5837A841E00644200958949 /* AFSecurityPolicy.m in Sources */,
 				C5837A801E00644200958949 /* AFHTTPRequestOperation.m in Sources */,
@@ -1084,7 +1021,6 @@
 				C5837A881E00644200958949 /* AFURLSessionManager.m in Sources */,
 				C5F46EC61E05337900840F6D /* Item.m in Sources */,
 				C5837A9A1E00644200958949 /* zip.c in Sources */,
-				C5837B951E006AF700958949 /* 常見問題.md in Sources */,
 				C5837A871E00644200958949 /* AFURLResponseSerialization.m in Sources */,
 				C5AB780D1E07A61E00713518 /* PreviewViewController.m in Sources */,
 				C5AB78161E07BD6000713518 /* NSUserDefaults+Utils.m in Sources */,
@@ -1093,18 +1029,14 @@
 				C5F46EC41E05337900840F6D /* FileManager.m in Sources */,
 				C5AB78241E08D6F200713518 /* GroupTableViewCell.m in Sources */,
 				C5AB78091E07A61E00713518 /* KeyboardBar.m in Sources */,
-				C5837B911E006AF700958949 /* 关于.md in Sources */,
-				C5837B901E006AF700958949 /* FQA.md in Sources */,
 				C58BC95B1E0298550096498A /* MMScanner.m in Sources */,
 				C5837A911E00644200958949 /* stack.c in Sources */,
-				C5837B961E006AF700958949 /* 關於.md in Sources */,
 				C5AB78071E07A61E00713518 /* ImageUploadingView.m in Sources */,
 				C5837A821E00644200958949 /* AFHTTPSessionManager.m in Sources */,
 				C58BC9571E0298550096498A /* MMGenerator.m in Sources */,
 				C5837A8D1E00644200958949 /* escape.c in Sources */,
 				C5F46EC51E05337900840F6D /* HighLightModel.m in Sources */,
 				C5837A8C1E00644200958949 /* document.c in Sources */,
-				C5837B921E006AF700958949 /* 基本语法.md in Sources */,
 				C5837AD41E00646300958949 /* HomeTableViewCell.m in Sources */,
 				C5837A8F1E00644200958949 /* html_blocks.c in Sources */,
 				C5AB781A1E07C64700713518 /* CommonUseViewController.m in Sources */,

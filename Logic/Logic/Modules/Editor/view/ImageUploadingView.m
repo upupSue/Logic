@@ -24,12 +24,11 @@
 - (instancetype)initWithTitle:(NSString *)title cancelBlock:(void (^)())block
 {
     self =  [[NSBundle mainBundle]loadNibNamed:@"ImageUploadingView" owner:self options:nil].firstObject;
-    self.bounds = CGRectMake(0, 0, 240, 100);
+    self.bounds = CGRectMake(0, 0, 240, 160);
     if (self) {
         self.title = title;
         self.cancelBlock = block;
         self.percent = 0.0;
-        [self.cancelBtn setTitle:ZHLS(@"Cancel") forState:UIControlStateNormal];
     }
     return self;
 }
@@ -63,7 +62,7 @@
         v.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.1];
     }
     self.center = window.center;
-    [self makeRound:5];
+    [self makeRound:10];
     [window addSubview:v];
     [window addSubview:self];
 }

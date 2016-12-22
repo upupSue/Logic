@@ -142,17 +142,17 @@
 - (IBAction)export:(id)sender {
     void(^clickedBlock)(NSInteger) = ^(NSInteger index) {
         NSURL *url = nil;
-        if (index == (kDevicePad ? 1 : 0)){
+        if (index == 0){
             url = [NSURL fileURLWithPath:[documentPath() stringByAppendingPathComponent:[NSString stringWithFormat:@"/temp/%@.html",[fm currentItem].name]]];
             if (htmlString) {
                 [htmlString writeToURL:url atomically:YES encoding:NSUTF8StringEncoding error:nil];
             }
-        }else if(index == (kDevicePad ? 2 : 1)){
+        }else if(index == 1){
             url = [NSURL fileURLWithPath:[documentPath() stringByAppendingPathComponent:[NSString stringWithFormat:@"/temp/%@.pdf",[fm currentItem].name]]];
             
             NSData *data = [self createPDF];
             [data writeToURL:url atomically:YES];
-        }else if(index == (kDevicePad ? 3 : 2)){
+        }else if(index == 2){
             url = [NSURL fileURLWithPath:item.fullPath];
         }
         if (url) {
@@ -164,9 +164,15 @@
     [sheet showInView:self.view];
 }
 
-- (IBAction)collect:(id)sender {
-    
+- (IBAction)collect:(UIButton *)sender {
+    if(sender.selected){
+        sender.selected=NO;
+    }
+    else{
+        sender.selected=YES;
+    }
 }
+
 - (IBAction)goedit:(id)sender {
     if(self.isEditView){
         EditViewController *vc = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
