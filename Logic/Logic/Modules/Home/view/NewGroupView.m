@@ -130,6 +130,7 @@
 
 - (IBAction)sureAdd:(id)sender {
     _grpName=_groupName.text;
+//    [Configure sharedConfigure].themeColor = _grpColor;
     [self dismiss];
     if (self.sureBlock) {
         self.sureBlock();

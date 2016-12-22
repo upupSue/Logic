@@ -56,6 +56,7 @@
     [aCoder encodeFloat:self.fontSize forKey:@"fontSize"];
     [aCoder encodeObject:self.defaultParent forKey:@"defaultParent"];
     [aCoder encodeInteger:self.useTimes forKey:@"useTimes"];
+
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder

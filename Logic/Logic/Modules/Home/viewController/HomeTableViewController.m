@@ -90,6 +90,7 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
 
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:YES];
+    [self loadFile];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -100,25 +101,6 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
     [super didReceiveMemoryWarning];
 }
 
--(void)reload{
-    noteArray = [NSMutableArray array];
-    NSMutableArray *arr=[NSMutableArray array];
-    NSPredicate *pre = [NSPredicate predicateWithBlock:^BOOL(id  _Nonnull evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
-        Item *i = evaluatedObject;
-        if (i.type == FileTypeText) {
-            return YES;
-        }
-        return NO;
-    }];
-    arr = root.itemsCanReach.mutableCopy;
-    noteArray=[arr filteredArrayUsingPredicate:pre];
-    
-    if (![[NSFileManager defaultManager] fileExistsAtPath:_fm.currentItem.fullPath]) {
-        _fm.currentItem = nil;
-    }
-    [_tableView reloadData];
-}
-
 - (void)loadFile
 {
     if (needReload == NO) {
@@ -127,12 +109,10 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
     needReload = NO;
     [_fm createCloudWorkspace];
     [_fm createLocalWorkspace];
-    
     root = _fm.local;
-    
     fileArray = [NSMutableArray array];
     NSMutableArray *arr=[NSMutableArray array];
-    NSPredicate *pre = [NSPredicate predicateWithBlock:^BOOL(id  _Nonnull evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+    NSPredicate *preFolder = [NSPredicate predicateWithBlock:^BOOL(id  _Nonnull evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
         Item *i = evaluatedObject;
         if (i.type == FileTypeFolder) {
             return YES;
@@ -140,17 +120,9 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
         return NO;
     }];
     arr = root.itemsCanReach.mutableCopy;
-    fileArray=[arr filteredArrayUsingPredicate:pre];
+    fileArray=[arr filteredArrayUsingPredicate:preFolder];
     
-    [self listNoteWithSortOption:[Configure sharedConfigure].sortOption];
-    if (![[NSFileManager defaultManager] fileExistsAtPath:_fm.currentItem.fullPath]) {
-        _fm.currentItem = nil;
-    }
-}
-
-- (void)listNoteWithSortOption:(NSInteger)sortOption
-{
-    NSPredicate *pre = [NSPredicate predicateWithBlock:^BOOL(id  _Nonnull evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+    NSPredicate *preNote = [NSPredicate predicateWithBlock:^BOOL(id  _Nonnull evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
         Item *i = evaluatedObject;
         if (i.type == FileTypeText) {
             return YES;
@@ -158,19 +130,21 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
         return NO;
     }];
     Item *local = _fm.local;
-    Item *cloud = _fm.cloud;
     NSArray *localArray = nil;
-    NSArray *cloudArray = nil;
-    NSMutableArray *arr = [NSMutableArray array];
     if (searchWord.length == 0) {
-        localArray = [local.items filteredArrayUsingPredicate:pre];
-        cloudArray = [cloud.items filteredArrayUsingPredicate:pre];
+        localArray = [local.items filteredArrayUsingPredicate:preNote];
     }else {
-        localArray = [[local searchResult:searchWord] filteredArrayUsingPredicate:pre];
-        cloudArray = [[cloud searchResult:searchWord] filteredArrayUsingPredicate:pre];
+        localArray = [[local searchResult:searchWord] filteredArrayUsingPredicate:preNote];
     }
-    [arr addObjectsFromArray:localArray];
-    [arr addObjectsFromArray:cloudArray];
+    [self listNoteWithSortOption:[Configure sharedConfigure].sortOption arr:localArray];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:_fm.currentItem.fullPath]) {
+        _fm.currentItem = nil;
+    }
+}
+
+- (void)listNoteWithSortOption:(NSInteger)sortOption arr:(NSArray *)arr
+{
+
     beginLoadingAnimationOnParent(ZHLS(@"Loading"), self.view);
     dispatch_async(dispatch_queue_create("loading", DISPATCH_QUEUE_CONCURRENT), ^{
         NSArray *sortedArr = [arr sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
@@ -336,7 +310,7 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
         i.path = [ret stringByReplacingOccurrencesOfString:prePath withString:@""];
         
         [_parentItem addChild:i];
-        [self reload];
+        [self loadFile];
         [self.groupTableView reloadData];
     }];
     [newGroupView show];
@@ -451,26 +425,14 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
         [self.navigationController pushViewController:vc animated:YES];
     }
     else{
-        root = fileArray[indexPath.row];
-        [self reload];
-//        if (!root.open) {
-//            root.open = YES;
-//            [self openWithIndex:(int)indexPath.row];
-//        }else{
-//            root.open = NO;
-//        }
+        NSArray *children;
+        Item *i = fileArray[indexPath.row];
+        i.open=YES;
+        children = [i itemsCanReach];
+        [self listNoteWithSortOption:[Configure sharedConfigure].sortOption arr:children];
+        [_tableView reloadData];
         return;
     }
-}
-
-- (void)openWithIndex:(int)index
-{
-    noteArray =nil;
-    NSArray *children;
-    children = [noteArray[index] itemsCanReach];
-    noteArray=children;
-    
-    [_tableView reloadData];
 }
 
 

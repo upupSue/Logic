@@ -54,9 +54,10 @@
 
 - (void)viewWillDisappear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:NO];
-    if (fm.currentItem == nil) {
+    if (fm.currentItem == nil && self.editView.text.length!=0) {
         [self saveFile];
     }
+    
     [self saveContent];
     [self.editView resignFirstResponder];
     if (kDevicePad) {
@@ -104,13 +105,13 @@
 //保存内容
 - (void)saveContent
 {
+    item = fm.currentItem;
     if (item == nil) {
         return;
     }
     if (!needSave) {
         return;
     }
-    item = fm.currentItem;
     NSData *content = [self.editView.text dataUsingEncoding:NSUTF8StringEncoding];
     [fm saveFile:item.fullPath Content:content];
     needSave = NO;
