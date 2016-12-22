@@ -57,7 +57,6 @@
     if (fm.currentItem == nil && self.editView.text.length!=0) {
         [self saveFile];
     }
-    
     [self saveContent];
     [self.editView resignFirstResponder];
     if (kDevicePad) {
@@ -249,8 +248,16 @@
 }
 
 - (IBAction)show:(id)sender {
-    PreviewViewController *vc=[[PreviewViewController alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (self.isPreView) {
+        PreviewViewController *vc = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-2];
+        vc.isEditView=0;
+        [self.navigationController popToViewController:vc animated:true];
+    }
+    else{
+        PreviewViewController *vc=[[PreviewViewController alloc]init];
+        vc.isEditView=1;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 

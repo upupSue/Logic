@@ -7,10 +7,16 @@
 //
 
 #import "SetupViewController.h"
+#import "FontViewController.h"
+#import "Configure.h"
 
-@interface SetupViewController ()
+@interface SetupViewController (){
+    float fontsize;
+}
+
 @property (weak, nonatomic) IBOutlet UISwitch *switchbtn;
 @property (weak, nonatomic) IBOutlet UILabel *content;
+@property (weak, nonatomic) IBOutlet UISlider *fontSlider;
 
 @end
 
@@ -26,19 +32,35 @@
     [attrStr addAttribute:NSStrikethroughStyleAttributeName value:@(NSUnderlinePatternSolid | NSUnderlineStyleSingle) range:NSMakeRange(33, 5)];
     [attrStr addAttribute:NSStrikethroughColorAttributeName value:[UIColor grayColor] range:NSMakeRange(0, attrStr.length)];
     self.content.attributedText = attrStr;
+    
+    _fontSlider.value = [Configure sharedConfigure].fontSize;
 }
-
-//-(void)viewWillAppear:(BOOL)animated{
-//    [self.navigationController setNavigationBarHidden:NO];
-//}
-//
-//- (void)viewWillDisappear:(BOOL)animated{
-//    [self.navigationController setNavigationBarHidden:YES];
-//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
+- (IBAction)chooseFont:(id)sender {
+    FontViewController *vc=[[FontViewController alloc]init];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (IBAction)fontValueChange:(UISlider *)sender {
+    fontsize = sender.value;
+}
+
+- (IBAction)goback:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)check:(id)sender {
+    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:@"确认要保存修改吗？" preferredStyle:UIAlertControllerStyleAlert];
+    [alertVc addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil]];
+    [alertVc addAction:[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [Configure sharedConfigure].fontSize=fontsize;
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }]];
+    [self presentViewController:alertVc animated:YES completion:nil];
+}
 
 @end

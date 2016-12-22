@@ -23,5 +23,8 @@
     [super didReceiveMemoryWarning];
 }
 
+- (IBAction)goback:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

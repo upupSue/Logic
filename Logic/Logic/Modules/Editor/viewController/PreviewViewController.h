@@ -10,8 +10,6 @@
 
 @interface PreviewViewController : UIViewController
 
-@property (nonatomic,assign) CGSize size;
-
-@property(nonatomic,copy)NSString *htmlString;
+@property (nonatomic,assign) BOOL isEditView;
 
 @end

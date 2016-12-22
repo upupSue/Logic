@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,24 +23,108 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uvg-uZ-7rZ">
+                    <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="100" id="Ojn-ig-Ddk"/>
                         <constraint firstAttribute="width" constant="100" id="jdb-J8-YN1"/>
                     </constraints>
                 </imageView>
                 <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MCx-Nd-ch1">
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </webView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T9m-Ry-WYj">
+                    <rect key="frame" x="0.0" y="6" width="375" height="20"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="F8U-ab-pls"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="stZ-X2-zDJ">
+                    <rect key="frame" x="0.0" y="26" width="375" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VnC-PU-z5L">
+                            <rect key="frame" x="285" y="0.0" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="66g-3F-Mwd"/>
+                                <constraint firstAttribute="height" constant="44" id="Igk-jT-sKG"/>
+                            </constraints>
+                            <state key="normal" image="nottag"/>
+                            <state key="selected" image="tagItem"/>
+                        </button>
+                        <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8g-1C-QDG">
+                            <rect key="frame" x="329" y="0.0" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="g2u-q6-qWi"/>
+                                <constraint firstAttribute="height" constant="44" id="jfw-Or-RUw"/>
+                            </constraints>
+                            <state key="normal" image="writeItem"/>
+                            <connections>
+                                <action selector="goedit:" destination="-1" eventType="touchUpInside" id="qnH-8V-tu0"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VUm-jb-Spi">
+                            <rect key="frame" x="241" y="0.0" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="3no-3g-yEj"/>
+                                <constraint firstAttribute="height" constant="44" id="IlY-GH-V6m"/>
+                            </constraints>
+                            <state key="normal" image="shareItem"/>
+                            <connections>
+                                <action selector="export:" destination="-1" eventType="touchUpInside" id="3AU-qB-y3n"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxZ-Ig-653">
+                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="GoL-DP-2jp"/>
+                                <constraint firstAttribute="width" constant="44" id="yif-8M-JQO"/>
+                            </constraints>
+                            <state key="normal" image="arrow_left"/>
+                            <connections>
+                                <action selector="collect:" destination="-1" eventType="touchUpInside" id="y9p-bS-e8l"/>
+                                <action selector="goBack:" destination="-1" eventType="touchUpInside" id="iZU-PI-gub"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="VnC-PU-z5L" firstAttribute="centerY" secondItem="stZ-X2-zDJ" secondAttribute="centerY" id="1e2-rb-WCK"/>
+                        <constraint firstItem="vxZ-Ig-653" firstAttribute="centerY" secondItem="stZ-X2-zDJ" secondAttribute="centerY" id="OkG-UT-Qc1"/>
+                        <constraint firstAttribute="height" constant="44" id="PsZ-5V-KGN"/>
+                        <constraint firstItem="U8g-1C-QDG" firstAttribute="centerY" secondItem="stZ-X2-zDJ" secondAttribute="centerY" id="Sq1-uz-shL"/>
+                        <constraint firstItem="vxZ-Ig-653" firstAttribute="leading" secondItem="stZ-X2-zDJ" secondAttribute="leading" id="ds5-QQ-b9k"/>
+                        <constraint firstItem="VnC-PU-z5L" firstAttribute="leading" secondItem="VUm-jb-Spi" secondAttribute="trailing" id="iko-Ye-FbP"/>
+                        <constraint firstItem="U8g-1C-QDG" firstAttribute="leading" secondItem="VnC-PU-z5L" secondAttribute="trailing" id="n98-7X-tbA"/>
+                        <constraint firstItem="VUm-jb-Spi" firstAttribute="centerY" secondItem="stZ-X2-zDJ" secondAttribute="centerY" id="qVX-eM-PlZ"/>
+                        <constraint firstAttribute="trailing" secondItem="U8g-1C-QDG" secondAttribute="trailing" constant="2" id="r5E-Cc-2Gr"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="stZ-X2-zDJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1QJ-ge-P8r"/>
                 <constraint firstAttribute="bottom" secondItem="MCx-Nd-ch1" secondAttribute="bottom" id="1Xv-gr-vhL"/>
+                <constraint firstItem="T9m-Ry-WYj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3bB-L1-Sbb"/>
+                <constraint firstItem="stZ-X2-zDJ" firstAttribute="top" secondItem="T9m-Ry-WYj" secondAttribute="bottom" id="8JR-w3-9kQ"/>
+                <constraint firstItem="T9m-Ry-WYj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="6" id="IAp-4c-xtT"/>
                 <constraint firstItem="Uvg-uZ-7rZ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="NHU-o6-vib"/>
-                <constraint firstItem="MCx-Nd-ch1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Zzy-BK-TT9"/>
+                <constraint firstAttribute="trailing" secondItem="T9m-Ry-WYj" secondAttribute="trailing" id="QLM-qD-Jy8"/>
+                <constraint firstItem="MCx-Nd-ch1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="Rh3-c8-zKn"/>
                 <constraint firstItem="MCx-Nd-ch1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="evv-L8-zdb"/>
                 <constraint firstItem="Uvg-uZ-7rZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="i5b-W2-sFU"/>
+                <constraint firstItem="stZ-X2-zDJ" firstAttribute="top" secondItem="T9m-Ry-WYj" secondAttribute="bottom" id="kdx-bo-TDg"/>
+                <constraint firstAttribute="trailing" secondItem="stZ-X2-zDJ" secondAttribute="trailing" id="rx2-F0-BJx"/>
                 <constraint firstAttribute="trailing" secondItem="MCx-Nd-ch1" secondAttribute="trailing" id="zDk-Ij-sK9"/>
             </constraints>
+            <point key="canvasLocation" x="32.5" y="105.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="arrow_left" width="13" height="22"/>
+        <image name="nottag" width="19" height="26"/>
+        <image name="shareItem" width="25" height="24"/>
+        <image name="tagItem" width="19" height="26"/>
+        <image name="writeItem" width="24" height="24"/>
+    </resources>
 </document>

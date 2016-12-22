@@ -247,17 +247,17 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
 
 - (IBAction)setEdit:(id)sender {
     SetupViewController *vc=[[SetupViewController alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (IBAction)setCommon:(id)sender {
     CommonUseViewController *vc=[[CommonUseViewController alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (IBAction)importAndExport:(id)sender {
     ImportViewController *vc=[[ImportViewController alloc]init];
-    [self.navigationController pushViewController:vc animated:YES];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
@@ -422,6 +422,7 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
         _fm.currentItem = i;
         needReload = YES;
         EditViewController *vc=[[EditViewController alloc]init];
+        vc.isPreView=0;
         [self.navigationController pushViewController:vc animated:YES];
     }
     else{

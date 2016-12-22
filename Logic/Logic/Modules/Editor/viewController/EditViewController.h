@@ -13,10 +13,8 @@
 @interface EditViewController : UIViewController
 
 @property (nonatomic,weak) IBOutlet EditView *editView;
-
-@property (nonatomic,weak) UIViewController *projectVc;
-
 @property(nonatomic,assign) Item *parentItem;
+@property (nonatomic,assign) BOOL isPreView;
 
 
 @end

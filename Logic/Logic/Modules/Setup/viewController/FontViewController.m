@@ -2,7 +2,7 @@
 //  FontViewController.m
 //  Logic
 //
-//  Created by 方琼蔚 on 16/12/10.
+//  Created by 方琼蔚 on 16/12/22.
 //  Copyright © 2016年 方琼蔚. All rights reserved.
 //
 
@@ -10,6 +10,7 @@
 #import "Configure.h"
 
 @interface FontViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -21,33 +22,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    UIStepper *stepper = [[UIStepper alloc]initWithFrame:CGRectMake(0, 0, 80, 30)];
-    [stepper addTarget:self action:@selector(stepperValuedChanged:) forControlEvents:UIControlEventValueChanged];
-    stepper.value = [Configure sharedConfigure].fontSize;
-    stepper.minimumValue = 12;
-    stepper.maximumValue = 28;
-    
-    self.navigationItem.titleView = stepper;
-
-//    self.title = ZHLS(@"Font");
-    self.navigationItem.rightBarButtonItem.title = ZHLS(@"Done");
-    self.navigationItem.leftBarButtonItem.title = ZHLS(@"Reset");
-
     fontNames = [@{} mutableCopy];
     familyNames = [[UIFont familyNames] sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
         return [obj1 compare:obj2];
     }];
-    
     for (NSString *familyName in familyNames) {
         fontNames[familyName] = [UIFont fontNamesForFamilyName:familyName];
     }
-}
-
-- (void)stepperValuedChanged:(UIStepper*)sender
-{
-    [Configure sharedConfigure].fontSize = sender.value;
-    [self.tableView reloadData];
 }
 
 - (IBAction)dismiss:(id)sender
@@ -57,8 +38,13 @@
 
 - (IBAction)recoverDefault:(id)sender
 {
-    [Configure sharedConfigure].fontName = @"Hiragino Sans";
-    [self dismissViewControllerAnimated:YES completion:nil];
+    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:@"确认要还原成默认字体吗？" preferredStyle:UIAlertControllerStyleAlert];
+    [alertVc addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil]];
+    [alertVc addAction:[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [Configure sharedConfigure].fontName = @"Hiragino Sans";
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }]];
+    [self presentViewController:alertVc animated:YES completion:nil];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -80,6 +66,7 @@
 {
     return 0.1;
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 15;
@@ -102,14 +89,5 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
