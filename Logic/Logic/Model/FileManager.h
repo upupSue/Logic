@@ -15,6 +15,8 @@ static const NSNotificationName kFileChangedNotificationName = @"FileChangedNoti
 
 @property (nonatomic,strong,readonly) Item *local;
 
+@property (nonatomic,strong,readonly) Item *trash;
+
 @property (nonatomic,strong,readonly) Item *cloud;
 
 @property (nonatomic,strong) Item *currentItem; //用来共享同一对象
@@ -24,6 +26,8 @@ static const NSNotificationName kFileChangedNotificationName = @"FileChangedNoti
 - (void)createLocalWorkspace;
 
 - (void)createCloudWorkspace;
+
+- (void)createTrashWorkspace;
 
 - (void)recover;
 
@@ -38,6 +42,8 @@ static const NSNotificationName kFileChangedNotificationName = @"FileChangedNoti
 - (BOOL)deleteFile:(NSString*)path;
 
 - (BOOL)moveFile:(NSString*)path toNewPath:(NSString*)newPath;
+
+- (BOOL)moveFiletoTrash:(Item *)file;
 
 - (NSDictionary*)attributeOfPath:(NSString*)path;
 

@@ -13,6 +13,8 @@
 
 @property (nonatomic,strong) Item *item;
 
-@property (weak, nonatomic) IBOutlet UIButton *tagBtn;
+@property (weak, nonatomic) IBOutlet UILabel *taglabel;
+
+@property (weak, nonatomic) IBOutlet UIView *tagView;
 
 @end

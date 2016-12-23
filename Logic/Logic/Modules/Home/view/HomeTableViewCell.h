@@ -20,8 +20,11 @@
 @property (weak, nonatomic) IBOutlet UIImageView *img2;
 @property (weak, nonatomic) IBOutlet UIImageView *img3;
 
+@property (nonatomic, assign) BOOL isTrash;
 
 @property (nonatomic, assign) BOOL flag;
 @property (nonatomic,strong) Item *item;
+
+
 
 @end

@@ -13,6 +13,7 @@
 #import "CommonUseViewController.h"
 #import "ImportViewController.h"
 #import "GroupTableViewCell.h"
+#import "TrashViewController.h"
 #import "NewGroupView.h"
 #import "Item.h"
 #import "FileManager.h"
@@ -28,7 +29,6 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
     NSMutableArray *fileArray;
     BOOL needReload;
     NSString *searchWord;
-    Item *root;
     NewGroupView *newGroupView;
 }
 
@@ -39,7 +39,7 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITableView *groupTableView;
 @property (nonatomic,assign) FileManager *fm;
-@property (nonatomic,copy) Item *parentItem;
+@property (nonatomic,copy) Item *root;
 
 @end
 
@@ -50,6 +50,7 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
     [super viewDidLoad];
     self.title=@"笔记";
     _fm = [FileManager sharedManager];
+    _root = _fm.local;
     needReload = YES;
     
     self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
@@ -107,9 +108,6 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
         return;
     }
     needReload = NO;
-    [_fm createCloudWorkspace];
-    [_fm createLocalWorkspace];
-    root = _fm.local;
     fileArray = [NSMutableArray array];
     NSMutableArray *arr=[NSMutableArray array];
     NSPredicate *preFolder = [NSPredicate predicateWithBlock:^BOOL(id  _Nonnull evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
@@ -119,8 +117,10 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
         }
         return NO;
     }];
-    arr = root.itemsCanReach.mutableCopy;
+    arr = _fm.local.itemsCanReach.mutableCopy;
     fileArray=[arr filteredArrayUsingPredicate:preFolder];
+    
+    
     
     NSPredicate *preNote = [NSPredicate predicateWithBlock:^BOOL(id  _Nonnull evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
         Item *i = evaluatedObject;
@@ -129,7 +129,7 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
         }
         return NO;
     }];
-    Item *local = _fm.local;
+    Item *local = _root;
     NSArray *localArray = nil;
     if (searchWord.length == 0) {
         localArray = [local.items filteredArrayUsingPredicate:preNote];
@@ -189,17 +189,9 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
 
 -(void)addnote{
     needReload = YES;
-    if ([Configure sharedConfigure].defaultParent == nil) {
-        [Configure sharedConfigure].defaultParent = _fm.local;
-    }
-    if (![[NSFileManager defaultManager] fileExistsAtPath:[Configure sharedConfigure].defaultParent.fullPath]) {
-        [Configure sharedConfigure].defaultParent = _fm.local;
-    }
-    
     
     EditViewController *vc=[[EditViewController alloc]init];
-    _parentItem = [Configure sharedConfigure].defaultParent;
-    vc.parentItem=_parentItem;
+    vc.parentItem=_root;
     _fm.currentItem = nil;
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -213,6 +205,11 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
 
 - (IBAction)moveToLeftSide:(id)sender {
     [self animateHomeViewToSide:CGRectMake(-250,0,SCREEN_WIDTH,SCREEN_HEIGHT) menu:_rightMenu rect:CGRectMake(SCREEN_WIDTH-250, 0, 250, SCREEN_HEIGHT)];
+}
+
+- (IBAction)moveToTrash:(id)sender {
+    TrashViewController *vc =[[TrashViewController alloc]init];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)animateHomeViewToSide:(CGRect)newViewRect menu:(UIView *)menu rect:(CGRect)viewrect{
@@ -276,27 +273,20 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
 -(void)addGroup{
     newGroupView=[[NewGroupView alloc]initWithSureBlock:^{
         needReload = YES;
-        if ([Configure sharedConfigure].defaultParent == nil) {
-            [Configure sharedConfigure].defaultParent = _fm.local;
-        }
-        if (![[NSFileManager defaultManager] fileExistsAtPath:[Configure sharedConfigure].defaultParent.fullPath]) {
-            [Configure sharedConfigure].defaultParent = _fm.local;
-        }
-        _parentItem = [Configure sharedConfigure].defaultParent;
         
         NSString *name = newGroupView.grpName;
         if (name.length == 0) {
             name = ZHLS(@"UntitledFolder");
         }
         NSString *path = name;
-        if (!_parentItem.root) {
-            path = [_parentItem.path stringByAppendingPathComponent:name];
+        if (!_root.root) {
+            path = [_root.path stringByAppendingPathComponent:name];
         }
         Item *i = [[Item alloc]init];
         i.path = path;
         i.open = YES;
-        i.cloud = _parentItem.cloud;
-        if ([self.parentItem.items containsObject:i]) {
+        i.cloud = _root.cloud;
+        if ([self.root.items containsObject:i]) {
             
         }
         NSString *ret = [[FileManager sharedManager] createFolder:i.fullPath];
@@ -309,7 +299,7 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
         NSString *prePath = i.cloud ? cloudWorkspace() : localWorkspace();
         i.path = [ret stringByReplacingOccurrencesOfString:prePath withString:@""];
         
-        [_parentItem addChild:i];
+        [_root addChild:i];
         [self loadFile];
         [self.groupTableView reloadData];
     }];
@@ -333,7 +323,7 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
         return [noteArray[section][@"items"] count];
     }
     else{
-        return fileArray.count;
+        return fileArray.count+1;
     }
 }
 
@@ -362,10 +352,14 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
         if (cell == nil) {
             cell = [[NSBundle mainBundle] loadNibNamed:@"GroupTableViewCell" owner:self options:nil][0];
         }
-        
-        Item *item = fileArray[indexPath.row];
-        cell.item = item;
-        [cell.tagBtn setTitle:[item.path componentsSeparatedByString:@"/"].lastObject forState:UIControlStateNormal];
+        if(indexPath.row==fileArray.count){
+            cell.taglabel.text=@"全部笔记";
+        }
+        else{
+            Item *item = fileArray[indexPath.row];
+            cell.item = item;
+            cell.taglabel.text=[item.path componentsSeparatedByString:@"/"].lastObject;
+        }
 
         return cell;
     }
@@ -388,7 +382,7 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
             [alertVc addAction:[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 Item *i=noteArray[indexPath.section][@"items"][indexPath.row];
                 [i removeFromParent];
-                [_fm deleteFile:i.fullPath];
+                [_fm moveFiletoTrash:i];
                 [noteArray[indexPath.section][@"items"] removeObjectAtIndex:indexPath.row];
                 [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
             }]];
@@ -426,7 +420,14 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
         [self.navigationController pushViewController:vc animated:YES];
     }
     else{
+        if(indexPath.row==fileArray.count){
+            needReload=YES;
+            _root = _fm.local;
+            [self loadFile];
+            return;
+        }
         NSArray *children;
+        _root = fileArray[indexPath.row];
         Item *i = fileArray[indexPath.row];
         i.open=YES;
         children = [i itemsCanReach];

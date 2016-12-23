@@ -60,16 +60,26 @@
                                 <action selector="recoverDefault:" destination="-1" eventType="touchUpInside" id="hiR-kY-fvf"/>
                             </connections>
                         </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EVN-bX-9Z4">
+                            <rect key="frame" x="0.0" y="43" width="375" height="1"/>
+                            <color key="backgroundColor" red="0.87058823529999996" green="0.96862745100000003" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="CeJ-8B-P2U"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="EVN-bX-9Z4" secondAttribute="trailing" id="2iz-wD-SyL"/>
                         <constraint firstItem="kCm-Lb-dmg" firstAttribute="centerY" secondItem="MAL-Sf-cSl" secondAttribute="centerY" id="DaD-Sz-WSy"/>
                         <constraint firstAttribute="height" constant="44" id="HxM-en-TnY"/>
                         <constraint firstAttribute="bottom" secondItem="GEa-b8-X5A" secondAttribute="bottom" id="J3S-WS-iCW"/>
+                        <constraint firstItem="EVN-bX-9Z4" firstAttribute="leading" secondItem="MAL-Sf-cSl" secondAttribute="leading" id="d7b-cP-0my"/>
                         <constraint firstAttribute="trailing" secondItem="GEa-b8-X5A" secondAttribute="trailing" constant="12" id="fmL-8p-xRO"/>
                         <constraint firstItem="GEa-b8-X5A" firstAttribute="top" secondItem="MAL-Sf-cSl" secondAttribute="top" id="jVY-fx-jb6"/>
                         <constraint firstItem="Dvg-D6-Vhh" firstAttribute="centerX" secondItem="MAL-Sf-cSl" secondAttribute="centerX" id="k3t-qo-VS1"/>
                         <constraint firstItem="Dvg-D6-Vhh" firstAttribute="centerY" secondItem="MAL-Sf-cSl" secondAttribute="centerY" id="m2g-Q4-UKU"/>
+                        <constraint firstAttribute="bottom" secondItem="EVN-bX-9Z4" secondAttribute="bottom" id="qRI-Il-S0B"/>
                         <constraint firstItem="kCm-Lb-dmg" firstAttribute="leading" secondItem="MAL-Sf-cSl" secondAttribute="leading" id="tba-Tc-lXu"/>
                     </constraints>
                 </view>

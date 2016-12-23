@@ -133,6 +133,17 @@
                                         <outlet property="delegate" destination="-1" id="ouY-li-gQk"/>
                                     </connections>
                                 </tableView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Hz-2v-U70">
+                                    <rect key="frame" x="170" y="656" width="80" height="80"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="80" id="BpX-Bf-d3e"/>
+                                        <constraint firstAttribute="width" constant="80" id="Zjb-Ei-Jpl"/>
+                                    </constraints>
+                                    <state key="normal" image="trash"/>
+                                    <connections>
+                                        <action selector="moveToTrash:" destination="-1" eventType="touchUpInside" id="5Mu-A8-oEL"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.16862745098039217" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="deviceRGB"/>
                             <color key="tintColor" red="0.1529411765" green="0.81568627449999997" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -142,7 +153,9 @@
                                 <constraint firstAttribute="trailing" secondItem="Rzy-Hw-1EU" secondAttribute="trailing" id="Mxi-Qe-lpr"/>
                                 <constraint firstItem="Rzy-Hw-1EU" firstAttribute="leading" secondItem="l1m-ru-RRs" secondAttribute="leading" id="PTE-HH-A2L"/>
                                 <constraint firstItem="M1E-Fn-1Al" firstAttribute="leading" secondItem="l1m-ru-RRs" secondAttribute="leading" constant="78" id="RsG-1H-QxQ"/>
+                                <constraint firstAttribute="bottom" secondItem="1Hz-2v-U70" secondAttribute="bottom" id="SkW-e8-OSP"/>
                                 <constraint firstItem="zq2-Ce-Dme" firstAttribute="leading" secondItem="l1m-ru-RRs" secondAttribute="leading" constant="15" id="Vv2-rR-XUA"/>
+                                <constraint firstAttribute="trailing" secondItem="1Hz-2v-U70" secondAttribute="trailing" id="a9J-8o-IUV"/>
                                 <constraint firstItem="zq2-Ce-Dme" firstAttribute="top" secondItem="l1m-ru-RRs" secondAttribute="top" constant="30" id="ivN-Mf-SM8"/>
                                 <constraint firstItem="M1E-Fn-1Al" firstAttribute="centerY" secondItem="zq2-Ce-Dme" secondAttribute="centerY" id="j9M-mJ-Yb9"/>
                                 <constraint firstAttribute="trailing" secondItem="zq2-Ce-Dme" secondAttribute="trailing" constant="15" id="mhx-Th-iDM"/>
@@ -556,5 +569,6 @@
         <image name="arrow_right" width="9" height="17"/>
         <image name="search" width="19" height="16"/>
         <image name="setup" width="22" height="22"/>
+        <image name="trash" width="50" height="50"/>
     </resources>
 </document>

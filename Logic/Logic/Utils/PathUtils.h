@@ -13,6 +13,10 @@ static inline NSString *localWorkspace(){
     return [NSString pathWithComponents:@[documentPath(),@"Logic"]];
 }
 
+static inline NSString *trashWorkspace(){
+    return [NSString pathWithComponents:@[documentPath(),@"Trash"]];
+}
+
 static inline NSString *cloudWorkspace(){
     NSURL *ubiquityURL = [[[NSFileManager defaultManager] URLForUbiquityContainerIdentifier:nil]URLByAppendingPathComponent:@"Documents"];
     return ubiquityURL.path;

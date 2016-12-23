@@ -216,6 +216,7 @@
 
 - (void)keyboardHide:(NSNotification*)noti{
     self.bottom.constant = 0;
+    self.editView.contentInset=UIEdgeInsetsZero;
     [self.view updateConstraints];
 }
 
@@ -223,6 +224,8 @@
     NSDictionary *info = noti.userInfo;
     CGFloat keyboardHeight = kScreenHeight - [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].origin.y;
     self.bottom.constant = keyboardHeight;
+    self.editView.contentInset=UIEdgeInsetsMake(0, 0,keyboardHeight, 0);
+
     [self.view updateConstraints];
 }
 

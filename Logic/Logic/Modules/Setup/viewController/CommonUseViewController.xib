@@ -389,6 +389,13 @@
                         <constraint firstItem="U08-MO-YUn" firstAttribute="top" secondItem="e03-bf-jlO" secondAttribute="top" id="zqW-4j-wD0"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yl8-60-4gL">
+                    <rect key="frame" x="0.0" y="63" width="414" height="1"/>
+                    <color key="backgroundColor" red="0.87058823529999996" green="0.96862745100000003" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="yV1-IY-vSu"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0nv-uP-koO">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -404,11 +411,14 @@
                 <constraint firstItem="p4S-v9-Hwr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NlJ-Tq-geo"/>
                 <constraint firstItem="0nv-uP-koO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="P7F-9F-AVX"/>
                 <constraint firstItem="p4S-v9-Hwr" firstAttribute="top" secondItem="e03-bf-jlO" secondAttribute="bottom" id="VpU-Et-RzL"/>
+                <constraint firstItem="p4S-v9-Hwr" firstAttribute="top" secondItem="Yl8-60-4gL" secondAttribute="bottom" id="chG-Ou-QEp"/>
                 <constraint firstItem="0nv-uP-koO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="diM-ya-ZHx"/>
                 <constraint firstAttribute="bottom" secondItem="p4S-v9-Hwr" secondAttribute="bottom" id="ek7-QH-LaD"/>
                 <constraint firstItem="e03-bf-jlO" firstAttribute="top" secondItem="0nv-uP-koO" secondAttribute="bottom" id="euB-1S-GYV"/>
                 <constraint firstAttribute="trailing" secondItem="p4S-v9-Hwr" secondAttribute="trailing" id="iGi-Iu-5xt"/>
+                <constraint firstItem="Yl8-60-4gL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jra-zW-UXb"/>
                 <constraint firstItem="e03-bf-jlO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zAJ-vT-Qqu"/>
+                <constraint firstAttribute="trailing" secondItem="Yl8-60-4gL" secondAttribute="trailing" id="zZT-ZA-LA7"/>
             </constraints>
         </view>
     </objects>

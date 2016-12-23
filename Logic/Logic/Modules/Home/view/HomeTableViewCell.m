@@ -28,6 +28,35 @@
     for (UIView *subView in self.subviews) {
         if([subView isKindOfClass:NSClassFromString(@"UITableViewCellDeleteConfirmationView")]) {
             _flag=1;
+            if(_isTrash){
+                UIView *collectConfirmationView = subView.subviews[1];
+                for (UIView *collectView in collectConfirmationView.subviews) {
+                    UIImageView *collectImage = [[UIImageView alloc] initWithFrame:CGRectMake((collectView.frame.size.width-25)/2, -14, 25, 25)];
+                    collectImage.contentMode = UIViewContentModeCenter;
+                    collectImage.image = [UIImage imageNamed:@"restore"];
+                    [collectView addSubview:collectImage];
+                    UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake((collectView.frame.size.width-25)/2, collectView.frame.size.height, 25, 17)];
+                    label.font=[UIFont systemFontOfSize:11];
+                    label.text=@"还原";
+                    label.textColor=[UIColor whiteColor];
+                    label.textAlignment = NSTextAlignmentCenter;
+                    [collectView addSubview:label];
+                }
+                UIView *deleteConfirmationView = subView.subviews[0];
+                for (UIView *deleteView in deleteConfirmationView.subviews) {
+                    UIImageView *deleteImage = [[UIImageView alloc] initWithFrame:CGRectMake((deleteView.frame.size.width-25)/2, -14, 25, 25)];
+                    deleteImage.contentMode = UIViewContentModeCenter;
+                    deleteImage.image = [UIImage imageNamed:@"wipeout"];
+                    [deleteView addSubview:deleteImage];
+                    UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake((deleteView.frame.size.width-25)/2, deleteView.frame.size.height, 25, 17)];
+                    label.font=[UIFont systemFontOfSize:11];
+                    label.text=@"清除";
+                    label.textColor=[UIColor whiteColor];
+                    label.textAlignment = NSTextAlignmentCenter;
+                    [deleteView addSubview:label];
+                }
+                return;
+            }
             // 拿到subView之后再获取子控件
             UIView *shareConfirmationView = subView.subviews[2];
             for (UIView *shareView in shareConfirmationView.subviews) {

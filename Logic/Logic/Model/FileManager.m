@@ -40,9 +40,11 @@
         fm = [NSFileManager defaultManager];
         [self createCloudWorkspace];
         [self createLocalWorkspace];
+        [self createTrashWorkspace];
         attributeCache = [NSMutableDictionary dictionary];
         _local.open = YES;
         _cloud.open = YES;
+        _trash.open = YES;
     }
     return self;
 }
@@ -81,16 +83,6 @@
     }
 }
 
-- (void)deleteOtherLanguage
-{
-    NSArray *arr = @[@"Guides",@"使用指南",@"使用說明"];
-    for (NSString *name in arr) {
-        if (![name isEqualToString:@"使用指南"]) {
-            [self deleteFile:[localWorkspace() stringByAppendingPathComponent:name]];
-        }
-    }
-}
-
 - (void)recover
 {
     NSString *wokspace = localWorkspace();
@@ -99,7 +91,6 @@
     NSLog(@"%@",path);
     [zipArchive UnzipOpenFile:path];
     [zipArchive UnzipFileTo:documentPath() overWrite:YES];
-    [self deleteOtherLanguage];
     
     NSString *fileName;
     NSEnumerator *childFilesEnumerator = [[fm subpathsAtPath:wokspace] objectEnumerator];
@@ -141,6 +132,32 @@
         temp.cloud = NO;
         temp.path = fileName;
         [_local addChild:temp];
+    }
+}
+
+- (void)createTrashWorkspace
+{
+    NSString *wokspace = trashWorkspace();
+    if (![fm fileExistsAtPath:wokspace]) {
+        [fm createDirectoryAtPath:wokspace withIntermediateDirectories:YES attributes:nil error:nil];
+        NSLog(@"creating trashWorkspace:%@",wokspace);
+    }
+    
+    NSEnumerator *childFilesEnumerator = [[fm subpathsAtPath:wokspace] objectEnumerator];
+    NSString *fileName;
+    _trash = [[Item alloc]init];
+    _trash.path = @"Trash";
+    _trash.open = YES;
+    _trash.root = YES;
+    while ((fileName = [childFilesEnumerator nextObject]) != nil){
+        if ([fileName componentsSeparatedByString:@"."].count > 1 && ![fileName hasSuffix:@".md"]) {
+            continue;
+        }
+        Item *temp = [[Item alloc]init];
+        temp.open = NO;
+        temp.cloud = NO;
+        temp.path = fileName;
+        [_trash addChild:temp];
     }
 }
 
@@ -249,6 +266,24 @@
     if ([fm fileExistsAtPath:newPath]) {
         return NO;
     }
+    BOOL ret = [fm moveItemAtPath:path toPath:newPath error:&error];
+    
+    if (!ret) {
+        NSLog(@"%@",error);
+        return NO;
+    }
+    [attributeCache removeObjectForKey:path];
+    attributeCache[path] = [fm attributesOfItemAtPath:path error:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kFileChangedNotificationName object:nil];
+    return YES;
+}
+
+- (BOOL)moveFiletoTrash:(Item *)file
+{
+    NSError *error = nil;
+
+    NSString *path=file.fullPath;
+    NSString *newPath=[trashWorkspace() stringByAppendingPathComponent:file.path];
     BOOL ret = [fm moveItemAtPath:path toPath:newPath error:&error];
     
     if (!ret) {

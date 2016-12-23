@@ -130,7 +130,8 @@
     if ([path hasPrefix:localWorkspace()]) {
         path = [path stringByReplacingOccurrencesOfString:localWorkspace() withString:@""];
         _cloud = NO;
-    }else if (cloudWorkspace().length && [path hasPrefix:cloudWorkspace()]) {
+    }
+    else if (cloudWorkspace().length && [path hasPrefix:cloudWorkspace()]) {
         path = [path stringByReplacingOccurrencesOfString:cloudWorkspace() withString:@""];
         _cloud = YES;
     }
