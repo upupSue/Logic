@@ -11,12 +11,15 @@
 #import "Configure.h"
 
 @interface SetupViewController (){
-    float fontsize;
+
 }
 
 @property (weak, nonatomic) IBOutlet UISwitch *switchbtn;
 @property (weak, nonatomic) IBOutlet UILabel *content;
 @property (weak, nonatomic) IBOutlet UISlider *fontSlider;
+@property (weak, nonatomic) IBOutlet UISlider *imgSlider;
+@property (assign, nonatomic) float fontsize;
+@property (assign, nonatomic) float imgValue;
 
 @end
 
@@ -32,8 +35,10 @@
     [attrStr addAttribute:NSStrikethroughStyleAttributeName value:@(NSUnderlinePatternSolid | NSUnderlineStyleSingle) range:NSMakeRange(33, 5)];
     [attrStr addAttribute:NSStrikethroughColorAttributeName value:[UIColor grayColor] range:NSMakeRange(0, attrStr.length)];
     self.content.attributedText = attrStr;
-    
-    _fontSlider.value = [Configure sharedConfigure].fontSize;
+    _fontsize = [Configure sharedConfigure].fontSize;
+    _imgValue = [Configure sharedConfigure].imageResolution;
+    _fontSlider.value = _fontsize;
+    _imgSlider.value = _imgValue;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,7 +51,11 @@
 }
 
 - (IBAction)fontValueChange:(UISlider *)sender {
-    fontsize = sender.value;
+    _fontsize = sender.value;
+}
+
+- (IBAction)imgValueChange:(UISlider *)sender {
+    _imgValue = sender.value;
 }
 
 - (IBAction)goback:(id)sender {
@@ -57,7 +66,8 @@
     UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:@"确认要保存修改吗？" preferredStyle:UIAlertControllerStyleAlert];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil]];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [Configure sharedConfigure].fontSize=fontsize;
+        [Configure sharedConfigure].fontSize=_fontsize;
+        [Configure sharedConfigure].imageResolution = _imgValue;
         [self dismissViewControllerAnimated:YES completion:nil];
     }]];
     [self presentViewController:alertVc animated:YES completion:nil];

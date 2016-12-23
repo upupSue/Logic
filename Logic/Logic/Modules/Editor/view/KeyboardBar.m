@@ -23,7 +23,7 @@ static KeyboardBar *bar = nil;
 
 - (instancetype)init
 {
-    CGFloat w = kScreenWidth / (kDevicePhone ? 8 : 16);
+    CGFloat w = kScreenWidth / 8 ;
     
     self = [super initWithFrame:CGRectMake(0, 0, kScreenWidth, w)];
     self.backgroundColor = [UIColor colorWithRed:200/255.0 green:203/255.0 blue:211/255.0 alpha:1];
@@ -71,7 +71,7 @@ static KeyboardBar *bar = nil;
         [self addSubview:btn];
     }
     
-    if (kDevicePad || [Configure sharedConfigure].hasShownSwipeTips) {
+    if ([Configure sharedConfigure].hasShownSwipeTips) {
         return;
     }
     tipsBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, w)];
@@ -189,7 +189,7 @@ static KeyboardBar *bar = nil;
     [operation setUploadProgressBlock:^(NSUInteger __unused bytesWritten,
                                         long long totalBytesWritten,
                                         long long totalBytesExpectedToWrite) {
-        uploadView.percent = totalBytesWritten/(double)totalBytesExpectedToWrite;
+        uploadView.percent = (double)totalBytesWritten/(double)totalBytesExpectedToWrite;
     }];
     
     [operation start];
