@@ -86,8 +86,11 @@
                             </constraints>
                         </view>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入分组的名称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IHF-HM-B1e">
-                            <rect key="frame" x="10" y="16.5" width="320" height="17"/>
+                            <rect key="frame" x="10" y="10" width="320" height="30"/>
                             <color key="tintColor" red="0.10980392160000001" green="0.80784313730000001" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="dRw-za-6jL"/>
+                            </constraints>
                             <color key="textColor" red="0.68627450980392157" green="0.80000000000000004" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
@@ -224,8 +227,11 @@
                             </constraints>
                         </view>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="为你的分组添加标签" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mHO-Ta-2z2">
-                            <rect key="frame" x="10" y="16.5" width="276" height="17"/>
+                            <rect key="frame" x="10" y="10" width="276" height="30"/>
                             <color key="tintColor" red="0.10980392160000001" green="0.80784313730000001" blue="0.83529411760000005" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="8cJ-dk-u3s"/>
+                            </constraints>
                             <color key="textColor" red="0.68627450980000004" green="0.80000000000000004" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
@@ -502,12 +508,13 @@
                 <outlet property="color3" destination="jL1-yx-H1A" id="Bza-mr-qyE"/>
                 <outlet property="color4" destination="e7M-jx-Pls" id="Cvj-f8-9WR"/>
                 <outlet property="color5" destination="w1l-0S-CeO" id="58w-AZ-2e2"/>
-                <outlet property="groupName" destination="IHF-HM-B1e" id="U4u-5V-cTe"/>
+                <outlet property="nameTxtField" destination="IHF-HM-B1e" id="xZ2-tY-YVI"/>
                 <outlet property="tag1" destination="BpI-f9-2bB" id="xH1-eX-1zF"/>
                 <outlet property="tag2" destination="OEA-KH-WB0" id="JKQ-qq-S5G"/>
                 <outlet property="tag3" destination="OWi-Xl-29G" id="w9E-0H-6EW"/>
                 <outlet property="tag4" destination="zzf-1K-U9f" id="Bfi-GB-gPa"/>
                 <outlet property="tag5" destination="tVE-bt-ucu" id="TOS-5L-ZL3"/>
+                <outlet property="tagTxtField" destination="mHO-Ta-2z2" id="nEQ-RK-jUl"/>
             </connections>
             <point key="canvasLocation" x="32" y="88.5"/>
         </view>

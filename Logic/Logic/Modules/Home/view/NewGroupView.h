@@ -11,12 +11,14 @@
 @interface NewGroupView : UIView
 
 @property (nonatomic,copy) void(^sureBlock)();
-@property (nonatomic,assign) NSString* grpName;
-@property (nonatomic,assign) UIColor* grpColor;
+@property (nonatomic,strong) NSString* grpName;
+@property (nonatomic,assign) NSString* grpColor;
 
+@property (weak, nonatomic) IBOutlet UITextField *nameTxtField;
+@property (weak, nonatomic) IBOutlet UITextField *tagTxtField;
 
 - (instancetype)initWithSureBlock:(void (^)())block;
 
-- (void)show;
+- (void)showAtView:(UIView *)parentview;
 
 @end

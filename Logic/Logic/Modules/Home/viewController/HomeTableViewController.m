@@ -19,6 +19,8 @@
 #import "FileManager.h"
 #import "PathUtils.h"
 #import "Configure.h"
+#import "AFNetworking.h"
+#import "HandlerBusiness.h"
 
 
 static NSString *cellIdentifier = @"homeTableViewCell";
@@ -27,6 +29,8 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
 @interface HomeTableViewController ()<UITextFieldDelegate>{
     NSMutableArray *noteArray;
     NSMutableArray *fileArray;
+    NSMutableArray *colorArray;
+
     BOOL needReload;
     NSString *searchWord;
     NewGroupView *newGroupView;
@@ -86,7 +90,8 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
     [addgroupView addSubview:addgroupbtn];
     _groupTableView.tableFooterView=addgroupView;
     
-    [self loadFile];
+//    [self loadFile];
+    [self loadfolderColor];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -268,6 +273,8 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [super touchesBegan:touches withEvent:event];
     [_searchField resignFirstResponder];
+    [newGroupView.nameTxtField resignFirstResponder];
+    [newGroupView.tagTxtField resignFirstResponder];
 }
 
 -(void)addGroup{
@@ -300,10 +307,12 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
         i.path = [ret stringByReplacingOccurrencesOfString:prePath withString:@""];
         
         [_root addChild:i];
+        [self insertfolderColor:newGroupView.grpColor name:newGroupView.grpName];
         [self loadFile];
+
         [self.groupTableView reloadData];
     }];
-    [newGroupView show];
+    [newGroupView showAtView:self.view];
 }
 
 
@@ -352,13 +361,14 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
         if (cell == nil) {
             cell = [[NSBundle mainBundle] loadNibNamed:@"GroupTableViewCell" owner:self options:nil][0];
         }
-        if(indexPath.row==fileArray.count){
+        if(indexPath.row==0){
             cell.taglabel.text=@"全部笔记";
         }
         else{
-            Item *item = fileArray[indexPath.row];
+            Item *item = fileArray[indexPath.row-1];
             cell.item = item;
             cell.taglabel.text=[item.path componentsSeparatedByString:@"/"].lastObject;
+            cell.tagView.backgroundColor=[UIColor colorWithRGBString:colorArray.count <indexPath.row+1 ?  @"33898e": colorArray[indexPath.row][@"folderColor"]];
         }
 
         return cell;
@@ -420,15 +430,15 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
         [self.navigationController pushViewController:vc animated:YES];
     }
     else{
-        if(indexPath.row==fileArray.count){
+        if(indexPath.row==0){
             needReload=YES;
             _root = _fm.local;
             [self loadFile];
             return;
         }
         NSArray *children;
-        _root = fileArray[indexPath.row];
-        Item *i = fileArray[indexPath.row];
+        _root = fileArray[indexPath.row-1];
+        Item *i = fileArray[indexPath.row-1];
         i.open=YES;
         children = [i itemsCanReach];
         [self listNoteWithSortOption:[Configure sharedConfigure].sortOption arr:children];
@@ -437,5 +447,31 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
     }
 }
 
+-(void)loadfolderColor{
+    colorArray = [[NSMutableArray alloc]init];
+    
+    [HandlerBusiness ServiceWithApicode:ApiCodeGetFolderColor Parameters:nil Success:^(id data , id msg){
+        colorArray = data;
+        [_groupTableView reloadData];
+    }Failed:^(NSInteger code ,id errorMsg){
+        NSLog(@"请求失败---%@", errorMsg);
+    }Complete:^{
+
+    }];
+}
+
+-(void)insertfolderColor:(NSString *)color name:(NSString*)folderName{
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc]init];
+    [parameter setObject:folderName forKey:@"folderName"];
+    [parameter setObject:color forKey:@"folderColor"];
+    
+    [HandlerBusiness ServiceWithApicode:ApiCodeInsertFolderColor Parameters:parameter Success:^(id data , id msg){
+        [_groupTableView reloadData];
+    }Failed:^(NSInteger code ,id errorMsg){
+        NSLog(@"请求失败---%@", errorMsg);
+    }Complete:^{
+        
+    }];
+}
 
 @end
