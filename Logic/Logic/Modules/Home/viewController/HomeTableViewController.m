@@ -92,12 +92,12 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
     _groupTableView.tableFooterView=addgroupView;
     
     [self loadfolderColor];
-    [self loadImage];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:YES];
     [self loadFile];
+    [self loadImage];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -372,18 +372,20 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
         }
         switch (imgArr.count) {
             case 0:
+                cell.imgView.hidden=YES;
+
                 break;
             case 1:
-                [cell.img1 sd_setImageWithURL:[NSURL URLWithString:imgArr[0][@"imageUrl"]] placeholderImage:[UIImage imageNamed:@"setup"]];
+                [cell.img1 sd_setImageWithURL:[NSURL URLWithString:imgArr[0][@"imageUrl"]] placeholderImage:[UIImage imageNamed:@""]];
                 break;
             case 2:
-                [cell.img1 sd_setImageWithURL:[NSURL URLWithString:imgArr[0][@"imageUrl"]] placeholderImage:[UIImage imageNamed:@"setup"]];
-                [cell.img2 sd_setImageWithURL:[NSURL URLWithString:imgArr[1][@"imageUrl"]] placeholderImage:[UIImage imageNamed:@"setup"]];
+                [cell.img1 sd_setImageWithURL:[NSURL URLWithString:imgArr[0][@"imageUrl"]] placeholderImage:[UIImage imageNamed:@""]];
+                [cell.img2 sd_setImageWithURL:[NSURL URLWithString:imgArr[1][@"imageUrl"]] placeholderImage:[UIImage imageNamed:@""]];
                 break;
             case 3:
-                [cell.img1 sd_setImageWithURL:[NSURL URLWithString:imgArr[0][@"imageUrl"]] placeholderImage:[UIImage imageNamed:@"setup"]];
-                [cell.img2 sd_setImageWithURL:[NSURL URLWithString:imgArr[1][@"imageUrl"]] placeholderImage:[UIImage imageNamed:@"setup"]];
-                [cell.img3 sd_setImageWithURL:[NSURL URLWithString:imgArr[2][@"imageUrl"]] placeholderImage:[UIImage imageNamed:@"setup"]];
+                [cell.img1 sd_setImageWithURL:[NSURL URLWithString:imgArr[0][@"imageUrl"]] placeholderImage:[UIImage imageNamed:@""]];
+                [cell.img2 sd_setImageWithURL:[NSURL URLWithString:imgArr[1][@"imageUrl"]] placeholderImage:[UIImage imageNamed:@""]];
+                [cell.img3 sd_setImageWithURL:[NSURL URLWithString:imgArr[2][@"imageUrl"]] placeholderImage:[UIImage imageNamed:@""]];
                 break;
             default:
                 break;

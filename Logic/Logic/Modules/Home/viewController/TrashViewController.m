@@ -107,7 +107,7 @@ static NSString *cellIdentifier = @"homeTableViewCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 190.f;
+    return 90.f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -117,8 +117,8 @@ static NSString *cellIdentifier = @"homeTableViewCell";
     }
         
     Item *item = trashArray[indexPath.section][@"items"][indexPath.row];
-    cell.item = item;
     cell.isTrash=YES;
+    cell.item = item;
     return cell;
 
 }

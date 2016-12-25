@@ -87,7 +87,6 @@ static KeyboardBar *bar = nil;
     [self dismissTips];
 }
 
-
 - (void)dismissTips
 {
     if (!tipsBtn) {

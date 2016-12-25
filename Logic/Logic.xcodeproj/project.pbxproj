@@ -14,16 +14,6 @@
 		C5837A191E00640C00958949 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5837A181E00640C00958949 /* Assets.xcassets */; };
 		C5837A271E00640C00958949 /* LogicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C5837A261E00640C00958949 /* LogicTests.m */; };
 		C5837A321E00640C00958949 /* LogicUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C5837A311E00640C00958949 /* LogicUITests.m */; };
-		C5837A891E00644200958949 /* hoedown_html_patch.c in Sources */ = {isa = PBXBuildFile; fileRef = C5837A551E00644200958949 /* hoedown_html_patch.c */; };
-		C5837A8A1E00644200958949 /* autolink.c in Sources */ = {isa = PBXBuildFile; fileRef = C5837A591E00644200958949 /* autolink.c */; };
-		C5837A8B1E00644200958949 /* buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = C5837A5B1E00644200958949 /* buffer.c */; };
-		C5837A8C1E00644200958949 /* document.c in Sources */ = {isa = PBXBuildFile; fileRef = C5837A5D1E00644200958949 /* document.c */; };
-		C5837A8D1E00644200958949 /* escape.c in Sources */ = {isa = PBXBuildFile; fileRef = C5837A5F1E00644200958949 /* escape.c */; };
-		C5837A8E1E00644200958949 /* html.c in Sources */ = {isa = PBXBuildFile; fileRef = C5837A611E00644200958949 /* html.c */; };
-		C5837A8F1E00644200958949 /* html_blocks.c in Sources */ = {isa = PBXBuildFile; fileRef = C5837A631E00644200958949 /* html_blocks.c */; };
-		C5837A901E00644200958949 /* html_smartypants.c in Sources */ = {isa = PBXBuildFile; fileRef = C5837A641E00644200958949 /* html_smartypants.c */; };
-		C5837A911E00644200958949 /* stack.c in Sources */ = {isa = PBXBuildFile; fileRef = C5837A651E00644200958949 /* stack.c */; };
-		C5837A921E00644200958949 /* version.c in Sources */ = {isa = PBXBuildFile; fileRef = C5837A671E00644200958949 /* version.c */; };
 		C5837A931E00644200958949 /* libGHMarkdownParser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5837A6B1E00644200958949 /* libGHMarkdownParser.a */; };
 		C5837A941E00644200958949 /* libGHMarkdownParser_i386.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C5837A6C1E00644200958949 /* libGHMarkdownParser_i386.a */; };
 		C5837A971E00644200958949 /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = C5837A761E00644200958949 /* ioapi.c */; };
@@ -83,7 +73,6 @@
 		C58BC95C1E0298550096498A /* MMSpanParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C58BC9531E0298550096498A /* MMSpanParser.m */; };
 		C5AB63C51E0BBA8E00F3398D /* FontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AB63C31E0BBA8E00F3398D /* FontViewController.m */; };
 		C5AB63C61E0BBA8E00F3398D /* FontViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5AB63C41E0BBA8E00F3398D /* FontViewController.xib */; };
-		C5AB63C71E0C0DE800F3398D /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = C5837B421E006AF700958949 /* about.html */; };
 		C5AB63C81E0C0DE800F3398D /* format.html in Resources */ = {isa = PBXBuildFile; fileRef = C5837B431E006AF700958949 /* format.html */; };
 		C5AB63CA1E0C4FC900F3398D /* Logic.zip in Resources */ = {isa = PBXBuildFile; fileRef = C5AB63C91E0C4FC900F3398D /* Logic.zip */; };
 		C5AB78061E07A61E00713518 /* EditView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AB77F71E07A61E00713518 /* EditView.m */; };
@@ -138,6 +127,17 @@
 		C5F9540F1E102D22001B7CF0 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F953FD1E102D22001B7CF0 /* UIImageView+HighlightedWebCache.m */; };
 		C5F954101E102D22001B7CF0 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F953FF1E102D22001B7CF0 /* UIImageView+WebCache.m */; };
 		C5F954111E102D22001B7CF0 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C5F954011E102D22001B7CF0 /* UIView+WebCacheOperation.m */; };
+		C5F954131E106322001B7CF0 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = C5F954121E106322001B7CF0 /* about.html */; };
+		C5F954291E1064A5001B7CF0 /* hoedown_html_patch.c in Sources */ = {isa = PBXBuildFile; fileRef = C5F954151E1064A5001B7CF0 /* hoedown_html_patch.c */; };
+		C5F9542A1E1064A5001B7CF0 /* autolink.c in Sources */ = {isa = PBXBuildFile; fileRef = C5F954191E1064A5001B7CF0 /* autolink.c */; };
+		C5F9542B1E1064A5001B7CF0 /* buffer.c in Sources */ = {isa = PBXBuildFile; fileRef = C5F9541B1E1064A5001B7CF0 /* buffer.c */; };
+		C5F9542C1E1064A5001B7CF0 /* document.c in Sources */ = {isa = PBXBuildFile; fileRef = C5F9541D1E1064A5001B7CF0 /* document.c */; };
+		C5F9542D1E1064A5001B7CF0 /* escape.c in Sources */ = {isa = PBXBuildFile; fileRef = C5F9541F1E1064A5001B7CF0 /* escape.c */; };
+		C5F9542E1E1064A5001B7CF0 /* html.c in Sources */ = {isa = PBXBuildFile; fileRef = C5F954211E1064A5001B7CF0 /* html.c */; };
+		C5F9542F1E1064A5001B7CF0 /* html_blocks.c in Sources */ = {isa = PBXBuildFile; fileRef = C5F954231E1064A5001B7CF0 /* html_blocks.c */; };
+		C5F954301E1064A5001B7CF0 /* html_smartypants.c in Sources */ = {isa = PBXBuildFile; fileRef = C5F954241E1064A5001B7CF0 /* html_smartypants.c */; };
+		C5F954311E1064A5001B7CF0 /* stack.c in Sources */ = {isa = PBXBuildFile; fileRef = C5F954251E1064A5001B7CF0 /* stack.c */; };
+		C5F954321E1064A5001B7CF0 /* version.c in Sources */ = {isa = PBXBuildFile; fileRef = C5F954271E1064A5001B7CF0 /* version.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,25 +173,6 @@
 		C5837A2D1E00640C00958949 /* LogicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5837A311E00640C00958949 /* LogicUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogicUITests.m; sourceTree = "<group>"; };
 		C5837A331E00640C00958949 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C5837A551E00644200958949 /* hoedown_html_patch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hoedown_html_patch.c; sourceTree = "<group>"; };
-		C5837A561E00644200958949 /* hoedown_html_patch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hoedown_html_patch.h; sourceTree = "<group>"; };
-		C5837A571E00644200958949 /* HoedownHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoedownHelper.h; sourceTree = "<group>"; };
-		C5837A591E00644200958949 /* autolink.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = autolink.c; sourceTree = "<group>"; };
-		C5837A5A1E00644200958949 /* autolink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = autolink.h; sourceTree = "<group>"; };
-		C5837A5B1E00644200958949 /* buffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = buffer.c; sourceTree = "<group>"; };
-		C5837A5C1E00644200958949 /* buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer.h; sourceTree = "<group>"; };
-		C5837A5D1E00644200958949 /* document.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = document.c; sourceTree = "<group>"; };
-		C5837A5E1E00644200958949 /* document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = document.h; sourceTree = "<group>"; };
-		C5837A5F1E00644200958949 /* escape.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = escape.c; sourceTree = "<group>"; };
-		C5837A601E00644200958949 /* escape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = escape.h; sourceTree = "<group>"; };
-		C5837A611E00644200958949 /* html.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = html.c; sourceTree = "<group>"; };
-		C5837A621E00644200958949 /* html.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = html.h; sourceTree = "<group>"; };
-		C5837A631E00644200958949 /* html_blocks.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = html_blocks.c; sourceTree = "<group>"; };
-		C5837A641E00644200958949 /* html_smartypants.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = html_smartypants.c; sourceTree = "<group>"; };
-		C5837A651E00644200958949 /* stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stack.c; sourceTree = "<group>"; };
-		C5837A661E00644200958949 /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
-		C5837A671E00644200958949 /* version.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = version.c; sourceTree = "<group>"; };
-		C5837A681E00644200958949 /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
 		C5837A6A1E00644200958949 /* GHMarkdownParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHMarkdownParser.h; sourceTree = "<group>"; };
 		C5837A6B1E00644200958949 /* libGHMarkdownParser.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGHMarkdownParser.a; sourceTree = "<group>"; };
 		C5837A6C1E00644200958949 /* libGHMarkdownParser_i386.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGHMarkdownParser_i386.a; sourceTree = "<group>"; };
@@ -225,7 +206,6 @@
 		C5837AE71E0068AC00958949 /* ZHRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHRequest.m; sourceTree = "<group>"; };
 		C5837AE81E0068AC00958949 /* ZHRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZHRequest.h; sourceTree = "<group>"; };
 		C5837AEE1E006A2700958949 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		C5837B421E006AF700958949 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
 		C5837B431E006AF700958949 /* format.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = format.html; sourceTree = "<group>"; };
 		C5837B441E006AF700958949 /* icon_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_large.png; sourceTree = "<group>"; };
 		C5837B451E006AF700958949 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -379,6 +359,26 @@
 		C5F953FF1E102D22001B7CF0 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		C5F954001E102D22001B7CF0 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		C5F954011E102D22001B7CF0 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		C5F954121E106322001B7CF0 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
+		C5F954151E1064A5001B7CF0 /* hoedown_html_patch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hoedown_html_patch.c; sourceTree = "<group>"; };
+		C5F954161E1064A5001B7CF0 /* hoedown_html_patch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hoedown_html_patch.h; sourceTree = "<group>"; };
+		C5F954171E1064A5001B7CF0 /* HoedownHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoedownHelper.h; sourceTree = "<group>"; };
+		C5F954191E1064A5001B7CF0 /* autolink.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = autolink.c; sourceTree = "<group>"; };
+		C5F9541A1E1064A5001B7CF0 /* autolink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = autolink.h; sourceTree = "<group>"; };
+		C5F9541B1E1064A5001B7CF0 /* buffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = buffer.c; sourceTree = "<group>"; };
+		C5F9541C1E1064A5001B7CF0 /* buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer.h; sourceTree = "<group>"; };
+		C5F9541D1E1064A5001B7CF0 /* document.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = document.c; sourceTree = "<group>"; };
+		C5F9541E1E1064A5001B7CF0 /* document.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = document.h; sourceTree = "<group>"; };
+		C5F9541F1E1064A5001B7CF0 /* escape.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = escape.c; sourceTree = "<group>"; };
+		C5F954201E1064A5001B7CF0 /* escape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = escape.h; sourceTree = "<group>"; };
+		C5F954211E1064A5001B7CF0 /* html.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = html.c; sourceTree = "<group>"; };
+		C5F954221E1064A5001B7CF0 /* html.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = html.h; sourceTree = "<group>"; };
+		C5F954231E1064A5001B7CF0 /* html_blocks.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = html_blocks.c; sourceTree = "<group>"; };
+		C5F954241E1064A5001B7CF0 /* html_smartypants.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = html_smartypants.c; sourceTree = "<group>"; };
+		C5F954251E1064A5001B7CF0 /* stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stack.c; sourceTree = "<group>"; };
+		C5F954261E1064A5001B7CF0 /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
+		C5F954271E1064A5001B7CF0 /* version.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = version.c; sourceTree = "<group>"; };
+		C5F954281E1064A5001B7CF0 /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -485,45 +485,11 @@
 				C5F953C41E0FC012001B7CF0 /* AFNetworking */,
 				C5F953891E0E8783001B7CF0 /* YYModel */,
 				C58BC9401E0298550096498A /* Source */,
-				C5837A541E00644200958949 /* Hoedown */,
 				C5837A691E00644200958949 /* MarkDownRender */,
 				C5837A731E00644200958949 /* ZipArchive */,
+				C5F954141E1064A5001B7CF0 /* Hoedown */,
 			);
 			path = ThirdLib;
-			sourceTree = "<group>";
-		};
-		C5837A541E00644200958949 /* Hoedown */ = {
-			isa = PBXGroup;
-			children = (
-				C5837A551E00644200958949 /* hoedown_html_patch.c */,
-				C5837A561E00644200958949 /* hoedown_html_patch.h */,
-				C5837A571E00644200958949 /* HoedownHelper.h */,
-				C5837A581E00644200958949 /* src */,
-			);
-			path = Hoedown;
-			sourceTree = "<group>";
-		};
-		C5837A581E00644200958949 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				C5837A591E00644200958949 /* autolink.c */,
-				C5837A5A1E00644200958949 /* autolink.h */,
-				C5837A5B1E00644200958949 /* buffer.c */,
-				C5837A5C1E00644200958949 /* buffer.h */,
-				C5837A5D1E00644200958949 /* document.c */,
-				C5837A5E1E00644200958949 /* document.h */,
-				C5837A5F1E00644200958949 /* escape.c */,
-				C5837A601E00644200958949 /* escape.h */,
-				C5837A611E00644200958949 /* html.c */,
-				C5837A621E00644200958949 /* html.h */,
-				C5837A631E00644200958949 /* html_blocks.c */,
-				C5837A641E00644200958949 /* html_smartypants.c */,
-				C5837A651E00644200958949 /* stack.c */,
-				C5837A661E00644200958949 /* stack.h */,
-				C5837A671E00644200958949 /* version.c */,
-				C5837A681E00644200958949 /* version.h */,
-			);
-			path = src;
 			sourceTree = "<group>";
 		};
 		C5837A691E00644200958949 /* MarkDownRender */ = {
@@ -667,7 +633,7 @@
 		C5837B411E006AF700958949 /* html */ = {
 			isa = PBXGroup;
 			children = (
-				C5837B421E006AF700958949 /* about.html */,
+				C5F954121E106322001B7CF0 /* about.html */,
 				C5837B431E006AF700958949 /* format.html */,
 			);
 			path = html;
@@ -791,11 +757,11 @@
 			children = (
 				C5AB77F61E07A61E00713518 /* EditView.h */,
 				C5AB77F71E07A61E00713518 /* EditView.m */,
+				C5AB77FB1E07A61E00713518 /* KeyboardBar.h */,
+				C5AB77FC1E07A61E00713518 /* KeyboardBar.m */,
 				C5AB77F81E07A61E00713518 /* ImageUploadingView.h */,
 				C5AB77F91E07A61E00713518 /* ImageUploadingView.m */,
 				C5AB77FA1E07A61E00713518 /* ImageUploadingView.xib */,
-				C5AB77FB1E07A61E00713518 /* KeyboardBar.h */,
-				C5AB77FC1E07A61E00713518 /* KeyboardBar.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -925,6 +891,40 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		C5F954141E1064A5001B7CF0 /* Hoedown */ = {
+			isa = PBXGroup;
+			children = (
+				C5F954151E1064A5001B7CF0 /* hoedown_html_patch.c */,
+				C5F954161E1064A5001B7CF0 /* hoedown_html_patch.h */,
+				C5F954171E1064A5001B7CF0 /* HoedownHelper.h */,
+				C5F954181E1064A5001B7CF0 /* src */,
+			);
+			path = Hoedown;
+			sourceTree = "<group>";
+		};
+		C5F954181E1064A5001B7CF0 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				C5F954191E1064A5001B7CF0 /* autolink.c */,
+				C5F9541A1E1064A5001B7CF0 /* autolink.h */,
+				C5F9541B1E1064A5001B7CF0 /* buffer.c */,
+				C5F9541C1E1064A5001B7CF0 /* buffer.h */,
+				C5F9541D1E1064A5001B7CF0 /* document.c */,
+				C5F9541E1E1064A5001B7CF0 /* document.h */,
+				C5F9541F1E1064A5001B7CF0 /* escape.c */,
+				C5F954201E1064A5001B7CF0 /* escape.h */,
+				C5F954211E1064A5001B7CF0 /* html.c */,
+				C5F954221E1064A5001B7CF0 /* html.h */,
+				C5F954231E1064A5001B7CF0 /* html_blocks.c */,
+				C5F954241E1064A5001B7CF0 /* html_smartypants.c */,
+				C5F954251E1064A5001B7CF0 /* stack.c */,
+				C5F954261E1064A5001B7CF0 /* stack.h */,
+				C5F954271E1064A5001B7CF0 /* version.c */,
+				C5F954281E1064A5001B7CF0 /* version.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1034,7 +1034,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5AB63C71E0C0DE800F3398D /* about.html in Resources */,
 				C5AB63C81E0C0DE800F3398D /* format.html in Resources */,
 				C5837B841E006AF700958949 /* image@2x.png in Resources */,
 				C5AB78251E08D6F200713518 /* GroupTableViewCell.xib in Resources */,
@@ -1081,6 +1080,7 @@
 				C5AB78201E07CDE800713518 /* ImportViewController.xib in Resources */,
 				C5837B8D1E006AF700958949 /* unchecked@2x.png in Resources */,
 				C5837B7D1E006AF700958949 /* checked@2x.png in Resources */,
+				C5F954131E106322001B7CF0 /* about.html in Resources */,
 				C5AB78131E07A63800713518 /* SetupViewController.xib in Resources */,
 				C5837B7A1E006AF700958949 /* cell_export.png in Resources */,
 			);
@@ -1109,13 +1109,12 @@
 			files = (
 				C5AB78121E07A63800713518 /* SetupViewController.m in Sources */,
 				C5F953DB1E0FC012001B7CF0 /* AFNetworkReachabilityManager.m in Sources */,
+				C5F9542D1E1064A5001B7CF0 /* escape.c in Sources */,
 				C5AB63C51E0BBA8E00F3398D /* FontViewController.m in Sources */,
 				C5F953881E0E8723001B7CF0 /* HandlerBusiness.m in Sources */,
-				C5837A901E00644200958949 /* html_smartypants.c in Sources */,
 				C5837AE61E0065CF00958949 /* ZHUtils.m in Sources */,
 				C58BC95C1E0298550096498A /* MMSpanParser.m in Sources */,
 				C5F9540D1E102D22001B7CF0 /* UIImage+GIF.m in Sources */,
-				C5837A8A1E00644200958949 /* autolink.c in Sources */,
 				C5837A9B1E00644200958949 /* ZipArchive.mm in Sources */,
 				C5F954101E102D22001B7CF0 /* UIImageView+WebCache.m in Sources */,
 				C5F953E01E0FC012001B7CF0 /* AFURLSessionManager.m in Sources */,
@@ -1124,19 +1123,22 @@
 				C5F954081E102D22001B7CF0 /* SDWebImageDownloader.m in Sources */,
 				C5F46EC31E05337900840F6D /* Configure.m in Sources */,
 				C58BC9551E0298550096498A /* MMDocument.m in Sources */,
+				C5F954321E1064A5001B7CF0 /* version.c in Sources */,
 				C58BC9581E0298550096498A /* MMHTMLParser.m in Sources */,
 				C5837A991E00644200958949 /* unzip.c in Sources */,
 				C5F9540F1E102D22001B7CF0 /* UIImageView+HighlightedWebCache.m in Sources */,
 				C5F953DC1E0FC012001B7CF0 /* AFSecurityPolicy.m in Sources */,
+				C5F9542E1E1064A5001B7CF0 /* html.c in Sources */,
 				C5F46EC81E05337900840F6D /* MarkdownSyntaxModel.m in Sources */,
+				C5F9542C1E1064A5001B7CF0 /* document.c in Sources */,
 				C5F46EC71E05337900840F6D /* MarkdownSyntaxGenerator.m in Sources */,
 				C5F953DF1E0FC012001B7CF0 /* AFURLResponseSerialization.m in Sources */,
 				C5F9540E1E102D22001B7CF0 /* UIImage+MultiFormat.m in Sources */,
 				C5F953D91E0FC012001B7CF0 /* AFHTTPRequestOperationManager.m in Sources */,
 				C5837AD61E00646300958949 /* HomeTableViewController.m in Sources */,
 				C57AB8CA1E0D72D5007DF635 /* TrashViewController.m in Sources */,
-				C5837A921E00644200958949 /* version.c in Sources */,
 				C5F954031E102D22001B7CF0 /* README.md in Sources */,
+				C5F954311E1064A5001B7CF0 /* stack.c in Sources */,
 				C5F953D81E0FC012001B7CF0 /* AFHTTPRequestOperation.m in Sources */,
 				C5F954041E102D22001B7CF0 /* NSData+ImageContentType.m in Sources */,
 				C58BC95A1E0298550096498A /* MMParser.m in Sources */,
@@ -1147,28 +1149,27 @@
 				C5837A9A1E00644200958949 /* zip.c in Sources */,
 				C5F953DE1E0FC012001B7CF0 /* AFURLRequestSerialization.m in Sources */,
 				C5AB780D1E07A61E00713518 /* PreviewViewController.m in Sources */,
-				C5837A8B1E00644200958949 /* buffer.c in Sources */,
+				C5F9542F1E1064A5001B7CF0 /* html_blocks.c in Sources */,
+				C5F954301E1064A5001B7CF0 /* html_smartypants.c in Sources */,
 				C5837A111E00640B00958949 /* AppDelegate.m in Sources */,
 				C5F46EC41E05337900840F6D /* FileManager.m in Sources */,
 				C5AB78241E08D6F200713518 /* GroupTableViewCell.m in Sources */,
 				C5F953DA1E0FC012001B7CF0 /* AFHTTPSessionManager.m in Sources */,
 				C5AB78091E07A61E00713518 /* KeyboardBar.m in Sources */,
+				C5F9542A1E1064A5001B7CF0 /* autolink.c in Sources */,
 				C58BC95B1E0298550096498A /* MMScanner.m in Sources */,
-				C5837A911E00644200958949 /* stack.c in Sources */,
 				C5AB78071E07A61E00713518 /* ImageUploadingView.m in Sources */,
 				C58BC9571E0298550096498A /* MMGenerator.m in Sources */,
 				C5F953DD1E0FC012001B7CF0 /* AFURLConnectionOperation.m in Sources */,
 				C5F9540B1E102D22001B7CF0 /* SDWebImagePrefetcher.m in Sources */,
-				C5837A8D1E00644200958949 /* escape.c in Sources */,
 				C5F46EC51E05337900840F6D /* HighLightModel.m in Sources */,
 				C5F954051E102D22001B7CF0 /* SDImageCache.m in Sources */,
-				C5837A8C1E00644200958949 /* document.c in Sources */,
 				C5837AD41E00646300958949 /* HomeTableViewCell.m in Sources */,
-				C5837A8F1E00644200958949 /* html_blocks.c in Sources */,
 				C5F954111E102D22001B7CF0 /* UIView+WebCacheOperation.m in Sources */,
 				C5AB781A1E07C64700713518 /* CommonUseViewController.m in Sources */,
 				C5AB780A1E07A61E00713518 /* EditViewController.m in Sources */,
 				C5F954061E102D22001B7CF0 /* SDWebImageCompat.m in Sources */,
+				C5F9542B1E1064A5001B7CF0 /* buffer.c in Sources */,
 				C5F9540A1E102D22001B7CF0 /* SDWebImageManager.m in Sources */,
 				C5837A971E00644200958949 /* ioapi.c in Sources */,
 				C58BC9561E0298550096498A /* MMElement.m in Sources */,
@@ -1180,9 +1181,8 @@
 				C5F954091E102D22001B7CF0 /* SDWebImageDownloaderOperation.m in Sources */,
 				C5C3E7E11E0964C400A17C8A /* NewGroupView.m in Sources */,
 				C5AB78061E07A61E00713518 /* EditView.m in Sources */,
-				C5837A891E00644200958949 /* hoedown_html_patch.c in Sources */,
-				C5837A8E1E00644200958949 /* html.c in Sources */,
 				C5837A0E1E00640B00958949 /* main.m in Sources */,
+				C5F954291E1064A5001B7CF0 /* hoedown_html_patch.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

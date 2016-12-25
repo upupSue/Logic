@@ -16,4 +16,5 @@ extern NSDictionary* AttributesFromMarkdownSyntaxType(MarkdownSyntaxType v);
 
 @interface MarkdownSyntaxGenerator : NSObject
 - (NSArray *)syntaxModelsForText:(NSString *) text;
+
 @end

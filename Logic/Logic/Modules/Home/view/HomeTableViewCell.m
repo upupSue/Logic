@@ -7,6 +7,7 @@
 //
 
 #import "HomeTableViewCell.h"
+#import "PathUtils.h"
 
 
 @implementation HomeTableViewCell
@@ -111,7 +112,15 @@
 
 - (void)setItem:(Item *)item
 {
-    NSString *text = [NSString stringWithContentsOfFile:item.fullPath encoding:NSUTF8StringEncoding error:nil];
+    NSString *text;
+
+    if(_isTrash){
+        NSString* fullPath=[trashWorkspace() stringByAppendingPathComponent:item.path];
+        text= [NSString stringWithContentsOfFile:fullPath encoding:NSUTF8StringEncoding error:nil];
+    }
+    else {
+        text = [NSString stringWithContentsOfFile:item.fullPath encoding:NSUTF8StringEncoding error:nil];}
+    
     text = [text stringByReplacingOccurrencesOfString:@"\r" withString:@""];
     text = [text stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     _item = item;

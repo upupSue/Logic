@@ -53,7 +53,6 @@ NSString *const ApiCodeInsertImage=@"insertImage";
 
 +(NSDictionary *)mapModel
 {
-    //TODO:对应 model
     return @{
 //             ApiCodeGetUserInfo:@"GetUserInfoModel",
              };

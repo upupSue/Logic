@@ -15,12 +15,12 @@
 
 @end
 
+
 @interface KeyboardBar : UIScrollView <UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIScrollViewDelegate>
 
 @property (nonatomic,weak) UITextView *editView;
 @property (nonatomic,weak) UIViewController *vc;
 @property (nonatomic,weak) id<KeyboardBarDelegate> inputDelegate;
-
 @property (nonatomic,weak) Item *item;
 
 

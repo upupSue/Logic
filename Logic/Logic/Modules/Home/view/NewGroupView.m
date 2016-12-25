@@ -24,10 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *color5;
 
 
-
-
 @end
-
 
 
 @implementation NewGroupView
@@ -128,7 +125,6 @@
 
 - (IBAction)sureAdd:(id)sender {
     _grpName=_nameTxtField.text;
-//    [Configure sharedConfigure].themeColor = _grpColor;
     [self dismiss];
     if (self.sureBlock) {
         self.sureBlock();

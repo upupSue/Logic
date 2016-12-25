@@ -32,7 +32,6 @@
     if (self == nil) {
         return nil;
     }
-
     placeholderLable = [[UILabel alloc]initWithFrame:CGRectMake(5, 8, 100, 20)];
     placeholderLable.font = [UIFont systemFontOfSize:14];
     placeholderLable.text = ZHLS(@"StartEdit");
@@ -60,7 +59,6 @@
 
 - (void)updateSyntax {
     placeholderLable.hidden = self.text.length != 0;
-
     if (self.markedTextRange) { //中文选字的时候别刷新
         return;
     }
@@ -69,12 +67,9 @@
 
 - (void)highLightText
 {
-    NSArray *models = [self.markdownSyntaxGenerator syntaxModelsForText:self.text];
-    
+    NSArray *models = [self.markdownSyntaxGenerator syntaxModelsForText:self.text];    
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:self.text];
-    
     UIFont *font = [UIFont fontWithName:[Configure sharedConfigure].fontName size:[Configure sharedConfigure].fontSize];
-
     [attributedString addAttributes:@{
                                       NSFontAttributeName : font ? font : [UIFont systemFontOfSize:[Configure sharedConfigure].fontSize],
                                       NSForegroundColorAttributeName : [UIColor colorWithRGBString:@"0f2f2f"]
@@ -83,7 +78,6 @@
     for (MarkdownSyntaxModel *model in models) {
         [attributedString addAttributes:AttributesFromMarkdownSyntaxType(model.type) range:model.range];
     }
-
     [self updateAttributedText:attributedString];
 }
 
