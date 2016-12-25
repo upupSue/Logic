@@ -10,6 +10,8 @@
 
 extern NSString *const ApiCodeGetFolderColor;
 extern NSString *const ApiCodeInsertFolderColor;
+extern NSString *const ApiCodeGetImage;
+extern NSString *const ApiCodeInsertImage;
 
 @interface HandlerBusiness : AFHTTPSessionManager
 

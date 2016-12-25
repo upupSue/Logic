@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Item.h"
 
 @protocol KeyboardBarDelegate <NSObject>
 
@@ -19,5 +20,8 @@
 @property (nonatomic,weak) UITextView *editView;
 @property (nonatomic,weak) UIViewController *vc;
 @property (nonatomic,weak) id<KeyboardBarDelegate> inputDelegate;
+
+@property (nonatomic,weak) Item *item;
+
 
 @end

@@ -14,6 +14,8 @@ static HandlerBusiness *_sharedManager = nil;
 static dispatch_once_t onceToken;
 NSString *const ApiCodeGetFolderColor = @"getFolderColor";
 NSString *const ApiCodeInsertFolderColor=@"insertFolderColor";
+NSString *const ApiCodeGetImage=@"getImage";
+NSString *const ApiCodeInsertImage=@"insertImage";
 
 @implementation HandlerBusiness
 

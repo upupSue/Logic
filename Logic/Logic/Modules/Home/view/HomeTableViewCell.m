@@ -104,37 +104,18 @@
     }
 }
 
-
--(void)addImgtoView:(NSArray *)imgarr{
-    switch (imgarr.count) {
-        case 0:
-            break;
-        case 1:
-            _img1.image=[UIImage imageNamed:imgarr[0]];
-            break;
-        case 2:
-            _img1.image=[UIImage imageNamed:imgarr[1]];
-            break;
-        case 3:
-            _img1.image=[UIImage imageNamed:imgarr[2]];
-            break;
-        default:
-            _img1.image=[UIImage imageNamed:imgarr[2]];
-            break;
-    }
-}
-
-
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
 }
 
 - (void)setItem:(Item *)item
 {
+    NSString *text = [NSString stringWithContentsOfFile:item.fullPath encoding:NSUTF8StringEncoding error:nil];
+    text = [text stringByReplacingOccurrencesOfString:@"\r" withString:@""];
+    text = [text stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     _item = item;
     _titleLabel.text = item.name;
+    _contentLabel.text=text;
 }
 @end

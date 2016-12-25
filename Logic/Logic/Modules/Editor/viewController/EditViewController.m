@@ -15,12 +15,14 @@
 #import "AppDelegate.h"
 #import "PathUtils.h"
 
-@interface EditViewController () <UITextViewDelegate,KeyboardBarDelegate>
+@interface EditViewController () <UITextViewDelegate,KeyboardBarDelegate>{
+}
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottom;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leading;
 @property (weak, nonatomic) IBOutlet UIView *addView;
 @property (weak, nonatomic) IBOutlet UIView *centerview;
+@property (strong, nonatomic) KeyboardBar *bar;
 
 @end
 
@@ -67,13 +69,13 @@
 
 - (void)viewDidLayoutSubviews{
     if ([Configure sharedConfigure].keyboardAssist && [Configure sharedConfigure].landscapeEdit == NO){
-        KeyboardBar *bar = [[KeyboardBar alloc]init];
-        bar.editView = _editView;
-        bar.vc = self;
-        bar.inputDelegate = self;
-        _editView.inputAccessoryView = bar;
+        _bar = [[KeyboardBar alloc]init];
+        _bar.editView = _editView;
+        _bar.vc = self;
+        _bar.inputDelegate = self;
+        _bar.item=fm.currentItem;
+        _editView.inputAccessoryView = _bar;
     }
-    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [self loadFile];
@@ -113,6 +115,7 @@
     }
     NSData *content = [self.editView.text dataUsingEncoding:NSUTF8StringEncoding];
     [fm saveFile:item.fullPath Content:content];
+
     needSave = NO;
 }
 
@@ -262,6 +265,7 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
+
 
 
 @end

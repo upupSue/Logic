@@ -200,6 +200,15 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1x-x6-DhG">
                                     <rect key="frame" x="0.0" y="64" width="250" height="124"/>
                                     <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FYN-sl-N0W">
+                                            <rect key="frame" x="15" y="8" width="220" height="108"/>
+                                            <color key="backgroundColor" red="0.1450980392" green="0.25490196079999999" blue="0.26274509800000001" alpha="1" colorSpace="deviceRGB"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                                    <real key="value" value="8"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Shape" translatesAutoresizingMaskIntoConstraints="NO" id="bt3-sg-y2w">
                                             <rect key="frame" x="115" y="30" width="20" height="20"/>
                                             <constraints>
@@ -225,10 +234,14 @@
                                         <constraint firstItem="PEB-5c-Ge9" firstAttribute="top" secondItem="bt3-sg-y2w" secondAttribute="bottom" constant="8" id="BF1-ax-BU4"/>
                                         <constraint firstItem="bt3-sg-y2w" firstAttribute="centerX" secondItem="G1x-x6-DhG" secondAttribute="centerX" id="NPf-Rm-GKy"/>
                                         <constraint firstItem="bt3-sg-y2w" firstAttribute="top" secondItem="G1x-x6-DhG" secondAttribute="top" constant="30" id="Npw-Rq-gPd"/>
+                                        <constraint firstItem="FYN-sl-N0W" firstAttribute="leading" secondItem="G1x-x6-DhG" secondAttribute="leading" constant="15" id="Ogy-Lk-9wr"/>
                                         <constraint firstItem="PEB-5c-Ge9" firstAttribute="centerX" secondItem="G1x-x6-DhG" secondAttribute="centerX" id="PX6-B1-nBN"/>
+                                        <constraint firstItem="FYN-sl-N0W" firstAttribute="top" secondItem="G1x-x6-DhG" secondAttribute="top" constant="8" id="TL5-7Z-NBI"/>
                                         <constraint firstAttribute="height" constant="124" id="XKO-Gm-Gdc"/>
                                         <constraint firstItem="Ah4-H3-ptS" firstAttribute="top" secondItem="PEB-5c-Ge9" secondAttribute="bottom" constant="4" id="Xtw-IW-0Eb"/>
                                         <constraint firstItem="Ah4-H3-ptS" firstAttribute="centerX" secondItem="G1x-x6-DhG" secondAttribute="centerX" id="bEI-nG-QR8"/>
+                                        <constraint firstAttribute="bottom" secondItem="FYN-sl-N0W" secondAttribute="bottom" constant="8" id="tPJ-M7-rVT"/>
+                                        <constraint firstAttribute="trailing" secondItem="FYN-sl-N0W" secondAttribute="trailing" constant="15" id="uzA-4s-GPO"/>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPT-XL-kUK">

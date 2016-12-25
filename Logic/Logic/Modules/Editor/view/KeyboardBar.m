@@ -9,7 +9,6 @@
 #import "KeyboardBar.h"
 #import "ZHRequest.h"
 #import "Configure.h"
-#import "AFNetworking.h"
 #import "ImageUploadingView.h"
 
 
@@ -176,6 +175,9 @@ static KeyboardBar *bar = nil;
                                          [_editView insertText:text];
                                          [self.inputDelegate didInputText];
                                          [_editView becomeFirstResponder];
+                                         
+                                         [self insertImageUrl:dic[@"t_url"] name:_item.name];
+                                         
                                      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                          NSLog(@"%@",error);
                                          [uploadView dismiss];
@@ -194,5 +196,22 @@ static KeyboardBar *bar = nil;
     
     [operation start];
 }
+
+
+-(void)insertImageUrl:(NSString *)imageUrl name:(NSString*)noteName{
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc]init];
+    [parameter setObject:imageUrl forKey:@"imageUrl"];
+    [parameter setObject:noteName forKey:@"noteName"];
+    
+    [HandlerBusiness ServiceWithApicode:ApiCodeInsertImage Parameters:parameter Success:^(id data , id msg){
+        
+    }Failed:^(NSInteger code ,id errorMsg){
+        
+    }Complete:^{
+        
+    }];
+}
+
+
 
 @end

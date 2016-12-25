@@ -19,8 +19,7 @@
 #import "FileManager.h"
 #import "PathUtils.h"
 #import "Configure.h"
-#import "AFNetworking.h"
-#import "HandlerBusiness.h"
+#import "UIImageView+WebCache.h"
 
 
 static NSString *cellIdentifier = @"homeTableViewCell";
@@ -30,6 +29,7 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
     NSMutableArray *noteArray;
     NSMutableArray *fileArray;
     NSMutableArray *colorArray;
+    NSMutableArray *imageList;
 
     BOOL needReload;
     NSString *searchWord;
@@ -45,6 +45,7 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
 @property (nonatomic,assign) FileManager *fm;
 @property (nonatomic,copy) Item *root;
 
+@property (weak, nonatomic) IBOutlet UIImageView *testImg;
 @end
 
 
@@ -90,8 +91,8 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
     [addgroupView addSubview:addgroupbtn];
     _groupTableView.tableFooterView=addgroupView;
     
-//    [self loadFile];
     [self loadfolderColor];
+    [self loadImage];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -178,7 +179,6 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
         });
     });
 }
-
 
 #pragma mark - 添加笔记
 
@@ -309,8 +309,7 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
         [_root addChild:i];
         [self insertfolderColor:newGroupView.grpColor name:newGroupView.grpName];
         [self loadFile];
-
-        [self.groupTableView reloadData];
+//        [self.groupTableView reloadData];
     }];
     [newGroupView showAtView:self.view];
 }
@@ -338,7 +337,18 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(tableView.tag==100){
-        return 190.f;
+        Item *item = noteArray[indexPath.section][@"items"][indexPath.row];
+        NSMutableArray *imgArr=[NSMutableArray array];
+        for(NSDictionary *dic in imageList){
+            NSString *noteName=dic[@"noteName"];
+            if([noteName isEqualToString:item.name]){
+                [imgArr addObject:dic];
+            }
+        }
+        if(imgArr.count==0){
+            return 95.f;
+        }
+        return 195.f;
     }
     else{
         return 90.f;
@@ -351,9 +361,33 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
         if (cell == nil) {
             cell = [[NSBundle mainBundle] loadNibNamed:@"HomeTableViewCell" owner:self options:nil][0];
         }
-        
         Item *item = noteArray[indexPath.section][@"items"][indexPath.row];
         cell.item = item;
+        NSMutableArray *imgArr=[NSMutableArray array];
+        for(NSDictionary *dic in imageList){
+            NSString *noteName=dic[@"noteName"];
+            if([noteName isEqualToString:item.name]){
+                [imgArr addObject:dic];
+            }
+        }
+        switch (imgArr.count) {
+            case 0:
+                break;
+            case 1:
+                [cell.img1 sd_setImageWithURL:[NSURL URLWithString:imgArr[0][@"imageUrl"]] placeholderImage:[UIImage imageNamed:@"setup"]];
+                break;
+            case 2:
+                [cell.img1 sd_setImageWithURL:[NSURL URLWithString:imgArr[0][@"imageUrl"]] placeholderImage:[UIImage imageNamed:@"setup"]];
+                [cell.img2 sd_setImageWithURL:[NSURL URLWithString:imgArr[1][@"imageUrl"]] placeholderImage:[UIImage imageNamed:@"setup"]];
+                break;
+            case 3:
+                [cell.img1 sd_setImageWithURL:[NSURL URLWithString:imgArr[0][@"imageUrl"]] placeholderImage:[UIImage imageNamed:@"setup"]];
+                [cell.img2 sd_setImageWithURL:[NSURL URLWithString:imgArr[1][@"imageUrl"]] placeholderImage:[UIImage imageNamed:@"setup"]];
+                [cell.img3 sd_setImageWithURL:[NSURL URLWithString:imgArr[2][@"imageUrl"]] placeholderImage:[UIImage imageNamed:@"setup"]];
+                break;
+            default:
+                break;
+        }
         return cell;
     }
     else{
@@ -449,7 +483,6 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
 
 -(void)loadfolderColor{
     colorArray = [[NSMutableArray alloc]init];
-    
     [HandlerBusiness ServiceWithApicode:ApiCodeGetFolderColor Parameters:nil Success:^(id data , id msg){
         colorArray = data;
         [_groupTableView reloadData];
@@ -457,6 +490,18 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
         NSLog(@"请求失败---%@", errorMsg);
     }Complete:^{
 
+    }];
+}
+
+-(void)loadImage{
+    imageList = [[NSMutableArray alloc]init];
+    [HandlerBusiness ServiceWithApicode:ApiCodeGetImage Parameters:nil Success:^(id data , id msg){
+        imageList = data;
+        [_tableView reloadData];
+    }Failed:^(NSInteger code ,id errorMsg){
+        NSLog(@"请求失败---%@", errorMsg);
+    }Complete:^{
+        
     }];
 }
 
@@ -468,7 +513,7 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
     [HandlerBusiness ServiceWithApicode:ApiCodeInsertFolderColor Parameters:parameter Success:^(id data , id msg){
         [_groupTableView reloadData];
     }Failed:^(NSInteger code ,id errorMsg){
-        NSLog(@"请求失败---%@", errorMsg);
+        [self loadfolderColor];
     }Complete:^{
         
     }];
