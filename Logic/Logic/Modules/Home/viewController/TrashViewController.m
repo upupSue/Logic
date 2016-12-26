@@ -119,6 +119,7 @@ static NSString *cellIdentifier = @"homeTableViewCell";
     Item *item = trashArray[indexPath.section][@"items"][indexPath.row];
     cell.isTrash=YES;
     cell.item = item;
+    cell.imgView.hidden=YES;
     return cell;
 
 }

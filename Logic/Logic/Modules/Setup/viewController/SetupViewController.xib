@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SetupViewController">
             <connections>
                 <outlet property="content" destination="c4b-h1-JLE" id="Udi-vh-pNg"/>
+                <outlet property="fontName" destination="dhA-2v-FUZ" id="OJR-kg-Et5"/>
                 <outlet property="fontSlider" destination="QRB-Cx-iwL" id="CJy-sn-1bo"/>
                 <outlet property="imgSlider" destination="fy2-to-0mM" id="g1f-WL-i1f"/>
                 <outlet property="switchbtn" destination="t4o-kc-WgZ" id="BJ4-Qy-1wr"/>

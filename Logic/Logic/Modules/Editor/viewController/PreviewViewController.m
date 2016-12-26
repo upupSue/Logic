@@ -95,11 +95,6 @@
                                     ];
     controller.excludedActivityTypes = excludedActivities;
     
-    if (kDevicePad) {
-        popVc = controller.popoverPresentationController;
-        popVc.barButtonItem = self.navigationItem.rightBarButtonItem;
-        popVc.permittedArrowDirections = UIPopoverArrowDirectionAny;
-    }
     
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         [self presentViewController:controller animated:YES completion:nil];
@@ -125,9 +120,6 @@
 
 - (void)dealloc
 {
-    if (kDevicePad) {
-        [fm removeObserver:self forKeyPath:@"currentItem" context:NULL];
-    }
     [Configure sharedConfigure].useTimes += 1;
     if (![ZHLS(@"About") isEqualToString:@"关于"]) {
         return;

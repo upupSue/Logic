@@ -16,6 +16,7 @@ NSString *const ApiCodeGetFolderColor = @"getFolderColor";
 NSString *const ApiCodeInsertFolderColor=@"insertFolderColor";
 NSString *const ApiCodeGetImage=@"getImage";
 NSString *const ApiCodeInsertImage=@"insertImage";
+NSString *const ApiCodeDeleteImage=@"deleteImage";
 
 @implementation HandlerBusiness
 

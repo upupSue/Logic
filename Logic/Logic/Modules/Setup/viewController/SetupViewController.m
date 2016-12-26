@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UISlider *imgSlider;
 @property (assign, nonatomic) float fontsize;
 @property (assign, nonatomic) float imgValue;
+@property (weak, nonatomic) IBOutlet UILabel *fontName;
 
 @end
 
@@ -39,6 +40,12 @@
     _imgValue = [Configure sharedConfigure].imageResolution;
     _fontSlider.value = _fontsize;
     _imgSlider.value = _imgValue;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    if([[Configure sharedConfigure].fontName isEqualToString: @"Hiragino Sans"])
+        _fontName.text=@"系统字体";
+    else _fontName.text=[Configure sharedConfigure].fontName;
 }
 
 - (void)didReceiveMemoryWarning {

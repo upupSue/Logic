@@ -790,10 +790,10 @@
 				C5F46EBA1E05337900840F6D /* FileManager.m */,
 				C5F46EBB1E05337900840F6D /* HighLightModel.h */,
 				C5F46EBC1E05337900840F6D /* HighLightModel.m */,
-				C5F46EBF1E05337900840F6D /* MarkdownSyntaxGenerator.h */,
-				C5F46EC01E05337900840F6D /* MarkdownSyntaxGenerator.m */,
 				C5F46EC11E05337900840F6D /* MarkdownSyntaxModel.h */,
 				C5F46EC21E05337900840F6D /* MarkdownSyntaxModel.m */,
+				C5F46EBF1E05337900840F6D /* MarkdownSyntaxGenerator.h */,
+				C5F46EC01E05337900840F6D /* MarkdownSyntaxGenerator.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";

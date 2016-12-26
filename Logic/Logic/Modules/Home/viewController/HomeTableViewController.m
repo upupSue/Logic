@@ -430,6 +430,7 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
                 [i removeFromParent];
                 [_fm moveFiletoTrash:i];
                 [noteArray[indexPath.section][@"items"] removeObjectAtIndex:indexPath.row];
+                [self deleteImg:i.name];
                 [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
             }]];
             [self presentViewController:alertVc animated:YES completion:nil];
@@ -516,6 +517,17 @@ static NSString *groupcellIdentifier = @"groupTableViewCell";
         [_groupTableView reloadData];
     }Failed:^(NSInteger code ,id errorMsg){
         [self loadfolderColor];
+    }Complete:^{
+        
+    }];
+}
+
+-(void)deleteImg:(NSString*)noteName{
+    NSMutableDictionary *parameter = [[NSMutableDictionary alloc]init];
+    [parameter setObject:noteName forKey:@"noteName"];
+    
+    [HandlerBusiness ServiceWithApicode:ApiCodeDeleteImage Parameters:parameter Success:^(id data , id msg){
+    }Failed:^(NSInteger code ,id errorMsg){
     }Complete:^{
         
     }];
